@@ -1,0 +1,27 @@
+{
+  "name": "datawarehouse",
+  "version": "1.0.0",
+  "description": "proyecto 4 acamica",
+  "main": "app.js",
+  "scripts": {
+    "test": "startApp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bnoya/proyecto-4.git"
+  },
+  "author": "benjamin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bnoya/proyecto-4/issues"
+  },
+  "homepage": "https://github.com/Bnoya/proyecto-4#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  }
+}
