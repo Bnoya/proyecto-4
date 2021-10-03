@@ -16,7 +16,7 @@ class User {
 //    }
 
     async loginUser(username, password) {
-        const user = await this.sequelize.query("SELECT id, username, user_role, password FROM Users where first_name = :first_name", { replacements: { username: username}, type: this.sequelize.QueryTypes.SELECT })
+        const user = await this.sequelize.query("SELECT id, username, user_role, password FROM Users where username = :username", { replacements: { username: username}, type: this.sequelize.QueryTypes.SELECT })
         if (user.length != 0) {
             
             const validPassword = await bcrypt.compare(password, user[0].password);
