@@ -5,15 +5,15 @@ class User {
         this.sequelize = sequelize;
     }
 
-    async querryAll() {
-        const users = await this.sequelize.query('SELECT id, first_name, last_name, user_role FROM Users', {type: this.sequelize.QueryTypes.SELECT});
-    return users;
-    }
+//    async querryAll() {
+//        const users = await this.sequelize.query('SELECT id, first_name, last_name, user_role FROM Users', {type: this.sequelize.QueryTypes.SELECT});
+//    return users;
+//    }
 
-    async querryById(id) {
-        const users = await this.sequelize.query('SELECT id, first_name, last_name, user_role FROM Users', {replacement: {id: id} ,type: this.sequelize.QueryTypes.SELECT});
-    return users;
-    }
+//    async querryById(id) {
+//        const users = await this.sequelize.query('SELECT id, first_name, last_name, user_role FROM Users', {replacement: {id: id} ,type: this.sequelize.QueryTypes.SELECT});
+//    return users;
+//    }
 
     async loginUser(first_name, password) {
         const user = await this.sequelize.query("SELECT id, first_name, last_name, password FROM Users where first_name = :first_name", { replacements: { first_name: first_name}, type: this.sequelize.QueryTypes.SELECT })
