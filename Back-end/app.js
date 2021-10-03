@@ -5,8 +5,6 @@ const { users } = require('./objects/index.js');
 
 const db = require('./objects/index.js');
 const app = express();
-const auth = require('./middlewares/autheticate');
-const { password } = require('./objects/conection.js');
 
 
 db.sequelize.sync();
