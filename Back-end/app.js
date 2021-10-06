@@ -40,14 +40,14 @@ app.use(authenticateUser);
 //Users Routes:
 app.post('./user/login', async (req, res) => {
     const username = req.body.username;
-    const passsword = req.body.password;
+    const pass = req.body.pass;
 
-    const user = await db.users.loginUser(username, password);
+    const user = await db.users.loginUser(username, pass);
     if(user.loginSuccess){
         const accessToken = jwt.sign({
             userId: user.id,
             user: user.username,
-            password: user.password,
+            password: user.pass,
             userRoleId: user.user_role_id
         }, SECRET_KEY);
         res.send({

@@ -32,8 +32,8 @@ class User {
         }
     };
 
-    async authenticateUser(username, password) {
-        const user = await this.sequelize.query('SELECT id, username, password FROM Users where username = :username', {replacements: {username: username}, type: this.sequelize.QueryTypes.SELECT});
+    async authenticateUser(username, pass) {
+        const user = await this.sequelize.query('SELECT id, username, pass FROM Users where username = :username', {replacements: {username: username, pass: pass}, type: this.sequelize.QueryTypes.SELECT});
 
         if (user.length != 0) {
             return user
