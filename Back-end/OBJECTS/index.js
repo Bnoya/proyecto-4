@@ -19,5 +19,9 @@ db.sequelize = sequelize;
 const User = require('./users.js');
 db.users = new User(sequelize);
 
+const Company = require('./company.js');
+db.company = new Company(sequelize);
+
+
 
 module.exports = db;
