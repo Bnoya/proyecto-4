@@ -15,11 +15,11 @@ class User {
 //    return users;
 //    }
 
-    async loginUser(username, password) {
-        const user = await this.sequelize.query("SELECT id, username, user_role, password FROM Users where username = :username", { replacements: { username: username}, type: this.sequelize.QueryTypes.SELECT })
+    async loginUser(username, pass) {
+        const user = await this.sequelize.query("SELECT id, user_role, pass, username FROM users where username = :username", { replacements: { username: username, pass: pass}, type: this.sequelize.QueryTypes.SELECT })
         if (user.length != 0) {
             
-            const validPassword = await bcrypt.compare(password, user[0].password);
+            const validPassword = await bcrypt.compare(pass, user[0].pass);
             if(validPassword){
                 let loggedUser = user[0]
                 loggedUser.loginSuccess = true
@@ -33,7 +33,7 @@ class User {
     };
 
     async authenticateUser(username, pass) {
-        const user = await this.sequelize.query('SELECT id, username, pass FROM Users where username = :username', {replacements: {username: username, pass: pass}, type: this.sequelize.QueryTypes.SELECT});
+        const user = await this.sequelize.query('SELECT id, username, pass FROM users WHERE username = :username', {replacements: {username: username, pass: pass}, type: this.sequelize.QueryTypes.SELECT});
 
         if (user.length != 0) {
             return user

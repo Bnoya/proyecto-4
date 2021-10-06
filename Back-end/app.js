@@ -47,7 +47,7 @@ app.post('./user/login', async (req, res) => {
         const accessToken = jwt.sign({
             userId: user.id,
             user: user.username,
-            password: user.pass,
+            pass: user.pass,
             userRoleId: user.user_role_id
         }, SECRET_KEY);
         res.send({
