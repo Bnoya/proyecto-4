@@ -46,17 +46,17 @@ class User {
         // generate salt to hash password
         const salt = await bcrypt.genSalt(10);
         // now we set user password to hashed password
-        console.log(userData.password)
+        console.log(userData.pass)
         
-        const hashedPassword = await bcrypt.hash(userData.password, salt);
+        const hashedPassword = await bcrypt.hash(userData.pass, salt);
         const query = `
-        INSERT INTO Users (first_name, last_name, user_role, pass, username)
+        INSERT INTO users (first_name, last_name, user_role, pass, username)
         VALUES (:first_name, :last_name, :user_role, :pass, :username);`
         try {            
             const queryed = await this.sequelize.query(
                 query,
                 {
-                    replacements: { first_name: userData.first_name, last_name: userData.last_name, user_role:  userData.user_role, password: hashedPassword, username: userData.username },
+                    replacements: { first_name: userData.first_name, last_name: userData.last_name, user_role:  userData.user_role, pass: hashedPassword, username: userData.username },
                     type: this.sequelize.QueryTypes.INSERT
                 })
             return queryed;

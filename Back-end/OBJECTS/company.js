@@ -13,7 +13,7 @@ class Company {
             return company;
     }
 
-    async insertCompany(company) {
+    async createCompany(company) {
         let query;
         try {
             query = await this.sequelize.query("INSERT INTO products (city_id, company_name, company_address, phone) VALUES (:city_id, :company_name, :company_address, :phone)", 
@@ -29,3 +29,4 @@ class Company {
 
     
 }
+module.exports = Company
