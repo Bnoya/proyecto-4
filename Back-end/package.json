@@ -4,7 +4,7 @@
   "description": "proyecto 4 acamica",
   "main": "app.js",
   "scripts": {
-    "test": "startApp"
+    "test": "lunch"
   },
   "repository": {
     "type": "git",
