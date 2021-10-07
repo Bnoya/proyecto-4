@@ -38,7 +38,7 @@ const authenticateUser = (req, res, next) => {
 app.use(authenticateUser);
 
 //Users Routes:
-app.post('./user/login', async (req, res) => {
+app.post('/user/login', async (req, res) => {
     const username = req.body.username;
     const pass = req.body.pass;
 
@@ -46,7 +46,7 @@ app.post('./user/login', async (req, res) => {
     if(user.loginSuccess){
         const accessToken = jwt.sign({
             userId: user.id,
-            user: user.username,
+            username: user.username,
             pass: user.pass,
             userRoleId: user.user_role_id
         }, SECRET_KEY);
