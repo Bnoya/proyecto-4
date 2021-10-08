@@ -117,7 +117,7 @@ app.post('/create-country', async (req, res) => {
         res.status(201).send({message: 'Country Created'})
     }
 })
-app.post('create-city', async (req, res) => {
+app.post('/create-city', async (req, res) => {
     const new_city = await db.location.createCity(req.body);
     if (new_city == false){
         res.status(500).send({message: 'couldnt create city'})
