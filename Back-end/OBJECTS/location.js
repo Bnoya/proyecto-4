@@ -13,7 +13,9 @@ class Location {
     }
 
     async querryCountryByRegion(id) {
-        const location = await this.sequelize.query('SELECT id, redion_id, country_name FROM country', {replacements: {redion_id: id}  ,type: this.sequelize.QueryTypes.SELECT});
+        const location = await this.sequelize.query('SELECT id, redion_id, country_name FROM country WHERE redion_id = :redion_id', {
+            replacements: {redion_id: id},
+            type: this.sequelize.QueryTypes.SELECT});
         return location;
     }
 
@@ -23,7 +25,7 @@ class Location {
     }
 
     async querryCitiesByCountry(id) {
-        const location = await this.sequelize.query('SELECT id, country_id, city_name FROM city', {replacements: {country_id: id}  ,type: this.sequelize.QueryTypes.SELECT});
+        const location = await this.sequelize.query('SELECT id, country_id, city_name FROM city WHERE country_id = :country_id', {replacements: {country_id: id}  ,type: this.sequelize.QueryTypes.SELECT});
         return location;
     }
 
@@ -68,5 +70,10 @@ class Location {
             return {message: err.errors[0].message}
         }
     }
+    async deleteCity() {
+        
+    }
 }
+
+
 module.exports = Location;
