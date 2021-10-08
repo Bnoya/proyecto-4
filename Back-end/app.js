@@ -128,6 +128,29 @@ app.post('/create-city', async (req, res) => {
 
 
 
+//company routs
+
+app.get('/company', async (req, res) => {
+    const company = await db.company.querryAll();
+        res.send(company);
+});
+
+app.get('/company/:Id', async (req, res) => {
+    const company = await db.company.querryById(req.params.Id);
+    res.send(company)
+});
+
+app.post('/create-company', async (req, res) => {
+    const new_company = await db.company.createCompany(req.body);
+    if (new_company == false){
+        res.status(500).send({message: 'couldnt create Company'})
+    } else {
+        res.status(201).send({message: 'Company Created'})
+    }
+})
+
+
+
 
 app.listen(3000, () => {
     console.log('Listening on port 3000');
