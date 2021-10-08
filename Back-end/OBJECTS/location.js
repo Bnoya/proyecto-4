@@ -13,7 +13,7 @@ class Location {
     }
 
     async querryCountryByRegion(country) {
-        const location = await this.sequelize.query('SELECT id, redion_id, country_name FROM city', {replacements: {redion_id: country.redion_id}  ,type: this.sequelize.QueryTypes.SELECT});
+        const location = await this.sequelize.query('SELECT id, redion_id, country_name FROM country', {replacements: {redion_id: country.redion_id}  ,type: this.sequelize.QueryTypes.SELECT});
         return location;
     }
 
