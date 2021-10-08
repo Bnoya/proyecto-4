@@ -150,6 +150,12 @@ app.post('/create-company', async (req, res) => {
 });
 
 
+// Contacts routs 
+
+app.get('/company', async (req, res) => {
+    const company = await db.company.querryAll();
+        res.send(company);
+});
 
 
 app.listen(3000, () => {
