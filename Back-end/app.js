@@ -79,24 +79,24 @@ app.post('/create-user', async (req, res) => {
 //Location Routs
 
 app.get('/regions', async (req, res) => {
-    const region = await db.location.queryAllRegions();
+    const region = await db.location.querryAllRegions();
         res.send(region);
 });
 app.get('/country', async (req, res) => {
-    const country = await db.location.queryAllCountry();
+    const country = await db.location.querryAllCountry();
         res.send(country);
 });
 app.get('/country/:region_id', async (req, res) => {
-    const country = await db.location.queryCountryByRegion(req.params.region_id);
+    const country = await db.location.querryCountryByRegion(req.params.region_id);
         res.send(country);
 });
 
 app.get('/city', async (req, res) => {
-    const city = await db.location.queryAllCities();
+    const city = await db.location.querryAllCities();
         res.send(city);
 });
 app.get('/city/:country_id', async (req, res) => {
-    const country = await db.location.queryCitiesByCountry(req.params.country_id);
+    const country = await db.location.querryCitiesByCountry(req.params.country_id);
         res.send(country);
 });
 
