@@ -86,8 +86,8 @@ app.get('/country', async (req, res) => {
     const country = await db.location.querryAllCountries();
         res.send(country);
 });
-app.get('/country/:region_id', async (req, res) => {
-    const country = await db.location.querryCountryByRegion(req.params.region_id);
+app.get('/country_region', async (req, res) => {
+    const country = await db.location.querryCountryByRegion(req.body);
         res.send(country);
 });
 
@@ -95,8 +95,8 @@ app.get('/city', async (req, res) => {
     const city = await db.location.querryAllCities();
         res.send(city);
 });
-app.get('/city/:country_id', async (req, res) => {
-    const country = await db.location.querryCitiesByCountry(req.params.country_id);
+app.get('/city_country', async (req, res) => {
+    const country = await db.location.querryCitiesByCountry(req.body);
         res.send(country);
 });
 
