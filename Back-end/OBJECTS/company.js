@@ -9,7 +9,7 @@ class Company {
     }
     
     async querryById(compid) {
-            const company = await this.sequelize.query('SELECT id, city_id, company_name, company_address, phone FROM company WHERE id= :id', {replacement: {id: compid} ,type: this.sequelize.QueryTypes.SELECT});
+            const company = await this.sequelize.query('SELECT * FROM company WHERE id= :id', {replacement: {id: compid} ,type: this.sequelize.QueryTypes.SELECT});
             return company;
     }
 
