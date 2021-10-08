@@ -16,6 +16,9 @@ const db = [];
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+const Contact = require('./contacts.js');
+db.contact = new Contact(sequelize);
+
 const User = require('./users.js');
 db.users = new User(sequelize);
 
@@ -25,8 +28,6 @@ db.company = new Company(sequelize);
 const Location = require('./location.js');
 db.location = new Location(sequelize);
 
-const Contacts = require('./company.js');
-db.contacts = new Contacts(sequelize);
 
 
 

@@ -194,8 +194,8 @@ app.get('/contact/:intrest', async (req, res) => {
 });
 
 app.post('/create-contact', async (req, res) => {
-    const new_company = await db.company.createContact(req.body);
-    if (new_company == false){
+    const new_contacts = await db.contact.createContact(req.body);
+    if (new_contacts == false){
         res.status(500).send({message: 'couldnt create Contact'})
     } else {
         res.status(201).send({message: 'Contact Created'})
