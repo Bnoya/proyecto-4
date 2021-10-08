@@ -87,7 +87,7 @@ app.get('/country', async (req, res) => {
         res.send(country);
 });
 app.get('/country/:region', async (req, res) => {
-    const countryRedion = await db.location.querryCountryByRegion(req.params.redion_name);
+    const countryRedion = await db.location.querryCountryByRegion(req.params.region);
         res.send(countryRedion);
 });
 
