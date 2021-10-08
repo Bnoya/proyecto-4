@@ -16,7 +16,7 @@ class Company {
     async createCompany(company) {
         let query;
         try {
-            query = await this.sequelize.query("INSERT INTO products (city_id, company_name, company_address, phone) VALUES (:city_id, :company_name, :company_address, :phone)", 
+            query = await this.sequelize.query("INSERT INTO company (city_id, company_name, company_address, phone) VALUES (:city_id, :company_name, :company_address, :phone)", 
             {
                 replacements: { city_id: company.city_id, company_name: company.company_name, company_address: company.company_address, phone: company.phone},
                 type: this.sequelize.QueryTypes.INSERT

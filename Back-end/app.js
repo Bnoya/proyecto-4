@@ -147,7 +147,7 @@ app.post('/create-company', async (req, res) => {
     } else {
         res.status(201).send({message: 'Company Created'})
     }
-})
+});
 
 
 
