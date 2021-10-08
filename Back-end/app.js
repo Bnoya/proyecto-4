@@ -76,9 +76,61 @@ app.post('/create-user', async (req, res) => {
 
 
 
+//Location Routs
+
+app.get('/regions', async (req, res) => {
+    const region = await db.location.queryAllRegions();
+        res.send(region);
+});
+app.get('/country', async (req, res) => {
+    const country = await db.location.queryAllCountry();
+        res.send(country);
+});
+app.get('/country/:region_id', async (req, res) => {
+    const country = await db.location.queryCountryByRegion(req.params.region_id);
+        res.send(country);
+});
+
+app.get('/city', async (req, res) => {
+    const city = await db.location.queryAllCities();
+        res.send(city);
+});
+app.get('/city/:country_id', async (req, res) => {
+    const country = await db.location.queryCitiesByCountry(req.params.country_id);
+        res.send(country);
+});
+
+app.post('create-region', async (req, res) => {
+    const new_region = await db.location.createRegion(req.body);
+    if (new_region == false){
+        res.status(500).send({message: 'couldnt create region'})
+    } else {
+        res.status(201).send({message: 'Region Created'})
+    }
+})
+
+app.post('create-country', async (req, res) => {
+    const new_country = await db.location.createCountry(req.body);
+    if (new_country == false){
+        res.status(500).send({message: 'couldnt create country'})
+    } else {
+        res.status(201).send({message: 'Country Created'})
+    }
+})
+app.post('create-city', async (req, res) => {
+    const new_city = await db.location.createCity(req.body);
+    if (new_city == false){
+        res.status(500).send({message: 'couldnt create city'})
+    } else {
+        res.status(201).send({message: 'City Created'})
+    }
+})
+
 
 
 
 app.listen(3000, () => {
     console.log('Listening on port 3000');
 });
+
+

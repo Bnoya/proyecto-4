@@ -22,6 +22,12 @@ db.users = new User(sequelize);
 const Company = require('./company.js');
 db.company = new Company(sequelize);
 
+const Location = require('./location.js');
+db.location = new Location(sequelize);
+
+const Contacts = require('./company.js');
+db.contacts = new Contacts(sequelize);
+
 
 
 module.exports = db;
