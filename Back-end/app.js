@@ -100,7 +100,7 @@ app.get('/city/:country_id', async (req, res) => {
         res.send(country);
 });
 
-app.post('create-region', async (req, res) => {
+app.post('/create-region', async (req, res) => {
     const new_region = await db.location.createRegion(req.body);
     if (new_region == false){
         res.status(500).send({message: 'couldnt create region'})
@@ -109,7 +109,7 @@ app.post('create-region', async (req, res) => {
     }
 })
 
-app.post('create-country', async (req, res) => {
+app.post('/create-country', async (req, res) => {
     const new_country = await db.location.createCountry(req.body);
     if (new_country == false){
         res.status(500).send({message: 'couldnt create country'})
