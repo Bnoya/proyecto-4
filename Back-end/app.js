@@ -95,9 +95,9 @@ app.get('/city', async (req, res) => {
     const city = await db.location.querryAllCities();
         res.send(city);
 });
-app.get('/city_country', async (req, res) => {
-    const country = await db.location.querryCitiesByCountry(req.body);
-        res.send(country);
+app.get('/city/country', async (req, res) => {
+    const city_country = await db.location.querryCitiesByCountry(req.body);
+        res.send(city_country);
 });
 
 app.post('/create-region', async (req, res) => {
