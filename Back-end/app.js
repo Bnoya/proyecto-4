@@ -95,8 +95,8 @@ app.get('/city', async (req, res) => {
     const city = await db.location.querryAllCities();
         res.send(city);
 });
-app.get('/city/country', async (req, res) => {
-    const city_country = await db.location.querryCitiesByCountry(req.body);
+app.get('/city/:country', async (req, res) => {
+    const city_country = await db.location.querryCitiesByCountry(req.params.country_id);
         res.send(city_country);
 });
 

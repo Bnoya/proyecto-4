@@ -22,8 +22,8 @@ class Location {
         return location;
     }
 
-    async querryCitiesByCountry(city) {
-        const location = await this.sequelize.query('SELECT id, country_id, city_name FROM city', {replacements: {country_id: city.country_id}  ,type: this.sequelize.QueryTypes.SELECT});
+    async querryCitiesByCountry(id) {
+        const location = await this.sequelize.query('SELECT id, country_id, city_name FROM city', {replacements: {country_id: id}  ,type: this.sequelize.QueryTypes.SELECT});
         return location;
     }
 
