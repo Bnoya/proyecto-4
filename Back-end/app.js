@@ -72,7 +72,7 @@ app.post('/create-user', async (req, res) => {
     } else {
         res.status(201).send({message: 'User Created'})
     }
-})
+});
 
 
 
@@ -107,7 +107,7 @@ app.post('/create-region', async (req, res) => {
     } else {
         res.status(201).send({message: 'Region Created'})
     }
-})
+});
 
 app.post('/create-country', async (req, res) => {
     const new_country = await db.location.createCountry(req.body);
@@ -116,7 +116,7 @@ app.post('/create-country', async (req, res) => {
     } else {
         res.status(201).send({message: 'Country Created'})
     }
-})
+});
 app.post('/create-city', async (req, res) => {
     const new_city = await db.location.createCity(req.body);
     if (new_city == false){
@@ -124,7 +124,7 @@ app.post('/create-city', async (req, res) => {
     } else {
         res.status(201).send({message: 'City Created'})
     }
-})
+});
 
 
 
@@ -162,46 +162,45 @@ app.get('/contact/:first_name', async (req, res) => {
         res.send(contact);
 });
 
-app.get('/contact/:last_name', async (req, res) => {
-    const contact = await db.contact.querryByLastName(req.params.last_name);
+app.get('/contact/lastname/:last_name', async (req, res) => {
+    const contact = await db.contact.querryByLast(req.params.last_name);
         res.send(contact);
 });
 
-app.get('/contact/:company_id', async (req, res) => {
-    const contact = await db.contact.querryByCompany(req.params.first_name);
+app.get('/contact/company/:company_id', async (req, res) => {
+    const contact = await db.contact.querryByCompany(req.params.company_id);
         res.send(contact);
 });
 
-app.get('/contact/:region_id', async (req, res) => {
-    const contact = await db.contact.querryByRegion(req.params.first_name);
+app.get('/contact/region/:region_id', async (req, res) => {
+    const contact = await db.contact.querryByRegion(req.params.region_id);
         res.send(contact);
 });
 
 
-app.get('/contact/:country_id', async (req, res) => {
-    const contact = await db.contact.querryByCountry(req.params.first_name);
+app.get('/contact/country/:country_id', async (req, res) => {
+    const contact = await db.contact.querryByCountry(req.params.country_id);
     res.send(contact);
 });
 
-app.get('/contact/:city_id', async (req, res) => {
+app.get('/contact/city/:city_id', async (req, res) => {
     const contact = await db.contact.querryByCity(req.params.city_id);
         res.send(contact);
 });
 
-app.get('/contact/:intrest', async (req, res) => {
-    const contact = await db.contact.querryByIntrest(req.params.intrest);
+app.get('/contact/intrest/:intrest', async (req, res) => {
+    const contact = await db.contact.querryByInterest(req.params.intrest);
         res.send(contact);
 });
 
 app.post('/create-contact', async (req, res) => {
-    const new_contacts = await db.contact.createContact(req.body);
-    if (new_contacts == false){
+    const new_contact = await db.contact.createContact(req.body);
+    if (new_contact == false){
         res.status(500).send({message: 'couldnt create Contact'})
     } else {
         res.status(201).send({message: 'Contact Created'})
     }
 });
-
 
 
 app.listen(3000, () => {
