@@ -49,19 +49,89 @@ class User {
         console.log(userData.pass)
         
         const hashedPassword = await bcrypt.hash(userData.pass, salt);
-        const query = `
-        INSERT INTO users (first_name, last_name, user_role, pass, username)
-        VALUES (:first_name, :last_name, :user_role, :pass, :username);`
+        const query = ` INSERT INTO users (first_name, last_name, user_role, pass, username) VALUES (:first_name, :last_name, :user_role, :pass, :username);`
         try {            
             const queryed = await this.sequelize.query(
                 query,
                 {
-                    replacements: { first_name: userData.first_name, last_name: userData.last_name, user_role:  userData.user_role, pass: hashedPassword, username: userData.username },
+                    replacements: { 
+                        first_name: userData.first_name, 
+                        last_name: userData.last_name, 
+                        user_role:  0, 
+                        pass: hashedPassword, 
+                        username: userData.username },
                     type: this.sequelize.QueryTypes.INSERT
                 })
             return queryed;
         } catch (error) {
             return false
+        }
+    }
+
+    async updateUserName(userdata){
+        try{
+            const query = await this.sequelize.query('UPDATE users SET first_name = :first_name WHERE id = :id', {
+                replacements: {id: userdata.id, first_name: userdata.first_name },
+                type: this.sequelize.QueryTypes.UPDATE
+            })
+            return {error: false, message: 'User First Name updated correctly'}
+
+        } catch (err) {
+            return {error: true, message: "Couldn't update User first name"}
+        }
+    };
+
+    async updateLastName(userdata){
+        try{
+            const query = await this.sequelize.query('UPDATE users SET last_name = :last_name WHERE id = :id', {
+                replacements: {id: userdata.id, last_name: userdata.last_name },
+                type: this.sequelize.QueryTypes.UPDATE
+            })
+            return {error: false, message: 'User Last Name updated correctly'}
+
+        } catch (err) {
+            return {error: true, message: "Couldn't update User Last name"}
+        }
+    };
+
+    async updateLastName(userdata){
+        try{
+            const query = await this.sequelize.query('UPDATE users SET last_name = :last_name WHERE id = :id', {
+                replacements: {id: userdata.id, last_name: userdata.last_name },
+                type: this.sequelize.QueryTypes.UPDATE
+            })
+            return {error: false, message: 'User Last Name updated correctly'}
+
+        } catch (err) {
+            return {error: true, message: "Couldn't update User Last name"}
+        }
+    };
+    async updateUsername(userdata){
+        try{
+            const query = await this.sequelize.query('UPDATE users SET username = :username WHERE id = :id', {
+                replacements: {id: userdata.id, username: userdata.username },
+                type: this.sequelize.QueryTypes.UPDATE
+            })
+            return {error: false, message: 'Username updated correctly'}
+
+        } catch (err) {
+            return {error: true, message: "Couldn't update Username"}
+        }
+    };
+
+    async deleteUser(userData){
+        const query = `DELETE FROM users WHERE id = :id;`
+        try{
+            const queryed = await this.sequelize.query(query, {replacements: {id: userData.id}});
+            if (queryed[0].affectedRows > 0) {
+                return {status: 200, message: "User Deleted", data:{
+                    user_id: userData.id
+                }}
+            } else {
+                return ('')
+            }
+        } catch (err) {
+            return ('')
         }
     }
 };

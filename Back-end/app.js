@@ -65,7 +65,7 @@ app.post('/create-user', async (req, res) => {
         return res.status(400).send({ error: "Data not formatted properly" });
     }
     req.body.user_role_id = 2;
-
+    
     const new_user = await db.users.newUser(req.body);
     if (new_user == false){
         res.status(500).send({message: 'couldnt create user'})
