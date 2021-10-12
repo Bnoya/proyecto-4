@@ -44,9 +44,9 @@ class User {
 
     async newUser(userData) {
         // generate salt to hash password
+        console.log('entre a newUser');
         const salt = await bcrypt.genSalt(10);
         // now we set user password to hashed password
-        console.log(userData.pass)
         
         const hashedPassword = await bcrypt.hash(userData.pass, salt);
         const query = ` INSERT INTO users (first_name, last_name, user_role, pass, username) VALUES (:first_name, :last_name, :user_role, :pass, :username);`

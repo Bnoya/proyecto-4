@@ -76,13 +76,27 @@ class Contact {
     }
 
     async createContact(contact) {
-        let query;
+        console.log('entre a la create Contact');
+        let query = `INSERT INTO contact (first_name, last_name, job_position, email, company_id, region_id, country_id, city_id, contact_address, interest) VALUES (:first_name, :last_name, :job_position, :email, :company_id, :region_id, :country_id, :city_id, :contact_address, :interest)`
         try {
-            query = await this.sequelize.query("INSERT INTO contact (first_name, last_name, job_position, email, company_id, region_id, country_id, city_id, contact_address, interest) VALUES (:first_name, :last_name, :job_position, :email, :company_id, :region_id, :country_id, :city_id, :contact_address, :interest)", {
-                replacements: { first_name: contact.first_name, last_name: contact.last_name, job_position: contact.job_position, email: contact.email, company_id: contact.company_id, region_id: contact.region_id, country_id: contact.country_id, city_id: contact.city_id, contact_address: contact.contact_address, interest: contact.interest},
+            console.log('entre al try');
+            console.log(contact);
+            const insert  = await this.sequelize.query( query , {
+                replacements: { 
+                    first_name: contact.first_name, 
+                    last_name: contact.last_name, 
+                    job_position: contact.job_position,
+                    email: contact.email, 
+                    company_id: contact.company_id, 
+                    region_id: contact.region_id, 
+                    country_id: contact.country_id, 
+                    city_id: contact.city_id, 
+                    contact_address: contact.contact_address, 
+                    interest: contact.interest},
                 type: this.sequelize.QueryTypes.INSERT});
+                console.log('aca veremos');
             return {message: 'Contact Uploaded'}
-        } catch(err) {
+        } catch (err) {
             return {message: err.errors[0].message}
         }
     }

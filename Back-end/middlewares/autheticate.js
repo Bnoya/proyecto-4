@@ -1,5 +1,5 @@
 const authenticateUser = (req, res, next) => {
-    const nonSecurePaths = ['/user/login', '/create-user'];
+    const nonSecurePaths = ['/user/login'];
     if (nonSecurePaths.includes(req.path)) return next();
     
     const authHead = req.headers['authorization'];

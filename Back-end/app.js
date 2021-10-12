@@ -62,10 +62,11 @@ app.post('/user/login', async (req, res) => {
 
 app.post('/create-user', async (req, res) => {
     if (!(req.body.first_name && req.body.last_name && req.body.user_role && req.body.pass && req.body.username)) {
+        console.log('data format if');
         return res.status(400).send({ error: "Data not formatted properly" });
     }
     req.body.user_role_id = 2;
-    
+    console.log('previo a funcion')
     const new_user = await db.users.newUser(req.body);
     if (new_user == false){
         res.status(500).send({message: 'couldnt create user'})
@@ -194,8 +195,13 @@ app.get('/contact/intrest/:intrest', async (req, res) => {
 });
 
 app.post('/create-contact', async (req, res) => {
-    const new_contact = await db.contact.createContact(req.body);
-    if (new_contact == false){
+    if (!(req.body.first_name && req.body.last_name && req.body.job_position && req.body.email && req.body.company_id && req.body.region_id && req.body.country_id && req.body.city_id && req.body.contact_address && req.body.intrest)){
+        console.log('data format if');
+        return res.status(400).send({ error: "Data not formatted properly" });
+    }
+    console.log('previo a new contact');
+    const newContact = await db.contact.createContact(req.body);
+    if (newContact == false){
         res.status(500).send({message: 'couldnt create Contact'})
     } else {
         res.status(201).send({message: 'Contact Created'})
