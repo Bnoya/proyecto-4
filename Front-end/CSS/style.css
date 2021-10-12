@@ -89,6 +89,7 @@
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   margin-top: 40px;
+  margin-right: 2%;
 }
 
 .first-area .search-bar {
@@ -103,6 +104,8 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-right: 2%;
+  margin-left: 2%;
 }
 
 .first-area .search-bar .left {
@@ -248,6 +251,179 @@
   font-weight: normal;
   font-size: 14px;
   color: #e8e8e8;
+}
+
+.list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.list .table-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-right: 0,6%;
+  height: 12.8px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-top: 6px;
+}
+
+.list .contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 18.3%;
+}
+
+.list .contact h4 {
+  margin-right: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.list .Region {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 13.6%;
+}
+
+.list .Region h4 {
+  margin-right: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.list .Compania {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 13.6%;
+}
+
+.list .Compania h4 {
+  margin-right: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.list .job {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 13.6%;
+}
+
+.list .job h4 {
+  margin-right: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.list .prefCanal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 13.6%;
+}
+
+.list .prefCanal h4 {
+  margin-right: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.list .interest {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 13.6%;
+}
+
+.list .interest h4 {
+  margin-right: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.list .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 6%;
+}
+
+.list .actions h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  font-weight: lighter;
 }
 
 * {

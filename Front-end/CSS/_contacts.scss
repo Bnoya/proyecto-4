@@ -5,12 +5,15 @@
         font-family: 'Open Sans', sans-serif;
         font-size: 16px;
         margin-top: 40px;
+        margin-right: 2%;
     }
     .search-bar{
         display: flex;
         flex-direction: row;
         margin-top: 21px;
         justify-content: space-between;
+        margin-right: 2%;
+        margin-left: 2%;
         .left{
             width: 600px;
             display: flex;
@@ -109,4 +112,103 @@
             }
         }
     }
+}
+
+.list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 2%;
+    margin-right: 2%;
+    .table-head{
+        display: flex;
+        flex-direction: row;
+        margin-right: 0,6%;
+        height: 12.8px;
+        align-items: flex-end;
+        margin-top: 6px;
+    }
+    .contact{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 18.3%;
+        h4{
+            margin-right: 15px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            font-weight: lighter;
+        }
+    }
+    .Region{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 13.6%;
+        h4{
+            margin-right: 15px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            font-weight: lighter;
+        }
+    }
+    .Compania{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 13.6%;
+        h4{
+            margin-right: 15px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            font-weight: lighter;
+        }
+    }
+    .job{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 13.6%;
+        h4{
+            margin-right: 15px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            font-weight: lighter;
+        }
+    }
+    .prefCanal{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 13.6%;
+        h4{
+            margin-right: 15px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            font-weight: lighter;
+        }
+    }
+    .interest{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 13.6%;
+        h4{
+            margin-right: 15px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            font-weight: lighter;
+        }
+    }
+    .actions{
+        display: flex;
+        flex-direction: row;
+        width: 6%;
+        h4{
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            font-weight: lighter;
+        }
+    }
+
 }

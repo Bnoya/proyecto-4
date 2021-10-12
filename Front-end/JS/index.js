@@ -1,3 +1,8 @@
+import{loadContact} from './processData.js';
+loadContact();
+
+
+
 async function getContacts(){
     let list = [];
     let url=`http://localhost:3000/contact`;
