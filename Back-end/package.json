@@ -4,7 +4,7 @@
   "description": "proyecto 4 acamica",
   "main": "app.js",
   "scripts": {
-    "test": "lunch"
+    "devStart": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +18,12 @@
   "homepage": "https://github.com/Bnoya/proyecto-4#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.0",
+    "nodemon": "^2.0.13",
     "sequelize": "^6.6.5"
   }
 }

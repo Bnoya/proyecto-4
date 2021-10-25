@@ -2,16 +2,16 @@ const express = require('express');
 const morgan = require('morgan');
 const jwt = require('jsonwebtoken');
 const { users } = require('./objects/index.js');
-
+const cors = require('cors');
 const db = require('./objects/index.js');
 const app = express();
 
 
 db.sequelize.sync();
 
+app.use(cors());
 app.use(express.json());
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
-
 const SECRET_KEY = 'lifeisgood';
 
 //middelWare:
@@ -199,8 +199,24 @@ app.post('/create-contact', async (req, res) => {
         console.log('data format if');
         return res.status(400).send({ error: "Data not formatted properly" });
     }
+    console.log(req.body);
     console.log('previo a new contact');
     const newContact = await db.contact.createContact(req.body);
+    if (newContact == false){
+        res.status(500).send({message: 'couldnt create Contact'})
+    } else {
+        res.status(201).send({message: 'Contact Created'})
+    }
+});
+
+app.post('/create-contact2', async (req, res) => {
+    if (!(req.body.first_name && req.body.last_name && req.body.job_position && req.body.email && req.body.company_id && req.body.region_id && req.body.country_id && req.body.city_id && req.body.contact_address && req.body.intrest)){
+        console.log('data format if');
+        return res.status(400).send({ error: "Data not formatted properly" });
+    }
+    console.log(req.body);
+    console.log('previo a new contact');
+    const newContact = await db.contact.createContact2(req.body);
     if (newContact == false){
         res.status(500).send({message: 'couldnt create Contact'})
     } else {
