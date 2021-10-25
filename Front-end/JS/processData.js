@@ -1,10 +1,4 @@
-// fake array 
 
-
-
-
-
-//Add data to table
 
 
 function loadContact() {
@@ -25,17 +19,11 @@ function loadContact() {
         interest : '75'
     };
 
-    console.log(contact);
-    console.log(contact.email);
 
     let divCont = document.createElement('div').setAttribute('class', 'container');
-
     let name = document.createElement('div').setAttribute('class', 'items');
-
     let last = document.createElement('div').setAttribute('class', 'items');
-
     let job = document.createElement('div').setAttribute('class', 'items');
-
     let email = document.createElement('div').setAttribute('class', 'items');
     let company = document.createElement('div').setAttribute('class', 'items');
     let region = document.createElement('div').setAttribute('class', 'items');
@@ -44,7 +32,7 @@ function loadContact() {
     let address = document.createElement('div').setAttribute('class', 'items');
     let interest = document.createElement('div').setAttribute('class', 'items');
 
-    console.log(city)
+
     // texts
 
     let hname = document.createElement('h6');
@@ -74,19 +62,9 @@ function loadContact() {
 
 
 //append divs
-    name.appendChild(hname);
-    last.append(hlast);
-    job.append(hjob);
-    email.appendChild(hemail);
-    company.appendChild(hcompany);
-    region.appendChild(hregion);
-    country.appendChild(hcountry);
-    city.appendChild(hcity);
-    address.appendChild(haddress);
-    interest.appendChild(hinterest);
-    divCont.append(name, last, job, email, company, region, country, city, address, interest);
     
     data.append(divCont);
+    
 
 }
 
