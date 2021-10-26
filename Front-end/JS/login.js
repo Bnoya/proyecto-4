@@ -9,21 +9,26 @@ submit.addEventListener('click', async (e) => {
     console.log(user.value);
     console.log(password.value);
 
-
-
     let url = 'http://localhost:3000/user/login';
+    const data = {
+        'username': user.value,
+        'pass': password.value
+    }
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
+    try {
+        const response = await fetch(url, options);
+        let datas = await response.json();
+        console.log(datas);
+        
+    } catch (error) {
+        console.log(error);
+    }
 
-    const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-    username : user,
-    pass : password,
-    })
-    
-});
-let data = response.json();
-console.log(data)
+    sessionStorage.setItem('token', JSON.stringify(datas.token));
 });
