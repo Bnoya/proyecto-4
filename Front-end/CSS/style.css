@@ -426,6 +426,59 @@
   font-weight: lighter;
 }
 
+.contacts .newCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #b5dae7;
+}
+
+.contacts .newCard .addContact {
+  width: 100%;
+}
+
+.contacts .newCard .addContact .importanteData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.contacts .newCard .addContact .secondaryData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.contacts .newCard .button {
+  width: 5%;
+  height: 5%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.contacts .newCard .button .save {
+  color: blue;
+}
+
 * {
   margin: 0;
   padding: 0;

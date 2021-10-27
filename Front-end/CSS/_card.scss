@@ -1,0 +1,34 @@
+.contacts{
+    .newCard{
+        display: flex;
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #b5dae7;
+        .addContact{
+            width: 100%;
+            .importanteData{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-evenly;
+            }
+            .secondaryData{
+                display: flex;
+                flex-direction: row;
+            }
+
+        }
+        .button{
+            width: 5%;
+            height: 5%;
+            align-items: flex-end;
+            justify-content: flex-end;
+            .save{
+                color: blue;
+            }            
+            
+        }
+    }
+}

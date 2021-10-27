@@ -1,5 +1,6 @@
 import{loadContact} from './processData.js';
 import {getToken} from './getdata.js';
+import {addContact} from './Cards.js';
 
 let token = getToken();
 if (token == null) {
@@ -29,6 +30,11 @@ async function getContacts(){
         console.log(error);
     }
 }
+
+let contact = document.getElementById('contactsBt');
+contact.addEventListener('click', () => {
+    addContact();
+});
 
 getContacts();
 

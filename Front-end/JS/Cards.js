@@ -1,6 +1,6 @@
 // card contacts 
 
-function addContact(params) {
+function addContact() {
 
     //Elements
     let home = document.getElementById('contacts');
@@ -8,23 +8,27 @@ function addContact(params) {
     let form = document.createElement('form');
     let data1 = document.createElement('div');
     let data2 = document.createElement('div');
+    let closes = document.createElement('div');
+
 
     let img = document.createElement('img');
     let dname = document.createElement('div');
     let lName = document.createElement('label');
     let iName = document.createElement('input');
-    let dLastname = document.createElement('div');
+    let dLastname = document.createElement('div')
     let lLastname = document.createElement('label');
     let iLastname = document.createElement('input');
-    let djob = document.createElement('div');
+    let djob = document.createElement('div')
     let ljob = document.createElement('label');
     let ijob = document.createElement('input');
-    let dEmail = document.createElement('div');
+    let dEmail = document.createElement('div')
     let lEmail = document.createElement('label');
     let iEmail = document.createElement('input');
     let dcompany = document.createElement('div');
     let lcompany = document.createElement('label');
     let iCompany = document.createElement('input');
+
+
     let dRegion = document.createElement('div');
     let lRegion = document.createElement('label');
     let sRegion = document.createElement('select');
@@ -41,6 +45,8 @@ function addContact(params) {
     let lIntrest = document.createElement('label');
     let barDiv = document.createElement('div');
     let sIntrest = document.createElement('select');
+
+
     let dchannel = document.createElement('div');
     let lChannel = document.createElement('label');
     let schannel = document.createElement('select');
@@ -53,39 +59,47 @@ function addContact(params) {
     let dplus = document.createElement('div');
     let plusbutton = document.createElement('button');
 
-
+    let buttonC = document.createElement('div')
     let cancel = document.createElement('button');
     let save = document.createElement('button');
+    
+    
+    //SetAttibutes
+    container.setAttribute('class', 'newCard');
+    form.setAttribute('class', 'addContact');
+    data1.setAttribute('class', 'importanteData');
+    data2.setAttribute('class', 'secondaryData');
+    closes.setAttribute('class', 'cross');
+    
+    img.setAttribute('class', 'imgCont');
+    dname.setAttribute('class', 'nameCont');
+    dLastname.setAttribute('class', 'lastCont'),
+    djob.setAttribute('class', 'jobCont');
+    dEmail.setAttribute('class', 'emailCont'),
+    dcompany.setAttribute('class', 'companyCont'),
+
+    dRegion.setAttribute('class', 'regionCont');
+    dcountry.setAttribute('class', 'countryCont');
+    dcity.setAttribute('class', 'cityCont');
+    dAddress.setAttribute('class', 'addressCont');
+    dIntrest.setAttribute('class', 'intrestCont');
+    dchannel.setAttribute('class', 'channelCont');
+    daccount.setAttribute('class', 'accountCont');
+    dPreff.setAttribute('class', 'preffCont');
+    dplus.setAttribute('class', 'plusCont');
+
+    buttonC.setAttribute('class', 'button');
+    cancel.setAttribute('class', 'cancel');
+    save.setAttribute('class', 'save');
+
+    //complements
+    lName.innerText = 'Name: ';
+    lName.for = 'fName';
+    
 
 
     //appends
-    home.append(container);
-    container.append(form);
-    form.append(data1);
-    form.append(data2);
-    container.append(cancel);
-    container.append(save);
-
-
-    data1.append(img);
-    data1.append(dname);
-    data1.append(dLastname);
-    data1.append(djob);
-    data1.append(dEmail);
-    data1.append(dcompany);
-    
-    data2.append(dRegion);
-    data2.append(dcountry);
-    data2.append(dcity);
-    data2.append(dAddress);
-    data2.append(dIntrest);
-    data2.append(dchannel);
-    data2.append(daccount);
-    data2.append(dPreff);
-    data2.append(dplus);
-    
-    
-    
+    console.log(dname);
     dname.append(lName);
     dname.append(iName);
     dLastname.append(lLastname);
@@ -115,8 +129,35 @@ function addContact(params) {
     dPreff.append(sPreff);
     dplus.append(plusbutton);
     
+    data1.append(img);
+    data1.append(dname);
+    data1.append(dLastname);
+    data1.append(djob);
+    data1.append(dEmail);
+    data1.append(dcompany);
+    
+    data2.append(dRegion);
+    data2.append(dcountry);
+    data2.append(dcity);
+    data2.append(dAddress);
+    data2.append(dIntrest);
+    data2.append(dchannel);
+    data2.append(daccount);
+    data2.append(dPreff);
+    data2.append(dplus);
+    
+    container.append(closes);
+    container.append(form);
+    form.append(data1);
+    form.append(data2);
+    
+    buttonC.append(cancel);
+    buttonC.append(save);
+    container.append(buttonC);
 
-
+    
+    home.append(container);
+    
 }
 
 
@@ -132,3 +173,5 @@ function addContact(params) {
 
 
 // 
+
+export{addContact};
