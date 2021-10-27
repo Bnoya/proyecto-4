@@ -56,15 +56,23 @@ function loadContact() {
     hcity = contact.city_id;
     haddress = contact.contact_address;
     hinterest = contact.interest;
-    console.log(hname);
 
 
 
 
 //append divs
-    
+
     data.append(divCont);
-    
+    data.append(name)
+    data.append(last);
+    data.append(job);
+    data.append(email);
+    data.append(company);
+    data.append(region);
+    data.append(country);
+    data.append(city);
+    data.append(address);
+    data.append(interest);
 
 }
 
