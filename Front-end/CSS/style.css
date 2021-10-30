@@ -100,7 +100,7 @@
 }
 
 .first-area .contact {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   margin-top: 40px;
   margin-right: 2%;
@@ -780,6 +780,342 @@
 
 .contacts-window .fullsize .newCard .button .save {
   color: blue;
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: #8ec7fc;
+  height: 100vh;
+}
+
+.login .center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: solid 3px #1D72C2;
+  border-radius: 10px;
+  width: 25%;
+  height: 325px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #0683f9;
+  margin-top: -50px;
+}
+
+.login .center .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 95%;
+}
+
+.login .center .form .welcome {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.login .center .form .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 90%;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.login .center .form .user input {
+  height: 25px;
+  border-radius: 5px;
+}
+
+.login .center .form .password {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+  width: 90%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: #ffffff;
+}
+
+.login .center .form .password input {
+  border-radius: 5px;
+  height: 25px;
+}
+
+.login .center .form .loged {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.login .center .form button {
+  height: 30px;
+  margin-top: 15px;
+  background-color: #1D72C2;
+  width: 90%;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+}
+
+.createUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding-top: 3%;
+  background-color: #8ec7fc;
+  height: 85.2vh;
+}
+
+.createUser .create {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.createUser .create .form {
+  width: 350px;
+  border: solid 3px #1D72C2;
+  background-color: #1D72C2;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 65%;
+}
+
+.createUser .create .form .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: "Open Sans", sans-serif;
+  font-weight: lighter;
+  height: 10%;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.createUser .create .form .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  height: 25px;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.createUser .create .form .name input {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+.createUser .create .form .last {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  height: 25px;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.createUser .create .form .last input {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+.createUser .create .form .email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  height: 25px;
+  color: #ffffff;
+}
+
+.createUser .create .form .email input {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+.createUser .create .form .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  height: 25px;
+  color: #ffffff;
+}
+
+.createUser .create .form .user input {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+.createUser .create .form .password1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  height: 25px;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.createUser .create .form .password1 input {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+.createUser .create .form .password2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  height: 25px;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.createUser .create .form .password2 label {
+  width: 75px;
+}
+
+.createUser .create .form .password2 input {
+  height: 25px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+.createUser .create .form .create {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-top: 20px;
+}
+
+.createUser .create .form .create button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  height: 35px;
+  width: 25%;
+  background-color: #8ec7fc;
+  color: #ffffff;
+  border-radius: 10px;
 }
 
 * {

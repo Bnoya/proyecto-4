@@ -1,6 +1,10 @@
-@import '_menu.scss';
-@import '_contacts.scss';
-@import '_card.scss';
+@import 'variables';
+@import 'menu';
+@import 'contacts';
+@import 'card';
+@import 'login';
+@import 'createUsers';
+
 *{
     margin: 0;
     padding: 0;

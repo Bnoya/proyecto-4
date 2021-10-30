@@ -1,0 +1,82 @@
+.login{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    background-color: $thirdBlue;
+    height: 100vh;
+    .center{
+        display: flex;
+        flex-direction: column;
+        border: solid 3px $mainBlue;
+        border-radius: 10px;
+        width: 25%;
+        height: 325px;
+        align-self: center;
+        justify-content: space-around;
+        background-color: $secondBlue;
+        margin-top: -50px;
+        .form{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            align-self: center;
+            width: 95%;
+            
+            .welcome{
+                display: flex;
+                justify-content: center;
+                color: $white;
+                font-size: 25px;
+            }
+            .user{
+                display: flex;
+                flex-direction: column;
+                align-self: center;
+                width: 90%;
+                color: $white;
+                margin-top: 10px;
+                input{
+                    height: 25px;
+                    border-radius: 5px;
+                }
+            }
+            .password{
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                width: 90%;
+                align-self: center;
+                color: $white;
+                input{
+                    border-radius: 5px;
+                    height: 25px;
+                }
+            }
+            .loged{
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                align-self: center;
+                color: $white;
+                margin-top: 20px;
+            }
+            button{
+                height: 30px;
+                margin-top: 15px;
+                background-color: $mainBlue;
+                width: 90%;
+                border-radius: 5px;
+                display: flex;
+                align-self: center;
+                justify-content: center;
+
+                color: $white;
+                font-family: $openSans;
+                font-size: 18px;
+            }
+        }
+    }
+}

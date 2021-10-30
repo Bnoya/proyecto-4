@@ -1,0 +1,132 @@
+.createUser{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-top: 3%;
+    background-color: $thirdBlue;
+    height: 85.2vh;
+    .create{
+        display: flex;
+        justify-content: center;
+        .form{
+            width: 350px;
+            border: solid 3px $mainBlue;
+            background-color: $mainBlue;
+            padding-left: 15px;
+            padding-right: 15px;
+            height: 65%;
+            .title{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                font-family: $openSans;
+                font-weight: lighter;
+                height: 10%;
+                font-size: 30px;
+                color: $white;
+                
+            }
+            .name{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-family: $openSans;
+                font-size: 20px;
+                height: 25px;
+                margin-top: 20px;
+                color: $white;
+                input{
+                    font-family: $openSans;
+                    font-size: 16px;
+                }
+            }
+            .last{
+                display: flex;
+                justify-content: space-between;
+                font-family: $openSans;
+                font-size: 20px;
+                height: 25px;
+                margin-top: 20px;
+                color: $white;
+                input{
+                    font-family: $openSans;
+                    font-size: 16px;
+                }
+            }
+            .email{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+                font-family: $openSans;
+                font-size: 20px;
+                height: 25px;
+                color: $white;
+                input{
+                    font-family: $openSans;
+                    font-size: 16px;
+                }
+            }
+            .user{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+                font-family: $openSans;
+                font-size: 20px;
+                height: 25px;
+                color: $white;
+                input{
+                    font-family: $openSans;
+                    font-size: 16px;
+                }
+            }
+            .password1{
+                display: flex;
+                justify-content: space-between;
+                font-family: $openSans;
+                font-size: 20px;
+                height: 25px;
+                margin-top: 20px;
+                color: $white;
+                input{
+                    font-family: $openSans;
+                    font-size: 16px;
+                }
+            }
+            .password2{
+                display: flex;
+                justify-content: space-between;
+                align-self: center;
+                font-family: $openSans;
+                font-size: 20px;
+                height: 25px;
+                margin-top: 20px;
+                color: $white;
+                label{
+                    width: 75px;
+                }
+                input{
+                    height: 25px;
+                    font-family: $openSans;
+                    font-size: 16px;
+                    
+                }
+            }
+            .create{
+
+                display: flex;
+                justify-content: flex-end;
+                align-self: flex-end;
+                margin-top: 20px;
+                button{
+                    font-family: $openSans;
+                    font-size: 20px;
+                    height: 35px;
+                    width: 25%;
+                    background-color: $thirdBlue;
+                    color: $white;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}

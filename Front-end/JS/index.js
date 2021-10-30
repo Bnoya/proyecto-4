@@ -6,7 +6,7 @@ let token = getToken();
 if (token == null) {
     window.location.href = '/Front-end/HTML/login.html';
 }
-let NToken= JSON.stringify(token);
+let Token= JSON.stringify(token);
 loadContact();
 
 
@@ -19,7 +19,7 @@ async function getContacts(){
         let options = {
             type: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + NToken,
+                'Authorization': 'Bearer ' + Token,
                 'Content-Type': 'application/json'
             },
         };
