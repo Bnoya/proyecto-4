@@ -1,34 +1,197 @@
-.contacts{
-    .newCard{
-        display: flex;
-
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: #b5dae7;
-        .addContact{
+.contacts-window{
+    //position: relative;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 120px;
+    background-color: #ffffff;
+    .fullsize{
+        background-color: #ffffff;
+        opacity: 1;
+        .newCard{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
             width: 100%;
-            .importanteData{
+            background-color: #ffffff;
+            .cross{
                 display: flex;
-                flex-direction: row;
+                align-items: flex-end;
+                justify-content: flex-end;
+                margin-bottom: -25px;
+                z-index: 3;
                 width: 100%;
-                justify-content: space-evenly;
+                i{
+                    width: 14px;
+                    height: 14px;
+                }
             }
-            .secondaryData{
-                display: flex;
-                flex-direction: row;
+            .addContact{
+                width: 88.9%;
+                .importantData{
+                    margin-left: 32px;
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    justify-content: space-evenly;
+                    background-color: blue;
+                    img{
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 25%;
+                    }
+                    .nameCont{
+                        display: flex;
+                        flex-direction: column;
+                        color: #ffffff;
+                        input{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .lastCont{
+                        display: flex;
+                        flex-direction: column;
+                        color: #ffffff;
+                        input{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .jobCont{
+                        display: flex;
+                        flex-direction: column;
+                        color: #ffffff;
+                        input{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .emailCont{
+                        display: flex;
+                        color: #ffffff;
+                        flex-direction: column;
+                        input{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .companyCont{
+                        display: flex;
+                        color: #ffffff;
+                        flex-direction: column;
+                        input{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                }
+                .secondaryData{
+                    display: flex;
+                    flex-direction: row;
+                    background-color: #ffffff;
+                    width: 100%;
+                    justify-content: space-evenly;
+                    margin-left: 32px;
+                    .regionCont{
+                        display: flex;
+                        flex-direction: column;
+                        select{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .countryCont{
+                        display: flex;
+                        flex-direction: column;
+                        select{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .cityCont{
+                        display: flex;
+                        flex-direction: column;
+                        select{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .addressCont{
+                        display: flex;
+                        flex-direction: column;
+                        input{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .intrestCont{
+                        display: flex;
+                        flex-direction: column;
+                        .inputCont{
+                            select{
+                                width: 70px;
+                                height: 35px;
+                            }
+                        }
+                    }
+                }
+                .thirdData{
+                    display: flex;
+                    flex-direction: row;
+                    background-color: #ffffff;
+                    width: 100%;
+                    justify-content: flex-start;
+                    margin-left: 32px;
+                    .contactCont{
+                        display: flex;
+                        flex-direction: column;
+                        margin-right: 16px;
+                        select{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .userAccount{
+                        display: flex;
+                        flex-direction: column;
+                        margin-right: 16px;
+                        input{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .preffCont{
+                        display: flex;
+                        flex-direction: column;
+                        margin-right: 16px;
+                        select{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                    .addCont{
+                        display: flex;
+                        align-items: flex-end;
+                        margin-right: 16px;
+                        button{
+                            width: 190px;
+                            height: 35.5px;
+                        }
+                    }
+                }
             }
-
-        }
-        .button{
-            width: 5%;
-            height: 5%;
-            align-items: flex-end;
-            justify-content: flex-end;
-            .save{
-                color: blue;
-            }            
-            
+            .button{
+                width: 5%;
+                height: 5%;
+                align-items: flex-end;
+                justify-content: flex-end;
+                .save{
+                    color: blue;
+                }            
+                
+            }
         }
     }
 }

@@ -66,6 +66,20 @@
   margin-bottom: 3px;
 }
 
+.menu nav .nav-links li p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  color: #e8e8e8;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+}
+
 .menu nav .nav-links li a {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -426,21 +440,63 @@
   font-weight: lighter;
 }
 
-.contacts .newCard {
+.contacts-window {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 120px;
+  background-color: #ffffff;
+}
+
+.contacts-window .fullsize {
+  background-color: #ffffff;
+  opacity: 1;
+}
+
+.contacts-window .fullsize .newCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: absolute;
   width: 100%;
-  height: 100%;
-  background-color: #b5dae7;
+  background-color: #ffffff;
 }
 
-.contacts .newCard .addContact {
+.contacts-window .fullsize .newCard .cross {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: -25px;
+  z-index: 3;
   width: 100%;
 }
 
-.contacts .newCard .addContact .importanteData {
+.contacts-window .fullsize .newCard .cross i {
+  width: 14px;
+  height: 14px;
+}
+
+.contacts-window .fullsize .newCard .addContact {
+  width: 88.9%;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData {
+  margin-left: 32px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -452,9 +508,96 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  background-color: blue;
 }
 
-.contacts .newCard .addContact .secondaryData {
+.contacts-window .fullsize .newCard .addContact .importantData img {
+  width: 100px;
+  height: 100px;
+  border-radius: 25%;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .nameCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #ffffff;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .nameCont input {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .lastCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #ffffff;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .lastCont input {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .jobCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #ffffff;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .jobCont input {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .emailCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #ffffff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .emailCont input {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .companyCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #ffffff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .companyCont input {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -462,9 +605,169 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  background-color: #ffffff;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-left: 32px;
 }
 
-.contacts .newCard .button {
+.contacts-window .fullsize .newCard .addContact .secondaryData .regionCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .regionCont select {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .countryCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .countryCont select {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .cityCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .cityCont select {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .addressCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .addressCont input {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .intrestCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .intrestCont .inputCont select {
+  width: 70px;
+  height: 35px;
+}
+
+.contacts-window .fullsize .newCard .addContact .thirdData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #ffffff;
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-left: 32px;
+}
+
+.contacts-window .fullsize .newCard .addContact .thirdData .contactCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 16px;
+}
+
+.contacts-window .fullsize .newCard .addContact .thirdData .contactCont select {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .thirdData .userAccount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 16px;
+}
+
+.contacts-window .fullsize .newCard .addContact .thirdData .userAccount input {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .thirdData .preffCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 16px;
+}
+
+.contacts-window .fullsize .newCard .addContact .thirdData .preffCont select {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .addContact .thirdData .addCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-right: 16px;
+}
+
+.contacts-window .fullsize .newCard .addContact .thirdData .addCont button {
+  width: 190px;
+  height: 35.5px;
+}
+
+.contacts-window .fullsize .newCard .button {
   width: 5%;
   height: 5%;
   -webkit-box-align: end;
@@ -475,7 +778,7 @@
           justify-content: flex-end;
 }
 
-.contacts .newCard .button .save {
+.contacts-window .fullsize .newCard .button .save {
   color: blue;
 }
 

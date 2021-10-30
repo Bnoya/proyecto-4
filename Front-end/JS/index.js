@@ -1,6 +1,6 @@
 import{loadContact} from './processData.js';
 import {getToken} from './getdata.js';
-import {addContact} from './Cards.js';
+import {Contact} from './contacts.js';
 
 let token = getToken();
 if (token == null) {
@@ -33,7 +33,8 @@ async function getContacts(){
 
 let contact = document.getElementById('contactsBt');
 contact.addEventListener('click', () => {
-    addContact();
+    console.log('toque el boton');
+    const contacts = new Contact(document.getElementById('contacts-window'), 1);
 });
 
 getContacts();
