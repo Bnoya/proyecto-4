@@ -6,7 +6,7 @@ let token = getToken();
 if (token == null) {
     window.location.href = '/Front-end/HTML/login.html';
 }
-let Token= JSON.stringify(token);
+
 loadContact();
 
 
@@ -19,12 +19,13 @@ async function getContacts(){
         let options = {
             type: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + Token,
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             },
         };
         const response= await fetch(url, options);
         const info = await response.json();
+        console.log(info)
         
     } catch (error) {
         console.log(error);
