@@ -83,12 +83,22 @@ app.get('/regions', async (req, res) => {
     const region = await db.location.querryAllRegions();
         res.send(region);
 });
+app.get('/regions/:id', async (req, res) => {
+    const region = await db.location.querryRegionsById(req.params.id);
+        res.send(region);
+});
 app.get('/country', async (req, res) => {
     const country = await db.location.querryAllCountries();
         res.send(country);
 });
 app.get('/country/:region', async (req, res) => {
     const countryRedion = await db.location.querryCountryByRegion(req.params.region);
+        res.send(countryRedion);
+});
+
+app.get('/country/id/:id', async (req, res) => {
+    console.log('entre en ruta');
+    const countryRedion = await db.location.querryCountryById(req.params.id);
         res.send(countryRedion);
 });
 

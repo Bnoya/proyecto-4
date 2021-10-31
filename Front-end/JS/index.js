@@ -1,6 +1,6 @@
-import{loadContact} from './processData.js';
 import {getToken} from './getdata.js';
 import {Contact} from './contacts.js';
+import {createRows} from './Cards.js';
 
 let token = getToken();
 if (token == null) {
@@ -8,9 +8,6 @@ if (token == null) {
 }else{
     var ver = token.substring(0, token.length - 1);
 }
-
-loadContact();
-
 
 
 async function getContacts(){
@@ -25,7 +22,10 @@ async function getContacts(){
         };
         const response= await fetch(url, options);
         const info = await response.json();
-        console.log(info)
+
+        console.log(info);
+        
+        createRows(info);
         
     } catch (error) {
         console.log(error);
@@ -39,6 +39,9 @@ contact.addEventListener('click', () => {
 });
 
 getContacts();
+
+
+
 
 
 

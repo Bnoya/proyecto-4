@@ -7,8 +7,20 @@ class Location {
         const location = await this.sequelize.query('SELECT id, region_name FROM region', {type: this.sequelize.QueryTypes.SELECT});
         return location;
     }
+    async querryRegionsById(id) {
+        const location = await this.sequelize.query('SELECT id, region_name FROM region WHERE id = :id', {
+            replacements: {id: id},
+            type: this.sequelize.QueryTypes.SELECT});
+        return location;
+    }
     async querryAllCountries() {
         const location = await this.sequelize.query('SELECT id, redion_id, country_name FROM country', {type: this.sequelize.QueryTypes.SELECT});
+        return location;
+    }
+    async querryCountryById(id) {
+        const location = await this.sequelize.query('SELECT id, redion_id, country_name FROM country WHERE id = :id', {
+            replacements: {id: id},
+            type: this.sequelize.QueryTypes.SELECT});
         return location;
     }
 
@@ -21,6 +33,12 @@ class Location {
 
     async querryAllCities() {
         const location = await this.sequelize.query('SELECT id, country_id, city_name FROM city', {type: this.sequelize.QueryTypes.SELECT});
+        return location;
+    }
+    async querryCityById(id) {
+        const location = await this.sequelize.query('SELECT id, country_id, city_name FROM city WHERE id = :id', {
+            replacements: {id: id},
+            type: this.sequelize.QueryTypes.SELECT});
         return location;
     }
 
