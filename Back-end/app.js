@@ -209,18 +209,30 @@ app.post('/create-contact', async (req, res) => {
     }
 });
 
-app.post('/create-contact2', async (req, res) => {
-    if (!(req.body.first_name && req.body.last_name && req.body.job_position && req.body.email && req.body.company_id && req.body.region_id && req.body.country_id && req.body.city_id && req.body.contact_address && req.body.intrest)){
-        console.log('data format if');
+
+//Contact Channel
+
+app.get('/contactChannel', async (req, res) => {
+    console.log('entre al get')
+    const contactChannel = await db.contactChannel.querryAll();
+        res.send(contactChannel);
+});
+
+app.get('/contactChannel/:Id', async (req, res) => {
+    const contactChannel = await db.contactChannel.querryById(req.params.Id);
+    res.send(contactChannel)
+});
+
+app.post('/create-contactChannel', async (req, res) => {
+    if (!(req.body.contact_id && req.body.contact_channel_type_id && req.body.socials_username && req.body.preferences )){
         return res.status(400).send({ error: "Data not formatted properly" });
     }
     console.log(req.body);
-    console.log('previo a new contact');
-    const newContact = await db.contact.createContact2(req.body);
-    if (newContact == false){
-        res.status(500).send({message: 'couldnt create Contact'})
+    const newContactChannel = await db.contactChannel.createContact(req.body);
+    if (newContactChannel == false){
+        res.status(500).send({message: 'couldnt create Contact Channel'})
     } else {
-        res.status(201).send({message: 'Contact Created'})
+        res.status(201).send({message: 'Contact Channel Created'})
     }
 });
 

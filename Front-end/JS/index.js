@@ -5,6 +5,8 @@ import {Contact} from './contacts.js';
 let token = getToken();
 if (token == null) {
     window.location.href = '/Front-end/HTML/login.html';
+}else{
+    var ver = token.substring(0, token.length - 1);
 }
 
 loadContact();
@@ -12,14 +14,12 @@ loadContact();
 
 
 async function getContacts(){
-    let list = [];
     let url=`http://localhost:3000/contact`;
     try {
-        console.log(token);
         let options = {
             type: 'GET',
             headers: {
-                'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${ver}`,
                 'Content-Type': 'application/json'
             },
         };

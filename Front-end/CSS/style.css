@@ -932,8 +932,6 @@
   -ms-flex-line-pack: center;
       align-content: center;
   padding-top: 3%;
-  background-color: #8ec7fc;
-  height: 85.2vh;
 }
 
 .createUser .create {
@@ -951,7 +949,7 @@
   background-color: #1D72C2;
   padding-left: 15px;
   padding-right: 15px;
-  height: 65%;
+  height: 375px;
 }
 
 .createUser .create .form .title {

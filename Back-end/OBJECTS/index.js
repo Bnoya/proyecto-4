@@ -28,6 +28,8 @@ db.company = new Company(sequelize);
 const Location = require('./location.js');
 db.location = new Location(sequelize);
 
+const ContactChannel = require('./contactChannel.js');
+db.contactChannel = new ContactChannel(sequelize);
 
 
 

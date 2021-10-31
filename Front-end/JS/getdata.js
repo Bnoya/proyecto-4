@@ -6,14 +6,12 @@ function getToken() {
         let Token= JSON.stringify(token);
         let fToken = Token.split('"', 3);
         let rToken = fToken[2];
-        let ver = rToken.substring(0, rToken.length - 1);
-        return ver
+        return rToken
     }
     let Token= JSON.stringify(token);
     let fToken = Token.split('"', 3);
     let rToken = fToken[2];
-    let ver = rToken.substring(0, rToken.length - 1);
-    return ver
+    return rToken
 }
 
 export{getToken};
