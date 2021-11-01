@@ -1,4 +1,6 @@
 import {getToken} from './getdata.js';
+import {ContactsRows} from './contacts.js';
+
 let token = getToken();
 if (token == null) {
     window.location.href = '/Front-end/HTML/login.html';
@@ -7,10 +9,13 @@ if (token == null) {
 }
 
 async function createRows(contacts) {
+    console.log('entre a funcion')
     let container = document.createElement('div');
         for (let i = 0; i < contacts.length; i++) {
                 try{
+                    console.log('entre al try')
                     let contact = contacts[i];
+                    console.log(contact);
                     let regionName = `http://localhost:3000/regions/${contact.region_id}`;
                     let companyName = `http://localhost:3000/company/${contact.company_id}`;
                     let countryName = `http://localhost:3000/country/id/${contact.country_id}`;
@@ -36,15 +41,15 @@ async function createRows(contacts) {
                     const response3= await fetch(countryName, options);
                     const country = await response3.json();
                     console.log(country);
-                    
+                    console.log('previo a constructor')
+                    const contactsRender = new ContactsRows(document.getElementById('list'), 1);
+
                 } catch{
 
                 }
 
             }
 
-            let row = document.createElement('div');
-            let check = document.createElement('div');
         }
 
         

@@ -96,4 +96,38 @@ class Contact {
     }
 }
 
-export {Contact}
+
+class ContactsRows {
+    constructor(element, selectedOption) {
+        this.id = id
+        this.element = element
+        this.element.innerHTML = `
+        <div class="row">
+        <div class="selectRow">
+        <input type="checkbox" id="checked${id}">
+        </div>
+        <div class="name">
+        <div class="imgface" id="img${id}"></div>
+        <div class="text">
+        <div class="name" id="name${id}"></div>
+        <div class="email" id="email${id}"></div>
+        </div>
+        </div>
+        <div class="location">
+        <div class="country" id="country${id}"></div>
+        <div class="region" id="region${id}"></div>
+        </div>
+        <div class="company" id="company${id}"></div>
+        <div class="job" id="job${id}"></div>
+        <div class="channels" id="channels${id}">
+        </div>
+        <div class="intrest" id="intrest${id}"></div>
+        <div class="actions" id="actions${id}"><i class="fas fa-ellipsis-h"></i></div>
+        </div>
+        `
+        this.element.classList.add('list');
+        document.getElementById(`list${selectedOption}`).classList.add('selected');
+    }
+}
+
+export {Contact, ContactsRows}
