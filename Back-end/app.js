@@ -35,8 +35,17 @@ const authenticateUser = (req, res, next) => {
     }
 }
 
-app.use(authenticateUser);
+const isAdmin = (req, res, next) => {
+    let errorMeta;
+    if (req.user.user_role != 1) {
+        errorMeta ={message: "you are not authorized to do this operation.", resStatus: 404};
+        res.status(errorMeta.status).send(errorMeta)
+    } else {
+        next();
+    }
+}
 
+app.use(authenticateUser);
 //Users Routes:
 app.post('/user/login', async (req, res) => {
     const username = req.body.username;
@@ -48,7 +57,7 @@ app.post('/user/login', async (req, res) => {
             userId: user.id,
             username: user.username,
             pass: user.pass,
-            userRoleId: user.user_role_id
+            userRole: user.user_role
         }, SECRET_KEY);
         res.send({
             message: 'Login Successfull',
@@ -60,8 +69,14 @@ app.post('/user/login', async (req, res) => {
     }
 });
 
-app.post('/create-user', async (req, res) => {
-    if (!(req.body.first_name && req.body.last_name && req.body.user_role && req.body.pass && req.body.username)) {
+let user = () =>{
+    app.get('/users/:Id', async (req, res) => {
+        const user = await db.users.querryById(req.params.Id);
+            res.send(user);
+    });
+}
+app.post('/create-user', isAdmin, async (req, res) => {
+    if (!(req.body.first_name && req.body.last_name && req.body.pass && req.body.username)) {
         console.log('data format if');
         return res.status(400).send({ error: "Data not formatted properly" });
     }

@@ -6,14 +6,16 @@ class User {
     }
 
 //    async querryAll() {
-//        const users = await this.sequelize.query('SELECT id, first_name, last_name, user_role FROM Users', {type: this.sequelize.QueryTypes.SELECT});
+//        const users = await this.sequelize.query('SELECT id, first_name, last_name, user_role FROM users', {type: this.sequelize.QueryTypes.SELECT});
 //    return users;
 //    }
 
-//    async querryById(id) {
-//        const users = await this.sequelize.query('SELECT id, first_name, last_name, user_role FROM Users', {replacement: {id: id} ,type: this.sequelize.QueryTypes.SELECT});
-//    return users;
-//    }
+    async querryById(userid) {
+        const users = await this.sequelize.query('SELECT id, first_name, last_name, user_role FROM users WHERE id = :id', {
+            replacements: {id: userid},
+            type: this.sequelize.QueryTypes.SELECT});
+    return users;
+    }
 
     async loginUser(username, pass) {
         const user = await this.sequelize.query("SELECT id, user_role, pass, username FROM users where username = :username", { replacements: { username: username, pass: pass}, type: this.sequelize.QueryTypes.SELECT })
