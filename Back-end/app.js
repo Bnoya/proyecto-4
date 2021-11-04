@@ -17,7 +17,7 @@ const SECRET_KEY = 'lifeisgood';
 //middelWare:
 
 const authenticateUser = (req, res, next) => {
-    const nonSecurePaths = ['/user/login', '/create-user'];
+    const nonSecurePaths = ['/user/login'];
     if (nonSecurePaths.includes(req.path)) return next();
     
     const authHead = req.headers['authorization'];
@@ -36,10 +36,8 @@ const authenticateUser = (req, res, next) => {
 }
 
 const isAdmin = (req, res, next) => {
-    let errorMeta;
-    if (req.user.user_role != 1) {
-        errorMeta ={message: "you are not authorized to do this operation.", resStatus: 404};
-        res.status(errorMeta.status).send(errorMeta)
+    if (req.user.userRole != 1) {
+        res.status(404).send({message:'unAuthorized user'});
     } else {
         next();
     }
@@ -69,12 +67,7 @@ app.post('/user/login', async (req, res) => {
     }
 });
 
-let user = () =>{
-    app.get('/users/:Id', async (req, res) => {
-        const user = await db.users.querryById(req.params.Id);
-            res.send(user);
-    });
-}
+
 app.post('/create-user', isAdmin, async (req, res) => {
     if (!(req.body.first_name && req.body.last_name && req.body.pass && req.body.username)) {
         console.log('data format if');
