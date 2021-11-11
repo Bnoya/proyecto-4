@@ -1,4 +1,6 @@
 
+import {Location} from './locationConst.js';
+
 function getToken() {
     let token = localStorage.getItem('token')
     if (token == null){
@@ -12,8 +14,8 @@ async function getlocations() {
     let url1 = 'http://localhost:3000/regions';
     let url2 = 'http://localhost:3000/country';
     let url3 = 'http://localhost:3000/city';
-
-
+    
+    
     let token = getToken();
     if (token == null) {
         window.location.href = '/Front-end/HTML/login.html';
@@ -35,15 +37,30 @@ async function getlocations() {
         
         const responseCou = await fetch(url2, options);
         const infoCou = await responseCou.json();
-
+        
         const responseCi = await fetch(url3, options);
         const infoCi = await responseCi.json();
-
+        
+        //Arrenge data
+        var ordCoun = [];
+        for (let i = 0; i < infoReg.length; i++) {
+            ordCoun[i] = infoCou.filter(function (el) 
+            {
+                return el.redion_id == i+1;
+            });
+            
+        };
+        var ordCi = [];
+        for (let i = 0; i < infoCou.length; i++) {
+            ordCi[i] = infoCi.filter(function (el) 
+            {
+                return el.country_id == i+1;
+            });
+            
+        };
+        const location = new Location (document.getElementById('regions'), infoReg, ordCoun, ordCi);
 
         //Consoles log
-        console.log(infoReg);
-            console.log(infoCou);
-        console.log(infoCi);
     } catch (error) {
         console.log(error);
     }

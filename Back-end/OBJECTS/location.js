@@ -91,6 +91,62 @@ class Location {
     async deleteCity() {
         
     }
+    //no funciona
+    async getLocationDescription() {
+        const RegionsQuery = `
+        SELECT region.id as id, region.region_name
+        FROM region;
+        `
+        try {
+            let data = [];
+            const regions = await this.sequelize.query(
+                RegionsQuery,
+                {
+                    type: this.sequelize.QueryTypes.SELECT
+                })
+
+            for (let index = 0; index < regions.length; index++) {
+                const region = regions[index];
+                const countriesQuery = `
+                    SELECT country.id as id, country.country_name
+                    FROM country
+                    WHERE country.region_id = :regionId;
+                    `
+                const countries = await this.sequelize.query(
+                    countriesQuery,
+                    {
+                        replacements: {
+                            regionId: region.region_id
+                        },
+                        type: this.sequelize.QueryTypes.SELECT
+                    })
+                const dataCountries = [];
+                for (let index = 0; index < countries.length; index++) {
+                    const country = countries[index];
+                    const citiesQuery = `
+                    SELECT city.id as id, city.city_name
+                    FROM city
+                    WHERE city.country_id = :countryId;
+                    `
+                    const cities = await this.sequelize.query(
+                        citiesQuery,
+                        {
+                            replacements: {
+                                countryId: country.country_id
+                            },
+                            type: this.sequelize.QueryTypes.SELECT
+                        })
+                    dataCountries.push({ country_id: country.country_id, country_name: country.country_name, cities: cities || [] })
+                }
+                data.push({ ...region, countries: dataCountries || [] })
+            }
+            return {
+                status: 200, message: 'OK', data: data
+            };
+        } catch (error) {
+            console.log('error 404');
+        }
+    }
 }
 
 

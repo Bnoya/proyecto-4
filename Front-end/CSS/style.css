@@ -1116,6 +1116,391 @@
   border-radius: 10px;
 }
 
+.selector .location {
+  width: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-bottom: 50px;
+}
+
+.selector .location p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: #0683f9;
+  text-decoration: underline;
+  width: 25%;
+}
+
+.selector .location p:hover {
+  font-weight: bold;
+  cursor: pointer;
+  color: #1D72C2;
+}
+
+.selector .location .region {
+  border-top: #cccccc solid 1px;
+  width: 80%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 50px;
+}
+
+.selector .location .region .region-header {
+  width: 85%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.selector .location .region .region-header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.selector .location .region .region-header div h3 {
+  display: inline;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+}
+
+.selector .location .region .region-header div .edit-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 15%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.selector .location .region .region-header div .edit-button .icon {
+  width: 20px;
+}
+
+.selector .location .region .region-header div .edit-button .icon:hover {
+  color: #1D72C2;
+}
+
+.selector .location .region .country {
+  border-top: #cccccc solid 1px;
+  width: 70%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 30px;
+}
+
+.selector .location .region .country .country-header {
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.selector .location .region .country .country-header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.selector .location .region .country .country-header div h4 {
+  display: inline;
+  font-family: "Open Sans", sans-serif;
+  font-size: 22px;
+}
+
+.selector .location .region .country .country-header div .edit-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 15%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.selector .location .region .country .country-header div .edit-button .icon {
+  width: 20px;
+}
+
+.selector .location .region .country .country-header div .edit-button .icon:hover {
+  color: #1D72C2;
+}
+
+.selector .location .region .country .city {
+  width: 90%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 10px;
+}
+
+.selector .location .region .country .city div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.selector .location .region .country .city div h5 {
+  display: inline;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+}
+
+.selector .location .region .country .city div .edit-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 15%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.selector .location .region .country .city div .edit-button .icon {
+  width: 20px;
+}
+
+.selector .location .region .country .city div .edit-button .icon:hover {
+  color: #1D72C2;
+}
+
+.MainCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
+}
+
+.MainCont .headCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.MainCont .headCont .table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 30px;
+  background-color: #1D72C2;
+  height: 74px;
+  color: #ffffff;
+  font-size: 18px;
+  padding-top: 28px;
+  border-radius: 15px;
+}
+
+.MainCont .headCont .table .Hname {
+  font-family: "Open Sans", sans-serif;
+  width: 15%;
+  margin-left: 2%;
+}
+
+.MainCont .headCont .table .Hcity {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 10%;
+}
+
+.MainCont .headCont .table .Haddress {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 10%;
+}
+
+.MainCont .headCont .table .Hphone {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 10%;
+}
+
+.MainCont .headCont .table .Hbuttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 5%;
+  width: 10%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: "Open Sans", sans-serif;
+}
+
+.MainCont .headCont .Companies {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.MainCont .headCont .Companies .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: #e8e8e8 solid 2.5px;
+}
+
+.MainCont .headCont .Companies .row .name {
+  font-family: "Open Sans", sans-serif;
+  width: 15%;
+  margin-left: 2%;
+}
+
+.MainCont .headCont .Companies .row .city {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 10%;
+}
+
+.MainCont .headCont .Companies .row .address {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 10%;
+}
+
+.MainCont .headCont .Companies .row .phone {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 10%;
+}
+
+.MainCont .headCont .Companies .row .edit-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 5%;
+  width: 10%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.MainCont .headCont .Companies .row .edit-button .icon:hover {
+  color: #1D72C2;
+  cursor: pointer;
+}
+
+.MainCont .headCont .Companies .add-company {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 50px;
+}
+
+.MainCont .headCont .Companies .add-company .button {
+  background-color: #8ec7fc;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  width: 150px;
+  border-radius: 10px;
+  color: #ffffff;
+  border-color: #8ec7fc;
+}
+
+.MainCont .headCont .Companies .add-company .button:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+
 * {
   margin: 0;
   padding: 0;

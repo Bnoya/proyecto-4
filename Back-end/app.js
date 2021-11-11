@@ -87,6 +87,11 @@ app.post('/create-user', isAdmin, async (req, res) => {
 
 //Location Routs
 
+app.get('/regiontree', async (req, res) => {
+    const region = await db.location.getLocationDescription();
+        res.send(region);
+});
+
 app.get('/regions', async (req, res) => {
     const region = await db.location.querryAllRegions();
         res.send(region);
@@ -117,6 +122,10 @@ app.get('/city', async (req, res) => {
 app.get('/city/:country', async (req, res) => {
     const city_country = await db.location.querryCitiesByCountry(req.params.country);
         res.send(city_country);
+});
+app.get('/cityId/:id', async (req, res) => {
+    const city_id = await db.location.querryCityById(req.params.id);
+        res.send(city_id);
 });
 
 app.post('/create-region', async (req, res) => {

@@ -1,0 +1,122 @@
+.MainCont{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    .headCont{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        align-self: center;
+        justify-content: center;
+        .table{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-top: 30px;
+            background-color: $mainBlue;
+            height: 74px;
+            color: $white;
+            font-size: 18px;
+            padding-top: 28px;
+            border-radius: 15px;
+            .Hname{
+                font-family: $openSans;
+                width: 15%;
+                margin-left: 2%;
+    
+            }
+            .Hcity{
+                font-family: $openSans;
+                margin-left: 5%;
+                width: 10%;
+    
+            }
+            .Haddress{
+                font-family: $openSans;
+                margin-left: 5%;
+                width: 10%;
+            }
+            .Hphone{
+                font-family: $openSans;
+                margin-left: 5%;
+                width: 10%;
+            }
+            .Hbuttons{
+                display: flex;
+                flex-direction: row;
+                margin-left: 5%;
+                width: 10%;
+                justify-content: space-around;
+                font-family: $openSans;
+            }
+            }
+    
+        .Companies{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-self: center;
+            .row{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                margin-top: 30px;
+                padding-top: 10px;
+                border-top:  $grey solid 2.5px;
+                .name{
+                    font-family: $openSans;
+                    width: 15%;
+                    margin-left: 2%;
+                }
+                .city{
+                    font-family: $openSans;
+                    margin-left: 5%;
+                    width: 10%;
+                }
+                .address{
+                    font-family: $openSans;
+                    margin-left: 5%;
+                    width: 10%;
+                }
+                .phone{
+                    font-family: $openSans;
+                    margin-left: 5%;
+                    width: 10%;
+                }
+                .edit-button{
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: 5%;
+                    width: 10%;
+                    justify-content: space-around;
+                    .icon{
+
+                        &:hover{
+                            color: $mainBlue;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .add-company{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                margin-top: 50px;
+                .button{
+                    background-color: $thirdBlue;
+                    font-family: $openSans;
+                    font-size: 18px;
+                    width: 150px;
+                    border-radius: 10px;
+                    color: $white;
+                    border-color: $thirdBlue;
+                    &:hover{
+                        color: $white;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

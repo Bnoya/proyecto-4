@@ -1,0 +1,115 @@
+
+.selector{
+    .location {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        margin-bottom: 50px;
+        p {
+            font-family: $openSans;
+            font-size: 16px;
+            color: $secondBlue;
+            text-decoration: underline;
+            width: 25%;
+            &:hover {
+                font-weight: bold;
+                cursor: pointer;
+                color: $mainBlue;
+            }
+        }
+        .region {
+            border-top:  #cccccc solid 1px;
+            width: 80%;
+            align-self: center;
+            flex-direction: column;
+            margin-top: 50px;
+            .region-header {
+                width: 85%;
+                flex-direction: row;
+                justify-content: space-between;
+                div{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    h3 {
+                        display: inline;
+                        font-family: $openSans;
+                        font-size: 26px;
+                    }
+                    .edit-button{
+                        display: flex;
+                        width: 15%;
+                        justify-content: space-evenly;
+                        .icon{
+                            width: 20px;
+                            &:hover{
+                                color: $mainBlue;
+                            }
+                        }
+                    }
+                }
+            }
+            .country {
+                border-top:  #cccccc solid 1px;
+                width: 70%;
+                align-self: center;
+                flex-direction: column;
+                margin-top: 30px;
+                .country-header {
+                    width: 100%;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    div{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        h4 {
+                            display: inline;
+                            font-family: $openSans;
+                            font-size: 22px;
+                        }
+                        .edit-button{
+                            display: flex;
+                            width: 15%;
+                            justify-content: space-evenly;
+                            .icon{
+                                width: 20px;
+                                &:hover{
+                                    color: $mainBlue;
+                                }
+                            }
+                        }
+                    }
+                }
+                .city {
+                    width: 90%;
+                    align-self: center;
+                    flex-direction: row;
+                    margin-top: 10px;
+                    div{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        h5 {
+                            display: inline;
+                            font-family: $openSans;
+                            font-size: 18px;
+                        }
+                        .edit-button{
+                            display: flex;
+                            width: 15%;
+                            justify-content: space-evenly;
+                            .icon{
+                                width: 20px;
+                                &:hover{
+                                    color: $mainBlue;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

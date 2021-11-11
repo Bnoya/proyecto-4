@@ -43,16 +43,10 @@ async function createRows(contacts) {
                     console.log(country);
                     console.log('previo a constructor')
                     const contactsRender = new ContactsRows(document.getElementById('list'), 1);
-
                 } catch{
-
                 }
-
             }
-
         }
-
-        
 
 //actions logo
 //<i class="fas fa-ellipsis-h"></i>
