@@ -15,7 +15,6 @@ class Company {
         }
 
     companyConstructor(info) {
-        console.log(info)
         let companyHTML = ''
         for (let i = 0; i < info.length; i++) {
             let Ninfo = info[i]

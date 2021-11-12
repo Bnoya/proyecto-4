@@ -279,6 +279,7 @@
       justify-content: space-around;
   margin-left: 2%;
   margin-right: 2%;
+  margin-bottom: 2%;
 }
 
 .list .table-head {
@@ -308,14 +309,17 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 18.3%;
 }
 
 .list .contact h4 {
   margin-right: 15px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 17px;
   font-weight: lighter;
+  font-size: 20px;
 }
 
 .list .Region {
@@ -329,14 +333,17 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 13.6%;
 }
 
 .list .Region h4 {
   margin-right: 15px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 17px;
   font-weight: lighter;
+  font-size: 20px;
 }
 
 .list .Compania {
@@ -350,14 +357,17 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 13.6%;
 }
 
 .list .Compania h4 {
   margin-right: 15px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 17px;
   font-weight: lighter;
+  font-size: 20px;
 }
 
 .list .job {
@@ -372,12 +382,15 @@
       -ms-flex-align: center;
           align-items: center;
   width: 13.6%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .list .job h4 {
   margin-right: 15px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: lighter;
 }
 
@@ -393,12 +406,15 @@
       -ms-flex-align: center;
           align-items: center;
   width: 13.6%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .list .prefCanal h4 {
   margin-right: 15px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: lighter;
 }
 
@@ -413,13 +429,16 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 13.6%;
 }
 
 .list .interest h4 {
   margin-right: 15px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: lighter;
 }
 
@@ -431,12 +450,15 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 6%;
 }
 
 .list .actions h4 {
   font-family: 'Open Sans', sans-serif;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: lighter;
 }
 
@@ -941,12 +963,13 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 350px;
 }
 
 .createUser .create .form {
   width: 350px;
-  border: solid 3px #1D72C2;
-  background-color: #1D72C2;
+  border: solid 2px #1D72C2;
+  background-color: #ffffff;
   padding-left: 15px;
   padding-right: 15px;
   height: 375px;
@@ -962,11 +985,16 @@
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
-  height: 10%;
   font-size: 30px;
   color: #ffffff;
+  background-color: #1D72C2;
+  margin-left: -16px;
+  margin-right: -16px;
 }
 
 .createUser .create .form .name {
@@ -984,7 +1012,7 @@
   font-size: 20px;
   height: 25px;
   margin-top: 20px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .createUser .create .form .name input {
@@ -1003,7 +1031,7 @@
   font-size: 20px;
   height: 25px;
   margin-top: 20px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .createUser .create .form .last input {
@@ -1022,7 +1050,7 @@
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   height: 25px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .createUser .create .form .email input {
@@ -1041,7 +1069,7 @@
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   height: 25px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .createUser .create .form .user input {
@@ -1060,7 +1088,7 @@
   font-size: 20px;
   height: 25px;
   margin-top: 20px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .createUser .create .form .password1 input {
@@ -1081,7 +1109,7 @@
   font-size: 20px;
   height: 25px;
   margin-top: 20px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .createUser .create .form .password2 label {
@@ -1114,6 +1142,11 @@
   background-color: #8ec7fc;
   color: #ffffff;
   border-radius: 10px;
+}
+
+.createUser .create .form .create button:hover {
+  background-color: #1D72C2;
+  color: #000000;
 }
 
 .selector .location {
@@ -1487,18 +1520,208 @@
 }
 
 .MainCont .headCont .Companies .add-company .button {
-  background-color: #8ec7fc;
+  background-color: #ffffff;
   font-family: "Open Sans", sans-serif;
   font-size: 18px;
   width: 150px;
   border-radius: 10px;
-  color: #ffffff;
-  border-color: #8ec7fc;
+  color: #0683f9;
+  border-color: #0683f9;
 }
 
 .MainCont .headCont .Companies .add-company .button:hover {
-  color: #ffffff;
+  color: #000000;
+  background-color: #1D72C2;
   cursor: pointer;
+}
+
+.contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contacts .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: 2.5%;
+  margin-right: 5%;
+  border-top: solid 1px #e8e8e8;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.contacts .row .contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 6.6%;
+  width: 15%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts .row .contact h4 {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.contacts .row .contact h5 {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.contacts .row .Region {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-left: 2%;
+  width: 13.6%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts .row .Region h4 {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.contacts .row .Region h5 {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.contacts .row .Compania {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-left: 4%;
+  width: 13.6%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts .row .Compania h4 {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.contacts .row .job {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-left: 5%;
+  width: 13.6%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts .row .job h4 {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.contacts .row .prefCanal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 13.6%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts .row .prefCanal h4 {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.contacts .row .interest {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 13.6%;
+  margin-left: 5%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts .row .interest h4 {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.contacts .row .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 6%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts .row .actions h4 {
+  font-size: 20px;
+  font-weight: lighter;
 }
 
 * {

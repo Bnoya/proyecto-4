@@ -104,15 +104,16 @@
                 justify-content: flex-end;
                 margin-top: 50px;
                 .button{
-                    background-color: $thirdBlue;
+                    background-color: $white;
                     font-family: $openSans;
                     font-size: 18px;
                     width: 150px;
                     border-radius: 10px;
-                    color: $white;
-                    border-color: $thirdBlue;
+                    color: $secondBlue;
+                    border-color: $secondBlue;
                     &:hover{
-                        color: $white;
+                        color: $black;
+                        background-color: $mainBlue;
                         cursor: pointer;
                     }
                 }

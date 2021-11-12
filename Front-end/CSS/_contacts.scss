@@ -120,6 +120,7 @@
     justify-content: space-around;
     margin-left: 2%;
     margin-right: 2%;
+    margin-bottom: 2%;
     .table-head{
         display: flex;
         flex-direction: row;
@@ -132,36 +133,42 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         width: 18.3%;
         h4{
             margin-right: 15px;
             font-family: 'Open Sans', sans-serif;
-            font-size: 17px;
+      
             font-weight: lighter;
+            font-size: 20px;
         }
     }
     .Region{
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         width: 13.6%;
         h4{
             margin-right: 15px;
             font-family: 'Open Sans', sans-serif;
-            font-size: 17px;
+          
             font-weight: lighter;
+            font-size: 20px;
         }
     }
     .Compania{
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         width: 13.6%;
         h4{
             margin-right: 15px;
             font-family: 'Open Sans', sans-serif;
-            font-size: 17px;
+          
             font-weight: lighter;
+            font-size: 20px;
         }
     }
     .job{
@@ -169,10 +176,11 @@
         flex-direction: row;
         align-items: center;
         width: 13.6%;
+        justify-content: center;
         h4{
             margin-right: 15px;
             font-family: 'Open Sans', sans-serif;
-            font-size: 17px;
+            font-size: 20px;
             font-weight: lighter;
         }
     }
@@ -181,10 +189,11 @@
         flex-direction: row;
         align-items: center;
         width: 13.6%;
+        justify-content: center;
         h4{
             margin-right: 15px;
             font-family: 'Open Sans', sans-serif;
-            font-size: 17px;
+            font-size: 20px;
             font-weight: lighter;
         }
     }
@@ -192,21 +201,23 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         width: 13.6%;
         h4{
             margin-right: 15px;
             font-family: 'Open Sans', sans-serif;
-            font-size: 17px;
+            font-size: 20px;
             font-weight: lighter;
         }
     }
     .actions{
         display: flex;
         flex-direction: row;
+        justify-content: center;
         width: 6%;
         h4{
             font-family: 'Open Sans', sans-serif;
-            font-size: 17px;
+            font-size: 20px;
             font-weight: lighter;
         }
     }

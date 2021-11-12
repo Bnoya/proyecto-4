@@ -1,0 +1,106 @@
+.contacts{
+    display: flex;
+    flex-direction: column;
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        justify-content: space-between;
+        margin-left: 2.5%;
+        margin-right: 5%;
+        border-top: solid 1px $grey;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        .contact{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 6.6%;
+            width: 15%;
+            font-family: $openSans;
+            h4{
+                font-weight: lighter;
+                font-size: 20px;
+            }
+            h5{
+                font-size: 16px;
+                font-weight: lighter;
+            }
+        }
+        .Region{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-left: 2%;
+            width: 13.6%;
+            font-family: $openSans;
+            h4{
+                font-size: 20px;
+                font-weight: lighter;
+            }
+            h5{
+                font-size: 16px;
+                font-weight: lighter;
+            }
+        }
+        .Compania{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-left: 4%;
+            width: 13.6%;
+            font-family: $openSans;
+            h4{
+                font-size: 20px;
+                font-weight: lighter;
+            }
+        }
+        .job{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-left: 5%;
+            width: 13.6%;
+            font-family: $openSans;
+            h4{
+                font-size: 20px;
+                font-weight: lighter;
+            }
+        }
+        .prefCanal{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 13.6%;
+            font-family: $openSans;
+            h4{
+                font-size: 20px;
+                font-weight: lighter;
+            }
+        }
+        .interest{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 13.6%;
+            margin-left: 5%;
+            font-family: $openSans;
+            h4{
+                font-size: 20px;
+                font-weight: lighter;
+            }
+        }
+        .actions{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 6%;
+            font-family: $openSans;
+            h4{
+                font-size: 20px;
+                font-weight: lighter;
+            }
+        }
+    }
+}
