@@ -42,9 +42,11 @@
                         width: 15%;
                         justify-content: space-evenly;
                         .icon{
-                            width: 20px;
-                            &:hover{
-                                color: $mainBlue;
+                            .img{
+                                width: 20px;
+                                &:hover{
+                                    color: $mainBlue;
+                                }
                             }
                         }
                     }
@@ -101,13 +103,201 @@
                             width: 15%;
                             justify-content: space-evenly;
                             .icon{
-                                width: 20px;
-                                &:hover{
-                                    color: $mainBlue;
+                                img{
+                                    width: 20px;
+                                    &:hover{
+                                        color: $mainBlue;
+                                    }
                                 }
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+    .modal {
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0,0,0,0.9);
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .modal-content {
+            position: absolute;
+            background-color: white;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+            border-radius: 5px;
+            align-self: center;
+            justify-content: center;
+            width: 30%;
+            h2{
+                font-family: $openSans;
+                background-color: $mainBlue;
+                color: $white;
+                padding-left: 15px;
+                height: 5%;
+            }
+        }
+        .modal-form {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            //width: 50%;
+            padding-top: 27px;
+            padding-bottom: 27px;
+            p {
+                width: 100%;
+            }
+            .region{
+                display: flex;
+                justify-content: space-between;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 100%;
+                align-self: center;
+                margin-bottom: 2%;
+                font-family: $openSans;
+            }
+            .edit-region{
+                display: flex;
+                flex-direction: column;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 100%;
+                align-self: center;
+                margin-bottom: 2%;
+                font-family: $openSans;
+                .oldName{
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: 100%;
+                    align-self: center;
+                    margin-bottom: 2%;
+                    font-family: $openSans;
+                }
+                .editRegion{
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: 100%;
+                    align-self: center;
+                    margin-bottom: 2%;
+                    font-family: $openSans;
+                }
+            }
+            .select-region{
+                display: flex;
+                justify-content: space-between;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 100%;
+                align-self: center;
+                margin-bottom: 2%;
+                font-family: $openSans;
+                select{
+                    width: 40%;
+                    height: 5%;
+                    font-family: $openSans;
+                }
+            }
+            .Country{
+                display: flex;
+                justify-content: space-between;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 100%;
+                align-self: center;
+                margin-bottom: 2%;
+                font-family: $openSans;
+            }
+            
+            .mform{
+                flex-direction: column;
+                align-items: center;
+                margin-top: 27px;
+                #modal-error {
+                    height: 22px;
+                    color: red;
+                }
+            }
+            .select-country{
+                display: flex;
+                justify-content: space-between;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 100%;
+                align-self: center;
+                margin-bottom: 2%;
+                font-family: $openSans;
+                select{
+                    width: 40%;
+                    height: 5%;
+                    font-family: $openSans;
+                }
+            }
+        }
+        .btn-grp {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+            height: 10%;
+            .btn-primary{
+                font-family: $openSans;
+                background-color: $mainBlue;
+                border-color: $mainBlue;
+                color: $white;
+                width: 20%;
+                margin-right: 10px;
+                font-size: 16px;
+                &:hover{
+                    background-color: $secondBlue;
+                }
+            }
+            .btn-danger{
+                font-family: $openSans;
+                background-color: $white;
+                border-color: $mainBlue;
+                color: $mainBlue;
+                width: 15%;
+                margin-right: 10px;
+                &:hover{
+                    background-color: $secondBlue;
+                    color: $white;
+                }
+            }
+        }
+        .modal-confirmation {
+            width: 340px;
+            height: 303px;
+            justify-content: space-between;
+            padding-top: 15px;
+            padding-bottom: 25px;
+            padding-left: 32px;
+            padding-right: 32px;
+            text-align: center;
+            .popup-img {
+                height: 100px;
+                width: 100px;
+            }
+            .btn-grp {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+                button {
+                    width: 130px;
+                    margin-left: 15px;
+                    margin-right: 15px;
                 }
             }
         }

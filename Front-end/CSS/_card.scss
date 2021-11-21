@@ -1,19 +1,23 @@
+
 .contacts-window{
-    //position: relative;
+    position: relative;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     margin-top: 120px;
-    background-color: #ffffff;
+    background-color: $grey;
     .fullsize{
         background-color: #ffffff;
         opacity: 1;
+        display: flex;
+        justify-content: center;
         .newCard{
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: absolute;
-            width: 100%;
+            width: 80%;
+            height: 50%;
             background-color: #ffffff;
             .cross{
                 display: flex;
@@ -28,7 +32,8 @@
                 }
             }
             .addContact{
-                width: 88.9%;
+                width: 90%;
+                background-color: $white;
                 .importantData{
                     margin-left: 32px;
                     display: flex;
@@ -36,9 +41,12 @@
                     width: 100%;
                     justify-content: space-evenly;
                     background-color: blue;
+                    border-radius: 6px;
+                    height: 50px;
+                    padding-bottom: 10px;
                     img{
-                        width: 100px;
-                        height: 100px;
+                        width: 8%;
+                        height: 8%;
                         border-radius: 25%;
                     }
                     .nameCont{
@@ -46,8 +54,8 @@
                         flex-direction: column;
                         color: #ffffff;
                         input{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            height: 80%;
                         }
                     }
                     .lastCont{
@@ -55,8 +63,8 @@
                         flex-direction: column;
                         color: #ffffff;
                         input{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            height: 80%;
                         }
                     }
                     .jobCont{
@@ -64,8 +72,8 @@
                         flex-direction: column;
                         color: #ffffff;
                         input{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            height: 80%;
                         }
                     }
                     .emailCont{
@@ -73,8 +81,8 @@
                         color: #ffffff;
                         flex-direction: column;
                         input{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            height: 80%;
                         }
                     }
                     .companyCont{
@@ -82,8 +90,8 @@
                         color: #ffffff;
                         flex-direction: column;
                         input{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            height: 80%;
                         }
                     }
                 }
@@ -91,39 +99,44 @@
                     display: flex;
                     flex-direction: row;
                     background-color: #ffffff;
-                    width: 100%;
-                    justify-content: space-evenly;
+                    justify-content: space-between;
                     margin-left: 32px;
+                    margin-top: 25px;
+                    height: 50px;
                     .regionCont{
                         display: flex;
                         flex-direction: column;
                         select{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            width: 150px;
+                            height: 80%;
                         }
                     }
                     .countryCont{
                         display: flex;
                         flex-direction: column;
                         select{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            width: 150px;
+                            height: 80%;
                         }
                     }
                     .cityCont{
                         display: flex;
                         flex-direction: column;
                         select{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            height: 80%;
+                            width: 150px;
                         }
                     }
                     .addressCont{
                         display: flex;
                         flex-direction: column;
                         input{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            height: 80%;
+                            width: 150px;
                         }
                     }
                     .intrestCont{
@@ -131,8 +144,9 @@
                         flex-direction: column;
                         .inputCont{
                             select{
-                                width: 70px;
-                                height: 35px;
+                                border-radius: 6px;
+                                height: 80%;
+                                width: 150px;
                             }
                         }
                     }
@@ -142,15 +156,18 @@
                     flex-direction: row;
                     background-color: #ffffff;
                     width: 100%;
-                    justify-content: flex-start;
+                    justify-content: space-between;
                     margin-left: 32px;
+                    height: 50px;
+                    margin-top: 25px;
                     .contactCont{
                         display: flex;
                         flex-direction: column;
                         margin-right: 16px;
                         select{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            width: 150px;
+                            height: 80%;
                         }
                     }
                     .userAccount{
@@ -158,8 +175,9 @@
                         flex-direction: column;
                         margin-right: 16px;
                         input{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            width: 150px;
+                            height: 80%;
                         }
                     }
                     .preffCont{
@@ -167,8 +185,9 @@
                         flex-direction: column;
                         margin-right: 16px;
                         select{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            width: 150px;
+                            height: 80%;
                         }
                     }
                     .addCont{
@@ -176,8 +195,9 @@
                         align-items: flex-end;
                         margin-right: 16px;
                         button{
-                            width: 190px;
-                            height: 35.5px;
+                            border-radius: 6px;
+                            width: 150px;
+                            height: 80%;
                         }
                     }
                 }

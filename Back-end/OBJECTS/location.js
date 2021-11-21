@@ -61,6 +61,35 @@ class Location {
         }
     }
 
+    async deleteRegion(id) {
+        let query;
+        try{
+            query = await this.sequelize.query("DELETE FROM region WHERE id= :id", 
+            {
+                replacements: {id: id},
+                type: this.sequelize.QueryTypes.DELETE
+            })
+        } catch(err) {
+            return{message: 'region Deleted'}
+        }
+    }
+
+    async updateRegion(region){
+        let query;
+        try{
+            query = await this.sequelize.query('UPDATE region SET region_name = :region_name WHERE id = :id',
+            {
+                replacements: {
+                    region_name: region.region_name,
+                    id: region.id},
+                type: this.sequelize.QueryTypes.UPDATE
+            })
+            return{message: 'Region Updated'}
+        }catch{
+            return{message: 'Region Not Updated'}
+        }
+    }
+
     async createCountry(country) {
         let query;
         try {
@@ -75,6 +104,38 @@ class Location {
         }
     }
 
+    async deleteCountry(id) {
+        let query;
+        try{
+            query = await this.sequelize.query("DELETE FROM country WHERE id= :id", 
+            {
+                replacements: {id: id},
+                type: this.sequelize.QueryTypes.DELETE
+            })
+            return{message: 'Country Deleted'}
+        } catch(err) {
+            return{message: 'Country Not Deleted'}
+        }
+    }
+
+    async updateCountry(country){
+        let query;
+        try{
+            query = await this.sequelize.query('UPDATE country SET country_name = :country_name, redion_id = :redion_id WHERE id = :id',
+            {
+                replacements: {
+                    country_name: country.country_name,
+                    redion_id: country.redion_id,
+                    id: country.id},
+                type: this.sequelize.QueryTypes.UPDATE
+            })
+            return{message: 'Country Updated'}
+        }catch{
+            return{message: 'Country Not Updated'}
+        }
+    }
+
+
     async createCity(city) {
         let query;
         try {
@@ -88,63 +149,32 @@ class Location {
             return {message: err.errors[0].message}
         }
     }
-    async deleteCity() {
-        
+    async deleteCity(id) {
+        let query;
+        try{
+            query = await this.sequelize.query("DELETE FROM city WHERE id= :id", 
+            {
+                replacements: {id: id},
+                type: this.sequelize.QueryTypes.DELETE
+            })
+        } catch(err) {
+            return{message: 'City Deleted'}
+        }
     }
-    //no funciona
-    async getLocationDescription() {
-        const RegionsQuery = `
-        SELECT region.id as id, region.region_name
-        FROM region;
-        `
-        try {
-            let data = [];
-            const regions = await this.sequelize.query(
-                RegionsQuery,
-                {
-                    type: this.sequelize.QueryTypes.SELECT
-                })
-
-            for (let index = 0; index < regions.length; index++) {
-                const region = regions[index];
-                const countriesQuery = `
-                    SELECT country.id as id, country.country_name
-                    FROM country
-                    WHERE country.region_id = :regionId;
-                    `
-                const countries = await this.sequelize.query(
-                    countriesQuery,
-                    {
-                        replacements: {
-                            regionId: region.region_id
-                        },
-                        type: this.sequelize.QueryTypes.SELECT
-                    })
-                const dataCountries = [];
-                for (let index = 0; index < countries.length; index++) {
-                    const country = countries[index];
-                    const citiesQuery = `
-                    SELECT city.id as id, city.city_name
-                    FROM city
-                    WHERE city.country_id = :countryId;
-                    `
-                    const cities = await this.sequelize.query(
-                        citiesQuery,
-                        {
-                            replacements: {
-                                countryId: country.country_id
-                            },
-                            type: this.sequelize.QueryTypes.SELECT
-                        })
-                    dataCountries.push({ country_id: country.country_id, country_name: country.country_name, cities: cities || [] })
-                }
-                data.push({ ...region, countries: dataCountries || [] })
-            }
-            return {
-                status: 200, message: 'OK', data: data
-            };
-        } catch (error) {
-            console.log('error 404');
+    
+    async updateCity(city) {
+        let query;
+        try{
+            query = await this.sequelize.query('UPDATE city SET city_name = :city_name, country_id = :country_id WHERE id = :id',
+            {
+                replacements: {
+                    city_name: city.city_name,
+                    country_id: city.country_id,
+                    id: city.id},
+                type: this.sequelize.QueryTypes.UPDATE
+            })
+        }catch{
+            return{message: 'City Updated'}
         }
     }
 }

@@ -463,15 +463,22 @@
 }
 
 .contacts-window {
+  position: relative;
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
   margin-top: 120px;
-  background-color: #ffffff;
+  background-color: #e8e8e8;
 }
 
 .contacts-window .fullsize {
   background-color: #ffffff;
   opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .contacts-window .fullsize .newCard {
@@ -489,7 +496,8 @@
       -ms-flex-pack: center;
           justify-content: center;
   position: absolute;
-  width: 100%;
+  width: 80%;
+  height: 50%;
   background-color: #ffffff;
 }
 
@@ -514,7 +522,8 @@
 }
 
 .contacts-window .fullsize .newCard .addContact {
-  width: 88.9%;
+  width: 90%;
+  background-color: #ffffff;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData {
@@ -531,11 +540,14 @@
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   background-color: blue;
+  border-radius: 6px;
+  height: 50px;
+  padding-bottom: 10px;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData img {
-  width: 100px;
-  height: 100px;
+  width: 8%;
+  height: 8%;
   border-radius: 25%;
 }
 
@@ -551,8 +563,8 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .nameCont input {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .lastCont {
@@ -567,8 +579,8 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .lastCont input {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .jobCont {
@@ -583,8 +595,8 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .jobCont input {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .emailCont {
@@ -599,8 +611,8 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .emailCont input {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .companyCont {
@@ -615,8 +627,8 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .companyCont input {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData {
@@ -628,11 +640,12 @@
       -ms-flex-direction: row;
           flex-direction: row;
   background-color: #ffffff;
-  width: 100%;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-left: 32px;
+  margin-top: 25px;
+  height: 50px;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .regionCont {
@@ -646,8 +659,9 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .regionCont select {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  width: 150px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .countryCont {
@@ -661,8 +675,9 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .countryCont select {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  width: 150px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .cityCont {
@@ -676,8 +691,9 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .cityCont select {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  height: 80%;
+  width: 150px;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .addressCont {
@@ -691,8 +707,9 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .addressCont input {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  height: 80%;
+  width: 150px;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .intrestCont {
@@ -706,8 +723,9 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .intrestCont .inputCont select {
-  width: 70px;
-  height: 35px;
+  border-radius: 6px;
+  height: 80%;
+  width: 150px;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData {
@@ -720,10 +738,12 @@
           flex-direction: row;
   background-color: #ffffff;
   width: 100%;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-left: 32px;
+  height: 50px;
+  margin-top: 25px;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .contactCont {
@@ -738,8 +758,9 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .contactCont select {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  width: 150px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .userAccount {
@@ -754,8 +775,9 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .userAccount input {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  width: 150px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .preffCont {
@@ -770,8 +792,9 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .preffCont select {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  width: 150px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .addCont {
@@ -785,8 +808,9 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .addCont button {
-  width: 190px;
-  height: 35.5px;
+  border-radius: 6px;
+  width: 150px;
+  height: 80%;
 }
 
 .contacts-window .fullsize .newCard .button {
@@ -1230,11 +1254,11 @@
           justify-content: space-evenly;
 }
 
-.selector .location .region .region-header div .edit-button .icon {
+.selector .location .region .region-header div .edit-button .icon .img {
   width: 20px;
 }
 
-.selector .location .region .region-header div .edit-button .icon:hover {
+.selector .location .region .region-header div .edit-button .icon .img:hover {
   color: #1D72C2;
 }
 
@@ -1340,12 +1364,294 @@
           justify-content: space-evenly;
 }
 
-.selector .location .region .country .city div .edit-button .icon {
+.selector .location .region .country .city div .edit-button .icon img {
   width: 20px;
 }
 
-.selector .location .region .country .city div .edit-button .icon:hover {
+.selector .location .region .country .city div .edit-button .icon img:hover {
   color: #1D72C2;
+}
+
+.selector .modal {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selector .modal .modal-content {
+  position: absolute;
+  background-color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  border-radius: 5px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30%;
+}
+
+.selector .modal .modal-content h2 {
+  font-family: "Open Sans", sans-serif;
+  background-color: #1D72C2;
+  color: #ffffff;
+  padding-left: 15px;
+  height: 5%;
+}
+
+.selector .modal .modal-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 27px;
+  padding-bottom: 27px;
+}
+
+.selector .modal .modal-form p {
+  width: 100%;
+}
+
+.selector .modal .modal-form .region {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-bottom: 2%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.selector .modal .modal-form .edit-region {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-bottom: 2%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.selector .modal .modal-form .edit-region .oldName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-bottom: 2%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.selector .modal .modal-form .edit-region .editRegion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-bottom: 2%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.selector .modal .modal-form .select-region {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-bottom: 2%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.selector .modal .modal-form .select-region select {
+  width: 40%;
+  height: 5%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.selector .modal .modal-form .Country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-bottom: 2%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.selector .modal .modal-form .mform {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 27px;
+}
+
+.selector .modal .modal-form .mform #modal-error {
+  height: 22px;
+  color: red;
+}
+
+.selector .modal .modal-form .select-country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-bottom: 2%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.selector .modal .modal-form .select-country select {
+  width: 40%;
+  height: 5%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.selector .modal .btn-grp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 15px;
+  height: 10%;
+}
+
+.selector .modal .btn-grp .btn-primary {
+  font-family: "Open Sans", sans-serif;
+  background-color: #1D72C2;
+  border-color: #1D72C2;
+  color: #ffffff;
+  width: 20%;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.selector .modal .btn-grp .btn-primary:hover {
+  background-color: #0683f9;
+}
+
+.selector .modal .btn-grp .btn-danger {
+  font-family: "Open Sans", sans-serif;
+  background-color: #ffffff;
+  border-color: #1D72C2;
+  color: #1D72C2;
+  width: 15%;
+  margin-right: 10px;
+}
+
+.selector .modal .btn-grp .btn-danger:hover {
+  background-color: #0683f9;
+  color: #ffffff;
+}
+
+.selector .modal .modal-confirmation {
+  width: 340px;
+  height: 303px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 25px;
+  padding-left: 32px;
+  padding-right: 32px;
+  text-align: center;
+}
+
+.selector .modal .modal-confirmation .popup-img {
+  height: 100px;
+  width: 100px;
+}
+
+.selector .modal .modal-confirmation .btn-grp {
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.selector .modal .modal-confirmation .btn-grp button {
+  width: 130px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .MainCont {
@@ -1584,11 +1890,11 @@
 
 .contacts .row .contact h4 {
   font-weight: lighter;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .contacts .row .contact h5 {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: lighter;
 }
 
@@ -1612,12 +1918,12 @@
 }
 
 .contacts .row .Region h4 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: lighter;
 }
 
 .contacts .row .Region h5 {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: lighter;
 }
 
@@ -1638,7 +1944,7 @@
 }
 
 .contacts .row .Compania h4 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: lighter;
 }
 
@@ -1659,7 +1965,7 @@
 }
 
 .contacts .row .job h4 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: lighter;
 }
 
@@ -1679,7 +1985,7 @@
 }
 
 .contacts .row .prefCanal h4 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: lighter;
 }
 
@@ -1700,7 +2006,7 @@
 }
 
 .contacts .row .interest h4 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: lighter;
 }
 
@@ -1720,7 +2026,7 @@
 }
 
 .contacts .row .actions h4 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: lighter;
 }
 

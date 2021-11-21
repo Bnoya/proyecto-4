@@ -40,7 +40,6 @@ async function getlocations() {
         
         const responseCi = await fetch(url3, options);
         const infoCi = await responseCi.json();
-        
         //Arrenge data
         var ordCoun = [];
         for (let i = 0; i < infoReg.length; i++) {
@@ -58,6 +57,10 @@ async function getlocations() {
             });
             
         };
+
+
+
+
         const location = new Location (document.getElementById('regions'), infoReg, ordCoun, ordCi);
 
         //Consoles log

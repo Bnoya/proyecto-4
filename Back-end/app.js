@@ -87,10 +87,7 @@ app.post('/create-user', isAdmin, async (req, res) => {
 
 //Location Routs
 
-app.get('/regiontree', async (req, res) => {
-    const region = await db.location.getLocationDescription();
-        res.send(region);
-});
+
 
 app.get('/regions', async (req, res) => {
     const region = await db.location.querryAllRegions();
@@ -136,6 +133,22 @@ app.post('/create-region', async (req, res) => {
         res.status(201).send({message: 'Region Created'})
     }
 });
+app.delete('/delete-region/:id', async (req, res) => {
+    const deleteRegion = await db.location.deleteRegion(req.params.id);
+    if (deleteRegion == false){
+        res.status(500).send({message: 'couldnt delete region'})
+    } else {
+        res.status(201).send({message: 'Region Deleted'})
+    }
+})
+app.put('/edit-region', async (req, res)=> {
+    const editRegion = await db.location.updateRegion(req.body);
+    if (editRegion == false) {
+        res.status(500).send({message: 'Couldnt update Region'})
+    } else{
+        res.status(201).send({message: 'Region Updated'})
+    }
+})
 
 app.post('/create-country', async (req, res) => {
     const new_country = await db.location.createCountry(req.body);
@@ -145,6 +158,23 @@ app.post('/create-country', async (req, res) => {
         res.status(201).send({message: 'Country Created'})
     }
 });
+app.delete('/delete-country/:id', async (req, res) => {
+    const deleteCountry = await db.location.deleteCountry(req.params.id);
+    if (deleteCountry == false){
+        res.status(500).send({message: 'couldnt delete Country'})
+    } else {
+        res.status(201).send({message: 'Country Deleted'})
+    }
+});
+app.put('/edit-country', async (req, res)=> {
+    const editCountry = await db.location.updateCountry(req.body);
+    if (editCountry == false) {
+        res.status(500).send({message: 'Couldnt update Country'})
+    } else{
+        res.status(201).send({message: 'Country Updated'})
+    }
+})
+
 app.post('/create-city', async (req, res) => {
     const new_city = await db.location.createCity(req.body);
     if (new_city == false){
@@ -153,8 +183,22 @@ app.post('/create-city', async (req, res) => {
         res.status(201).send({message: 'City Created'})
     }
 });
-
-
+app.delete('/delete-city/:id', async (req, res) => {
+    const deleteCity = await db.location.deleteCity(req.params.id);
+    if (deleteCity == false){
+        res.status(500).send({message: 'couldnt delete City'})
+    } else {
+        res.status(201).send({message: 'City Deleted'})
+    }
+})
+app.put('/edit-city', async (req, res)=> {
+    const editCity = await db.location.updateCity(req.body);
+    if (editCity == false) {
+        res.status(500).send({message: 'Couldnt update city'})
+    } else{
+        res.status(201).send({message: 'City Updated'})
+    }
+})
 
 //company routs
 
