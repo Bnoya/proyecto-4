@@ -105,7 +105,21 @@ class AddLocationModal {
                     </div>
                 `
                 break;
-
+            case 'edit-city':
+                heading = 'Editar Ciudad';
+                inputs= `
+                <div class ='edit-region'>
+                <div class='oldName'>
+                <label for="parent-country">Pais a la que pertenece</label>
+                <label>${this.parentId}</label>
+                </div>
+                <div class='editRegion'>
+                <label for="city-name-input">Nuevo nombre de la región</label>
+                <input type="text" id="city-name-input" />
+                </div>
+                </div>
+                `
+                break;
             default:
                 heading = 'Location'
                 break;
@@ -127,6 +141,7 @@ class AddLocationModal {
     }
 
     addeventlisteners(id) {
+        //data
         let rToken = getToken();
         let create_region = 'http://localhost:3000/create-region';
         let create_country = 'http://localhost:3000/create-country';
@@ -158,11 +173,44 @@ class AddLocationModal {
             location.reload();
         })
 
+        //Create Region
+
         document.getElementById('modal-create-region-btn').addEventListener('click', async () => {
             try {
                 let region = document.getElementById('region-name-input').value;
+                if (region !== null || region !== undefined || region !== '') {
+                    const data = {
+                        'region_name': region,
+                    }
+                    let options_create = {
+                        headers: {
+                            'Authorization': `Bearer ${ver}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data),
+                        method: 'POST'
+                    };
+                    const response= await fetch(create_region, options_create);
+                    const info = await response.json();
+                    if (info !== null || info !== undefined) {
+                        location.reload();
+                    }
+                    console.log(info)
+                }
+            } catch (error) {
+                console.log('could not fetch')
+            }
+        })
+
+        //create Country
+
+        document.getElementById('modal-create-region-btn').addEventListener('click', async () => {
+            try {
+                let region = document.getElementById('parent-country').value;
+                let country = document.getElementById('country-name-input').value;
                 const data = {
-                    'region_name': region,
+                    'country_name': country,
+                    'redion_id': region
                 }
                 let options_create = {
                     headers: {
@@ -172,10 +220,9 @@ class AddLocationModal {
                     body: JSON.stringify(data),
                     method: 'POST'
                 };
-                console.log(options_create);
-                const response= await fetch(create_region, options_create);
+                const response= await fetch(create_country, options_create);
                 const info = await response.json();
-                if (info.status === 201) {
+                if (info !== null || info !== undefined) {
                     location.reload();
                 }
                 console.log(info)

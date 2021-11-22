@@ -463,7 +463,6 @@
 }
 
 .contacts-window {
-  position: relative;
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
   margin-top: 120px;
@@ -471,20 +470,27 @@
 }
 
 .contacts-window .fullsize {
-  background-color: #ffffff;
-  opacity: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.contacts-window .fullsize .newCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacts-window .fullsize .newCard {
+  position: absolute;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -492,42 +498,42 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
+  border-radius: 5px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: absolute;
-  width: 80%;
-  height: 50%;
-  background-color: #ffffff;
+  width: 68%;
 }
 
 .contacts-window .fullsize .newCard .cross {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  margin-bottom: -25px;
-  z-index: 3;
-  width: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-right: -10%;
+  z-index: 1005;
 }
 
 .contacts-window .fullsize .newCard .cross i {
   width: 14px;
   height: 14px;
+  color: #ffffff;
 }
 
 .contacts-window .fullsize .newCard .addContact {
-  width: 90%;
   background-color: #ffffff;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData {
-  margin-left: 32px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -535,14 +541,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 100%;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  background-color: blue;
-  border-radius: 6px;
+  background-color: #1D72C2;
   height: 50px;
   padding-bottom: 10px;
+  padding-top: 15px;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData img {
@@ -565,6 +570,7 @@
 .contacts-window .fullsize .newCard .addContact .importantData .nameCont input {
   border-radius: 6px;
   height: 80%;
+  padding-left: 5px;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .lastCont {
@@ -581,6 +587,7 @@
 .contacts-window .fullsize .newCard .addContact .importantData .lastCont input {
   border-radius: 6px;
   height: 80%;
+  padding-left: 5px;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .jobCont {
@@ -597,6 +604,7 @@
 .contacts-window .fullsize .newCard .addContact .importantData .jobCont input {
   border-radius: 6px;
   height: 80%;
+  padding-left: 5px;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .emailCont {
@@ -613,6 +621,7 @@
 .contacts-window .fullsize .newCard .addContact .importantData .emailCont input {
   border-radius: 6px;
   height: 80%;
+  padding-left: 5px;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .companyCont {
@@ -629,6 +638,7 @@
 .contacts-window .fullsize .newCard .addContact .importantData .companyCont input {
   border-radius: 6px;
   height: 80%;
+  padding-left: 5px;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData {
@@ -643,7 +653,8 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-left: 32px;
+  padding-left: 32px;
+  padding-right: 20px;
   margin-top: 25px;
   height: 50px;
 }
@@ -710,6 +721,7 @@
   border-radius: 6px;
   height: 80%;
   width: 150px;
+  padding-left: 5px;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .intrestCont {
@@ -737,13 +749,14 @@
       -ms-flex-direction: row;
           flex-direction: row;
   background-color: #ffffff;
-  width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-left: 32px;
+  padding-left: 32px;
+  padding-right: 20px;
   height: 50px;
   margin-top: 25px;
+  padding-bottom: 20px;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .contactCont {
@@ -778,6 +791,7 @@
   border-radius: 6px;
   width: 150px;
   height: 80%;
+  padding-left: 5px;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .preffCont {
@@ -804,28 +818,67 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  margin-right: 16px;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .addCont button {
+  color: #1D72C2;
+  border-color: #1D72C2;
+  background-color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
   border-radius: 6px;
   width: 150px;
   height: 80%;
 }
 
-.contacts-window .fullsize .newCard .button {
-  width: 5%;
-  height: 5%;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+.contacts-window .fullsize .newCard .addContact .thirdData .addCont button:hover {
+  background-color: #0683f9;
+  color: #ffffff;
+}
+
+.contacts-window .fullsize .newCard .Send {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-right: 10px;
+  height: 40px;
+  padding-bottom: 10px;
+  font-family: "Open Sans", sans-serif;
 }
 
-.contacts-window .fullsize .newCard .button .save {
-  color: blue;
+.contacts-window .fullsize .newCard .Send .primary_btn {
+  color: #ffffff;
+  background-color: #1D72C2;
+  height: 35px;
+  margin-right: 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  width: 150px;
+}
+
+.contacts-window .fullsize .newCard .Send .primary_btn:hover {
+  background-color: #0683f9;
+}
+
+.contacts-window .fullsize .newCard .Send .secondary_btn {
+  color: #1D72C2;
+  background-color: #ffffff;
+  border-color: #1D72C2;
+  height: 35px;
+  font-size: 16px;
+  border-radius: 4px;
+  width: 100px;
+}
+
+.contacts-window .fullsize .newCard .Send .secondary_btn:hover {
+  background-color: #0683f9;
+  color: #ffffff;
 }
 
 .login {
@@ -1255,11 +1308,14 @@
 }
 
 .selector .location .region .region-header div .edit-button .icon .img {
+  padding-top: 4px;
   width: 20px;
+  height: 20px;
 }
 
 .selector .location .region .region-header div .edit-button .icon .img:hover {
-  color: #1D72C2;
+  width: 25px;
+  height: 25px;
 }
 
 .selector .location .region .country {
@@ -1315,12 +1371,15 @@
           justify-content: space-evenly;
 }
 
-.selector .location .region .country .country-header div .edit-button .icon {
+.selector .location .region .country .country-header div .edit-button .img {
+  padding-top: 4px;
   width: 20px;
+  height: 20px;
 }
 
-.selector .location .region .country .country-header div .edit-button .icon:hover {
-  color: #1D72C2;
+.selector .location .region .country .country-header div .edit-button .img:hover {
+  width: 25px;
+  height: 25px;
 }
 
 .selector .location .region .country .city {
@@ -1332,7 +1391,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .selector .location .region .country .city div {
@@ -1364,12 +1423,15 @@
           justify-content: space-evenly;
 }
 
-.selector .location .region .country .city div .edit-button .icon img {
+.selector .location .region .country .city div .edit-button .icon .img {
+  padding-top: 4px;
   width: 20px;
+  height: 20px;
 }
 
-.selector .location .region .country .city div .edit-button .icon img:hover {
-  color: #1D72C2;
+.selector .location .region .country .city div .edit-button .icon .img:hover {
+  width: 25px;
+  height: 25px;
 }
 
 .selector .modal {
@@ -1691,12 +1753,12 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-top: 30px;
+  margin-top: 20px;
   background-color: #1D72C2;
-  height: 74px;
+  height: 50px;
   color: #ffffff;
-  font-size: 18px;
-  padding-top: 28px;
+  font-size: 16px;
+  padding-top: 20px;
   border-radius: 15px;
 }
 
@@ -1836,8 +1898,8 @@
 }
 
 .MainCont .headCont .Companies .add-company .button:hover {
-  color: #000000;
-  background-color: #1D72C2;
+  color: #ffffff;
+  background-color: #0683f9;
   cursor: pointer;
 }
 

@@ -1,49 +1,52 @@
 
 .contacts-window{
-    position: relative;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     margin-top: 120px;
     background-color: $grey;
     .fullsize{
-        background-color: #ffffff;
-        opacity: 1;
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0,0,0,0.9);
+        align-items: center;
+        justify-content: center;
         display: flex;
         justify-content: center;
+        align-items: center;
         .newCard{
-            display: flex;
+            position: absolute;
             flex-direction: column;
             align-items: center;
+            z-index: 1;
+            border-radius: 5px;
+            align-self: center;
             justify-content: center;
-            position: absolute;
-            width: 80%;
-            height: 50%;
-            background-color: #ffffff;
+            width: 68%;
             .cross{
                 display: flex;
-                align-items: flex-end;
                 justify-content: flex-end;
-                margin-bottom: -25px;
-                z-index: 3;
-                width: 100%;
+                align-items: flex-start;
+                margin-right: -10%;
+                z-index: 1005;
                 i{
                     width: 14px;
                     height: 14px;
+                    color: $white;
                 }
             }
             .addContact{
-                width: 90%;
                 background-color: $white;
                 .importantData{
-                    margin-left: 32px;
                     display: flex;
                     flex-direction: row;
-                    width: 100%;
                     justify-content: space-evenly;
-                    background-color: blue;
-                    border-radius: 6px;
+                    background-color: $mainBlue;
                     height: 50px;
                     padding-bottom: 10px;
+                    padding-top: 15px;
                     img{
                         width: 8%;
                         height: 8%;
@@ -56,6 +59,7 @@
                         input{
                             border-radius: 6px;
                             height: 80%;
+                            padding-left: 5px;
                         }
                     }
                     .lastCont{
@@ -65,6 +69,7 @@
                         input{
                             border-radius: 6px;
                             height: 80%;
+                            padding-left: 5px;
                         }
                     }
                     .jobCont{
@@ -74,6 +79,7 @@
                         input{
                             border-radius: 6px;
                             height: 80%;
+                            padding-left: 5px;
                         }
                     }
                     .emailCont{
@@ -83,6 +89,7 @@
                         input{
                             border-radius: 6px;
                             height: 80%;
+                            padding-left: 5px;
                         }
                     }
                     .companyCont{
@@ -92,15 +99,17 @@
                         input{
                             border-radius: 6px;
                             height: 80%;
+                            padding-left: 5px;
                         }
                     }
                 }
                 .secondaryData{
                     display: flex;
                     flex-direction: row;
-                    background-color: #ffffff;
+                    background-color: $white;
                     justify-content: space-between;
-                    margin-left: 32px;
+                    padding-left: 32px;
+                    padding-right: 20px;
                     margin-top: 25px;
                     height: 50px;
                     .regionCont{
@@ -137,6 +146,7 @@
                             border-radius: 6px;
                             height: 80%;
                             width: 150px;
+                            padding-left: 5px;
                         }
                     }
                     .intrestCont{
@@ -155,11 +165,12 @@
                     display: flex;
                     flex-direction: row;
                     background-color: #ffffff;
-                    width: 100%;
                     justify-content: space-between;
-                    margin-left: 32px;
+                    padding-left: 32px;
+                    padding-right: 20px;
                     height: 50px;
                     margin-top: 25px;
+                    padding-bottom: 20px;
                     .contactCont{
                         display: flex;
                         flex-direction: column;
@@ -178,6 +189,7 @@
                             border-radius: 6px;
                             width: 150px;
                             height: 80%;
+                            padding-left: 5px;
                         }
                     }
                     .preffCont{
@@ -193,24 +205,56 @@
                     .addCont{
                         display: flex;
                         align-items: flex-end;
-                        margin-right: 16px;
                         button{
+                            color: $mainBlue;
+                            border-color: $mainBlue;
+                            background-color: $white;
+                            font-family: $openSans;
+                            font-size: 16px;
                             border-radius: 6px;
                             width: 150px;
                             height: 80%;
+                            &:hover{
+                                background-color: $secondBlue;
+                                color: $white;
+                            }
                         }
                     }
                 }
             }
-            .button{
-                width: 5%;
-                height: 5%;
-                align-items: flex-end;
+            .Send{
+                display: flex;
                 justify-content: flex-end;
-                .save{
-                    color: blue;
+                align-items: flex-end;
+                margin-right: 10px;
+                height: 40px;
+                padding-bottom: 10px;
+                font-family: $openSans;
+                .primary_btn{
+                    color: $white;
+                    background-color: $mainBlue;
+                    height: 35px;
+                    margin-right: 15px;
+                    font-size: 16px;
+                    border-radius: 4px;
+                    width: 150px;
+                    &:hover{
+                        background-color: $secondBlue;
+                    }
                 }            
-                
+                .secondary_btn{
+                    color: $mainBlue;
+                    background-color: $white;
+                    border-color: $mainBlue;
+                    height: 35px;
+                    font-size: 16px;
+                    border-radius: 4px;
+                    width: 100px;
+                    &:hover{
+                        background-color: $secondBlue;
+                        color: $white;
+                    }
+                }
             }
         }
     }

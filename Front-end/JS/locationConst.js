@@ -56,8 +56,8 @@ class Location {
                             <div class="country-cointained">
                             <h4>${Rcount.country_name}</h4>
                             <div class="edit-button">
-                            <div id="edit-country-${Rcount.id}" class="icon"><img src="/Front-end/img/edit-solid.svg" alt=""></div>
-                            <div id="delete-country-${Rcount.id}" class="icon" ><img src="/Front-end/img/delete-solid.svg" alt=""></div>
+                            <div id="edit-country-${Rcount.id}" class="icon"><img src="/Front-end/img/edit-solid.svg" class="img" alt=""></div>
+                            <div id="delete-country-${Rcount.id}" class="icon" ><img src="/Front-end/img/delete-solid.svg" class="img" alt=""></div>
                             </div>
                             </div>
                             </div>
@@ -72,8 +72,8 @@ class Location {
                         <div class="city-cointained">
                         <h5>${Rcity.city_name}</h5>
                         <div class="edit-button">
-                        <div id="edit-city-${Rcity.id}" class="icon"><img src="/Front-end/img/edit-solid.svg" alt=""></div>
-                        <div id="delete-city-${Rcity.id}" class="icon" ><img src="/Front-end/img/delete-solid.svg" alt=""></div>
+                        <div id="edit-city-${Rcity.id}" class="icon"><img src="/Front-end/img/edit-solid.svg" alt="" class="img"></div>
+                        <div id="delete-city-${Rcity.id}" class="icon" ><img src="/Front-end/img/delete-solid.svg" alt="" class="img"></div>
                         </div>
                         </div>
                         </div>
@@ -136,6 +136,7 @@ class Location {
                     const city = cities[k];
                     // edit city
                     document.getElementById(`edit-city-${city.id}`).addEventListener('click', () => {
+                        new AddLocationModal(modalDiv, Rcount.country_id, Rcount, 'edit-city')
                         console.log('edit city' + city.id)
                     })
                     // delete city
@@ -144,6 +145,8 @@ class Location {
                     })
                     // add city to country
                     document.getElementById(`add-city-to-country-${Rcount.id}`).addEventListener('click', () => {
+                        console.log(Rcount);
+                        console.log(countries);
                         new AddLocationModal(modalDiv, Rcount.country_id, countries, 'city')
                     })
                 }

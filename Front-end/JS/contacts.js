@@ -4,8 +4,8 @@ class Contact {
         this.element.innerHTML = `
         <div class='fullsize'>
         <div class='newCard'>
+        <div class='cross'><i class="fas fa-times"></i></div>
         <form class='addContact'>
-            <div class='cross'><i class="fas fa-times"></i></div>
                 <div class="importantData">
                     <img class='imgCont'>
                     <div class='nameCont'>
@@ -86,6 +86,10 @@ class Contact {
                     <div class="addCont">
                         <button id="addChannel">+ Agregar Canal</button>
                     </div>
+                </div>
+                <div class="Send">
+                    <button id="addContact" class='primary_btn'>Agregar Contacto</button>
+                    <button id="cancel" class ='secondary_btn'>Cancelar</button>
                 </div>
             </form>
         </div>
