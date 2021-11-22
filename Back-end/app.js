@@ -200,6 +200,19 @@ app.put('/edit-city', async (req, res)=> {
     }
 })
 
+//Autocomplete Locations 
+app.get('/city/autocomplete', async (req, res) => {
+    const city = await db.location.querryAllCities();
+
+    let matches = city.filter(city => {
+        const regex = new RegExp(`^${req.body.recomendation}`, 'gi');
+        return city.city_name.match(regex)
+    });
+    res.send(matches);
+
+});
+
+
 //company routs
 
 app.get('/company', async (req, res) => {

@@ -1730,6 +1730,162 @@
   margin-top: 10px;
 }
 
+.MainCont .modal {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MainCont .modal .modal-content {
+  position: absolute;
+  background-color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  border-radius: 5px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40%;
+  height: auto;
+}
+
+.MainCont .modal .modal-content h2 {
+  font-family: "Open Sans", sans-serif;
+  background-color: #1D72C2;
+  color: #ffffff;
+  padding-left: 15px;
+  height: 10%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.MainCont .modal .modal-content .modal-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row, wrap;
+          flex-flow: row, wrap;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.MainCont .modal .modal-content .modal-form .add-new-company {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.MainCont .modal .modal-content .modal-form .add-new-company .company {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.MainCont .modal .modal-content .modal-form .add-new-company .phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.MainCont .modal .modal-content .modal-form .add-new-company .location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.MainCont .modal .modal-content .modal-form .add-new-company .address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.MainCont .modal .modal-content .btn-grp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 15px;
+  height: 10%;
+}
+
+.MainCont .modal .modal-content .btn-grp .btn-primary {
+  font-family: "Open Sans", sans-serif;
+  background-color: #1D72C2;
+  border-color: #1D72C2;
+  color: #ffffff;
+  width: 20%;
+  margin-right: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.MainCont .modal .modal-content .btn-grp .btn-primary:hover {
+  background-color: #0683f9;
+}
+
+.MainCont .modal .modal-content .btn-grp .btn-danger {
+  font-family: "Open Sans", sans-serif;
+  background-color: #ffffff;
+  border-color: #1D72C2;
+  color: #1D72C2;
+  width: 15%;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.MainCont .modal .modal-content .btn-grp .btn-danger:hover {
+  background-color: #0683f9;
+  color: #ffffff;
+}
+
 .MainCont .headCont {
   display: -webkit-box;
   display: -ms-flexbox;

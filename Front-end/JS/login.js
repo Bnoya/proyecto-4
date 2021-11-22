@@ -29,7 +29,10 @@ submit.addEventListener('click', async (e) => {
         } else {
             setToken(token);
         }
-        if (datas.token !== null) {
+        console.log(token)
+        if (token == null) {
+            alert('Usuario o Contrasenia Incorrectas')
+        }else {
             window.location.href = '/Front-end/index.html';
         }
     } catch (error) {

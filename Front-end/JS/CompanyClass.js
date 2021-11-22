@@ -1,3 +1,4 @@
+import {AddNewCompany} from './AddNewCompany.js'
 class Company {
     constructor(element, info) {
 
@@ -7,11 +8,12 @@ class Company {
         `
         <div class="company container">
             <div class = "add-company">
-            <button id="add-region" class="button">Agregar Compañia</button>
+            <button id="add-company" class="button">Agregar Compañia</button>
             </div>
         </div>
         `
         this.element.classList.add('Companies', 'container');
+        this.addEventListener();
         }
 
     companyConstructor(info) {
@@ -41,6 +43,13 @@ class Company {
         }
             return(companyHTML)
         
+    }
+    addEventListener(){
+        let container = document.getElementById('modal');
+        document.getElementById('add-company').addEventListener('click', async () => {
+            new AddNewCompany(container, 'add-company')
+            console.log('Add Company');
+        })
     }
 }
 export {Company}
