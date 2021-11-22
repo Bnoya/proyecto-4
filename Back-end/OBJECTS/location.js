@@ -69,8 +69,9 @@ class Location {
                 replacements: {id: id},
                 type: this.sequelize.QueryTypes.DELETE
             })
+            return{message: 'Region Deleted'}
         } catch(err) {
-            return{message: 'region Deleted'}
+            return{message: 'Region Not Deleted'}
         }
     }
 

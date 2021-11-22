@@ -1563,6 +1563,10 @@
   -ms-flex-item-align: center;
       align-self: center;
   margin-bottom: 2%;
+}
+
+.selector .modal .modal-form .edit-region .editRegion p {
+  font-size: 14px;
   font-family: "Open Sans", sans-serif;
 }
 

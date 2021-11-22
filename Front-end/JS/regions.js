@@ -43,27 +43,25 @@ async function getlocations() {
         //Arrenge data
         var ordCoun = [];
         for (let i = 0; i < infoReg.length; i++) {
+            let info = infoReg[i].id
             ordCoun[i] = infoCou.filter(function (el) 
             {
-                return el.redion_id == i+1;
+                return el.redion_id == info;
             });
             
         };
         var ordCi = [];
         for (let i = 0; i < infoCou.length; i++) {
+            let info = infoCou[i].id
             ordCi[i] = infoCi.filter(function (el) 
             {
-                return el.country_id == i+1;
+                return el.country_id == info;
             });
             
         };
-
-
-
-
+        
         const location = new Location (document.getElementById('regions'), infoReg, ordCoun, ordCi);
-
-        //Consoles log
+        
     } catch (error) {
         console.log(error);
     }

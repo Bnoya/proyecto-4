@@ -202,7 +202,10 @@
                     width: 100%;
                     align-self: center;
                     margin-bottom: 2%;
-                    font-family: $openSans;
+                    p{
+                        font-size: 14px;
+                        font-family: $openSans;
+                    }
                 }
             }
             .select-region{

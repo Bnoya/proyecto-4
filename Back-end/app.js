@@ -135,8 +135,8 @@ app.post('/create-region', async (req, res) => {
 });
 app.delete('/delete-region/:id', async (req, res) => {
     const deleteRegion = await db.location.deleteRegion(req.params.id);
-    if (deleteRegion == false){
-        res.status(500).send({message: 'couldnt delete region'})
+    if (deleteRegion == 'Region Not Deleted'){
+        res.status(500).send({message: 'Region Not Deleted'})
     } else {
         res.status(201).send({message: 'Region Deleted'})
     }

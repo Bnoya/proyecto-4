@@ -9,7 +9,7 @@ class AddLocationModal {
         this.element = element;
         this.element.classList.add('modal');
         this.element.innerHTML = this.innerHTML();
-        this.addeventlisteners();
+        this.addeventlisteners(this.parentAlternatives.id);
     }
 
     innerHTML() {
@@ -19,7 +19,7 @@ class AddLocationModal {
             case 'region':
                 heading = 'Crear Región';
                 inputs = `
-                    <div class="region">
+                    <div class="region" >
                     <label for="region-name-input">Nombre de la región</label>
                     <input type="text" id="region-name-input" />
                     </div>
@@ -63,8 +63,8 @@ class AddLocationModal {
                 inputs += `</select> </div>`;
                 inputs += `
                     <div class ="Country">
-                    <label for="country-name">Nombre de la ciudad</label>
-                    <input type="text" id="country-name-input"/>
+                    <label for="city-name">Nombre de la ciudad</label>
+                    <input type="text" id="city-name-input" name="city-name"/>
                     </div>
                 `
 
@@ -75,7 +75,7 @@ class AddLocationModal {
                     <div class="edit-region">
                     <div class="oldName">
                     <label>Nombre actual: </label>
-                    <label>${this.parentId}</label>
+                    <label>${this.parentId.region_name}</label>
                     </div>
                     <div class="editRegion">
                     <label for="region-name-input">Nuevo nombre de la región</label>
@@ -83,6 +83,7 @@ class AddLocationModal {
                     </div>
                     </div>
                 `
+                
                 break;
             case 'edit-country':
                 heading = 'Editar País';
@@ -111,15 +112,62 @@ class AddLocationModal {
                 <div class ='edit-region'>
                 <div class='oldName'>
                 <label for="parent-country">Pais a la que pertenece</label>
-                <label>${this.parentId}</label>
+                <label>${this.parentId.country_name}</label>
                 </div>
                 <div class='editRegion'>
-                <label for="city-name-input">Nuevo nombre de la región</label>
+                <label for="old-name">Nombre Actual: </label>
+                <label>${this.parentAlternatives.city_name}</label>
+                </div>
+                <div class="editRegion">
+                <label for="city-name-input">Nuevo nombre de la ciudad</label>
                 <input type="text" id="city-name-input" />
                 </div>
                 </div>
                 `
+                console.log(this.parentId);
                 break;
+            case 'delete-region':
+                heading = 'Eliminar region';
+                inputs = `
+                    <div class="edit-region">
+                    <div class="oldName">
+                    <label>Nombre actual: </label>
+                    <label>${this.parentId.region_name}</label>
+                    </div>
+                    <div class="editRegion">
+                    <p>Eliminar una region requiere primero eliminar o modificar las ciudades, los paises, los contactos y las companias dependientes de la misma</p>
+                    </div>
+                    </div>
+                `
+            break;
+            case 'delete-country':
+                heading = 'Eliminar Pais';
+                inputs = `
+                    <div class="edit-region">
+                    <div class="oldName">
+                    <label>Nombre actual: </label>
+                    <label>${this.parentId.country_name}</label>
+                    </div>
+                    <div class="editRegion">
+                    <p>Eliminar una region requiere primero eliminar o modificar las ciudades, los contactos y las companias dependientes del mismo</p>
+                    </div>
+                    </div>
+                `
+            break;
+            case 'delete-city':
+                heading = 'Eliminar Ciudad';
+                inputs = `
+                    <div class="edit-region">
+                    <div class="oldName">
+                    <label>Nombre actual: </label>
+                    <label>${this.parentAlternatives.city_name}</label>
+                    </div>
+                    <div class="editRegion">
+                    <p>Eliminar una region requiere primero eliminar o modificar los contactos y las companias dependientes de la misma</p>
+                    </div>
+                    </div>
+                `
+            break;
             default:
                 heading = 'Location'
                 break;
@@ -133,7 +181,7 @@ class AddLocationModal {
                 ${inputs}
             </div>
             <div class="btn-grp">
-                <button class="btn btn-primary" id="modal-create-region-btn">Agregar</button>
+                <button class="btn btn-primary" id="modal-create-region-btn">Aceptar</button>
                 <button class="btn btn-danger" id="modal-cancel-btn">Cancelar</button>
             </div>
         </div>
@@ -154,21 +202,6 @@ class AddLocationModal {
         let delete_city = `http://localhost:3000/delete-city/${id}`;
 
         let ver = rToken.substring(0, rToken.length - 1);
-        
-        let options_edit = {
-            type: 'PUT',
-            headers: {
-                'Authorization': `Bearer ${ver}`,
-                'Content-Type': 'application/json'
-            },
-        };
-        let options_delete = {
-            type: 'DELETE',
-            headers: {
-                'Authorization': `Bearer ${ver}`,
-                'Content-Type': 'application/json'
-            },
-        };
         document.getElementById('modal-cancel-btn').addEventListener('click', () => {
             location.reload();
         })
@@ -176,58 +209,233 @@ class AddLocationModal {
         //Create Region
 
         document.getElementById('modal-create-region-btn').addEventListener('click', async () => {
-            try {
-                let region = document.getElementById('region-name-input').value;
-                if (region !== null || region !== undefined || region !== '') {
-                    const data = {
-                        'region_name': region,
+            switch (this.locationType) {
+                case 'region':
+                    try {
+                        let region = document.getElementById('region-name-input').value;
+                        if (region !== null || region !== undefined || region !== '') {
+                            const data = {
+                                'region_name': region,
+                            }
+                            let options_create = {
+                                headers: {
+                                    'Authorization': `Bearer ${ver}`,
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(data),
+                                method: 'POST'
+                            };
+                            const response= await fetch(create_region, options_create);
+                            const info = await response.json();
+                            if (info !== null || info !== undefined) {
+                                location.reload();
+                            }
+                            console.log(info)
+                        }
+                    } catch (error) {
+                        console.log('could not fetch')
                     }
-                    let options_create = {
-                        headers: {
-                            'Authorization': `Bearer ${ver}`,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data),
-                        method: 'POST'
-                    };
-                    const response= await fetch(create_region, options_create);
-                    const info = await response.json();
-                    if (info !== null || info !== undefined) {
-                        location.reload();
+
+                break;
+                case 'country':
+                    try {
+                        let region = document.getElementById('parent-country').value;
+                        let country = document.getElementById('country-name-input').value;
+                        const data = {
+                            'country_name': country,
+                            'redion_id': region
+                        }
+                        let options_create = {
+                            headers: {
+                                'Authorization': `Bearer ${ver}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data),
+                            method: 'POST'
+                        };
+                        const response= await fetch(create_country, options_create);
+                        const info = await response.json();
+                        if (info !== null || info !== undefined) {
+                            location.reload();
+                        }
+                        console.log(info)
+                    } catch (error) {
+                        console.log('could not fetch')
                     }
-                    console.log(info)
+                
+                break;
+                case 'city':
+                    try {
+                        let country = document.getElementById('parent-country').value;
+                        let city = document.getElementById('city-name-input').value;
+                        const data = {
+                            'country_id': country,
+                            'city_name': city
+                        }
+                        let options_create = {
+                            headers: {
+                                'Authorization': `Bearer ${ver}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data),
+                            method: 'POST'
+                        };
+                        const response= await fetch(create_city, options_create);
+                        const info = await response.json();
+                        if (info !== null || info !== undefined) {
+                            location.reload();
+                        }
+                        console.log(info)
+                    } catch (error) {
+                        console.log('could not fetch')
+                    }
+                break;
+                case 'edit-region':
+                    try {
+                        let region = document.getElementById('region-name-input').value;
+                        const data = {
+                            'region_name': region,
+                            'id': this.parentId.id
+                        }
+                        let options_edit = {
+                            headers: {
+                                'Authorization': `Bearer ${ver}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data),
+                            method: 'PUT'
+                        };
+                        const response= await fetch(edit_region, options_edit);
+                        const info = await response.json();
+                        if (info !== null || info !== undefined) {
+                            location.reload();
+                        }
+                        console.log(info)
+                    } catch (error) {
+                        console.log('could not fetch')
+                    }
+                break;
+                case 'edit-country':
+                    try {
+                        let region = document.getElementById('parent-country').value;
+                        let country = document.getElementById('country-name-input').value;
+                        const data = {
+                            'redion_id': region,
+                            'country_name': country,
+                            'id': this.parentId.id
+                        }
+                        let options_edit = {
+                            headers: {
+                                'Authorization': `Bearer ${ver}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data),
+                            method: 'PUT'
+                        };
+                        const response= await fetch(edit_country, options_edit);
+                        const info = await response.json();
+                        if (info !== null || info !== undefined) {
+                            location.reload();
+                        }
+                        console.log(info)
+                    } catch (error) {
+                        console.log('could not fetch')
+                    }
+                break;
+                case 'edit-city':
+                    try {
+                        let city = document.getElementById('city-name-input').value;
+                        const data = {
+                            'city_name': city,
+                            'country_id': this.parentId.id,
+                            'id': this.parentAlternatives.id
+                        }
+                        let options_edit = {
+                            headers: {
+                                'Authorization': `Bearer ${ver}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data),
+                            method: 'PUT'
+                        };
+                        const response= await fetch(edit_city, options_edit);
+                        const info = await response.json();
+                        if (info !== null || info !== undefined) {
+                            location.reload();
+                        }
+                        console.log(info)
+                    } catch (error) {
+                        console.log('could not fetch')
+                    }
+                break;
+                case 'delete-region':
+                    if (this.parentId == undefined || this.parentId == null) {
+                    try {
+                        
+                        let options_delete = {
+                            headers: {
+                                'Authorization': `Bearer ${ver}`,
+                                'Content-Type': 'application/json'
+                            },
+                            method: 'DELETE'
+                        };
+                        const response= await fetch(delete_region, options_delete);
+                        const info = await response.json();
+                        if (info !== null || info !== undefined) {
+                            location.reload();
+                        }
+                        console.log(info)
+                    } catch (error) {
+                        console.log('Could Not Delete')
+                    }
+                } else {
+                    alert('First Delete Countries, Cities, Companies and Contacts related to country');
                 }
-            } catch (error) {
-                console.log('could not fetch')
-            }
-        })
+                break;
+                case 'delete-country':
+                    if (this.parentId == undefined || this.parentId == null) {
+                        try {
+                            
+                            let options_delete = {
+                                headers: {
+                                    'Authorization': `Bearer ${ver}`,
+                                    'Content-Type': 'application/json'
+                                },
+                                method: 'DELETE'
+                            };
+                            const response= await fetch(delete_country, options_delete);
+                            const info = await response.json();
+                            if (info !== null || info !== undefined) {
+                                location.reload();
+                            }
+                            console.log(info)
+                        } catch (error) {
+                            console.log('Could Not Delete')
+                        }
+                    }else {
+                        alert('First Delete Cities, Companies and Contacts related to country');
+                    }
+                break;
+                case 'delete-city':
+                    try {
+                        let options_delete = {
+                            headers: {
+                                'Authorization': `Bearer ${ver}`,
+                                'Content-Type': 'application/json'
+                            },
+                            method: 'DELETE'
+                        };
+                        const response= await fetch(delete_city, options_delete);
+                        const info = await response.json();
+                        console.log(info)
+                        if (info !== null || info !== undefined) {
+                            //location.reload();
+                        }
+                    } catch (error) {
+                        console.log('Could Not Delete')
+                    }
+                break;
 
-        //create Country
-
-        document.getElementById('modal-create-region-btn').addEventListener('click', async () => {
-            try {
-                let region = document.getElementById('parent-country').value;
-                let country = document.getElementById('country-name-input').value;
-                const data = {
-                    'country_name': country,
-                    'redion_id': region
-                }
-                let options_create = {
-                    headers: {
-                        'Authorization': `Bearer ${ver}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data),
-                    method: 'POST'
-                };
-                const response= await fetch(create_country, options_create);
-                const info = await response.json();
-                if (info !== null || info !== undefined) {
-                    location.reload();
-                }
-                console.log(info)
-            } catch (error) {
-                console.log('could not fetch')
             }
         })
     }
