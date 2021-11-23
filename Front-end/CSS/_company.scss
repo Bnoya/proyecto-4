@@ -50,24 +50,36 @@
                         justify-content: space-between;
                         margin-top: 5px;
                         font-size: 16px;
+                        input{
+                            width: 30%;
+                        }
                     }
                     .phone{
                         display: flex;
                         justify-content: space-between;
                         margin-top: 5px;
                         font-size: 16px;
+                        input{
+                            width: 30%;
+                        }
                     }
                     .location{
                         display: flex;
                         justify-content: space-between;
                         margin-top: 5px;
                         font-size: 16px;
+                        select{
+                            width: 30.8%;
+                        }
                     }
                     .address{
                         display: flex;
                         justify-content: space-between;
                         margin-top: 5px;
                         font-size: 16px;
+                        input{
+                            width: 30%;
+                        }
                     }
                 }
             }

@@ -39,7 +39,14 @@ async function getCompany() {
             information.city_id = info1[0].city_name;
             array.push(information)
         }
-        const company = new Company (document.getElementById('company'), array);
+
+        let url3 = 'http://localhost:3000/city';
+
+        const responseCi = await fetch(url3, options);
+        const infoCi = await responseCi.json();
+
+
+        const company = new Company (document.getElementById('company'), array, infoCi);
 
     } catch (error) {
         console.log(error);

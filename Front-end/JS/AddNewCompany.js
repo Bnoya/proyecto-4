@@ -1,7 +1,12 @@
+import {getToken} from './getdata.js';
+
 class AddNewCompany {
-    constructor(element, locationType) {
+    constructor(element, Alternatives, parent ,locationType) {
         this.element = element;
+        this.Alternatives = Alternatives
+        this.parent = parent
         this.locationType = locationType;
+
         this.element.classList.add('modal');
         this.element.innerHTML = this.innerHTML();
         this.addeventlisteners();
@@ -16,22 +21,89 @@ class AddNewCompany {
                 <div class='add-new-company'>
                 <div class="company">
                 <label for='company-name-input'>Nombre de la Empresa: </label>
-                <input type="text" id="company-name-input" />
+                <input type="text" id="company-name-input" placeholder='Nueva Empresa .SA' />
                 </div>
                 <div class="phone">
                 <label for='company-phone-input'>Telefono de la Empresa: </label>
-                <input type="text" id="company-phone-input" />
+                <input type="text" id="company-phone-input" placeholder='000-000-0000'/>
                 </div>
                 <div class="location"> 
                 <label for='company-city-input'>Ciudad: </label>
-                <input type="text" id="company-city-input" />
+                <Select name="city" id= "city-id">
+                `
+                for (let i = 0; i < this.Alternatives.length; i++) {
+                    const city = this.Alternatives[i];
+                    inputs += `
+                        <option value="${city.id}"> ${city.city_name} </option>          
+                        `;
+                };
+                inputs +=
+                `
+                </select>
                 </div>
                 <div class="address">
                 <label for='company-address-input'>Direccion de la Empresa: </label>
-                <input type="text" id="company-address-input" />
+                <input type="text" id="company-address-input" placeholder='Direccion de la Empresa' />
                 </div>
                 </div>
                 `;
+            break;
+            case 'edit-company' :
+                console.log(this.Alternatives);
+                heading = 'Editar Compañia';
+
+                inputs = `
+                <div class='oldData'>
+                    <div class='company'>
+                    <label for='company-old-name-input'>Nombre actual de la Empresa: </label>
+                    <label for='company-old-name-input'>${this.Alternatives.company_name}</label>
+                    </div>
+                    <div class='phone'>
+                    <label for='company-old-phone-input'>Telefono actual de la Empresa: </label>
+                    <label for='company-old-phone-input'>${this.Alternatives.company_phone}</label>
+                    </div>
+                    <div class='location'>
+                    <label for='company-old-city-input'>Ciudad actual: </label>
+                    <label for='company-old-city-input'>${this.Alternatives.city_id}</label>
+                    </div>
+                    <div class='address'>
+                    <label for='company-old-address-input'>Direccion actual de la Empresa: </label>
+                    <label for='company-old-address-input'>${this.Alternatives.company_address} </label>
+                    </div>
+                </div>
+                <div class='edit-new-company'>
+                <div class="company">
+                <label for='company-name-input'>Nombre de la Empresa: </label>
+                <input type="text" id="company-name-input" placeholder='Nueva Empresa .SA' />
+                </div>
+                <div class="phone">
+                <label for='company-phone-input'>Telefono de la Empresa: </label>
+                <input type="text" id="company-phone-input" placeholder='000-000-0000'/>
+                </div>
+                <div class="location"> 
+                <label for='company-city-input'>Ciudad: </label>
+                <Select name="city" id= "city-id">
+                `
+                for (let i = 0; i < this.parent.length; i++) {
+                    const city = this.parent[i];
+                    inputs += `
+                        <option value="${city.id}"> ${city.city_name} </option>          
+                        `;
+                };
+                inputs +=
+                `
+                </select>
+                </div>
+                <div class="address">
+                <label for='company-address-input'>Direccion de la Empresa: </label>
+                <input type="text" id="company-address-input" placeholder='Direccion de la Empresa' />
+                </div>
+                </div>
+                `
+            break;
+
+            case 'delete-company':
+                alert('Delete Company');
             break;
         }
         return(`
@@ -54,7 +126,47 @@ class AddNewCompany {
         });
 
         document.getElementById('modal-create-company-btn').addEventListener('click', async () =>{
-            console.log('Cargar Nueva Empresa');
+            let city_id = document.getElementById('city-id').value;
+            let company_name = document.getElementById('company-name-input').value;
+            let company_phone = document.getElementById('company-phone-input').value;
+            let company_address = document.getElementById('company-address-input').value;
+            
+            if (city_id == '' || company_name == '' || company_phone == '' || company_address ) {
+                alert('Todos los campos deben estar completos para cargar una nueva compania.');
+            }else {
+                let create_company = 'http://localhost:3000/create-company';
+                let rToken = getToken();
+                let ver = rToken.substring(0, rToken.length - 1);
+                try {
+                    const data = {
+                        "city_id": city_id,
+                        "company_name": company_name,
+                        "company_address": company_address,
+                        "phone": company_phone
+                    }
+                    console.log(data)
+                    let options_create = {
+                        headers: {
+                            'Authorization': `Bearer ${ver}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data),
+                        method: 'POST'
+                    };
+                    console.log(options_create);
+
+                    const response= await fetch(create_company, options_create);
+                    console.log(response)
+                    const info = await response.json();
+                    if (info !== null || info !== undefined) {
+                        location.reload();
+                    }
+                    console.log(info)
+                } catch (error) {
+                    console.log('could not fetch')
+                }
+            }
+            
         })
     }
 }

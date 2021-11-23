@@ -320,6 +320,12 @@ app.post('/create-contactChannel', async (req, res) => {
     }
 });
 
+//Channel Type
+
+app.get('/Channeltype', async (req, res) => {
+    const channelType = await db.channelType.querryAll();
+        res.send(channelType);
+});
 
 app.listen(3000, () => {
     console.log('Listening on port 3000');

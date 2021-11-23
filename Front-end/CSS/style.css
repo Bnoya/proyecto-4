@@ -571,6 +571,7 @@
   border-radius: 6px;
   height: 80%;
   padding-left: 5px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .lastCont {
@@ -588,6 +589,7 @@
   border-radius: 6px;
   height: 80%;
   padding-left: 5px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .jobCont {
@@ -605,6 +607,7 @@
   border-radius: 6px;
   height: 80%;
   padding-left: 5px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .emailCont {
@@ -622,6 +625,7 @@
   border-radius: 6px;
   height: 80%;
   padding-left: 5px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .companyCont {
@@ -639,6 +643,7 @@
   border-radius: 6px;
   height: 80%;
   padding-left: 5px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData {
@@ -673,6 +678,7 @@
   border-radius: 6px;
   width: 150px;
   height: 80%;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .countryCont {
@@ -689,6 +695,7 @@
   border-radius: 6px;
   width: 150px;
   height: 80%;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .cityCont {
@@ -705,6 +712,7 @@
   border-radius: 6px;
   height: 80%;
   width: 150px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .addressCont {
@@ -722,6 +730,7 @@
   height: 80%;
   width: 150px;
   padding-left: 5px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .intrestCont {
@@ -734,10 +743,15 @@
           flex-direction: column;
 }
 
+.contacts-window .fullsize .newCard .addContact .secondaryData .intrestCont .inputCont {
+  height: 80%;
+}
+
 .contacts-window .fullsize .newCard .addContact .secondaryData .intrestCont .inputCont select {
   border-radius: 6px;
-  height: 80%;
   width: 150px;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData {
@@ -774,6 +788,7 @@
   border-radius: 6px;
   width: 150px;
   height: 80%;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .userAccount {
@@ -792,6 +807,7 @@
   width: 150px;
   height: 80%;
   padding-left: 5px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .preffCont {
@@ -809,6 +825,7 @@
   border-radius: 6px;
   width: 150px;
   height: 80%;
+  font-family: "Open Sans", sans-serif;
 }
 
 .contacts-window .fullsize .newCard .addContact .thirdData .addCont {
@@ -1812,6 +1829,10 @@
   font-size: 16px;
 }
 
+.MainCont .modal .modal-content .modal-form .add-new-company .company input {
+  width: 30%;
+}
+
 .MainCont .modal .modal-content .modal-form .add-new-company .phone {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1821,6 +1842,10 @@
           justify-content: space-between;
   margin-top: 5px;
   font-size: 16px;
+}
+
+.MainCont .modal .modal-content .modal-form .add-new-company .phone input {
+  width: 30%;
 }
 
 .MainCont .modal .modal-content .modal-form .add-new-company .location {
@@ -1834,6 +1859,10 @@
   font-size: 16px;
 }
 
+.MainCont .modal .modal-content .modal-form .add-new-company .location select {
+  width: 30.8%;
+}
+
 .MainCont .modal .modal-content .modal-form .add-new-company .address {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1843,6 +1872,10 @@
           justify-content: space-between;
   margin-top: 5px;
   font-size: 16px;
+}
+
+.MainCont .modal .modal-content .modal-form .add-new-company .address input {
+  width: 30%;
 }
 
 .MainCont .modal .modal-content .btn-grp {

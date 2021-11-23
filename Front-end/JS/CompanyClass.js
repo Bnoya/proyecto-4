@@ -1,8 +1,9 @@
 import {AddNewCompany} from './AddNewCompany.js'
 class Company {
-    constructor(element, info) {
+    constructor(element, info, city) {
 
         this.element = element
+        this.city = city
         this.element.innerHTML = this.companyConstructor(info)
         this.element.innerHTML = this.element.innerHTML +
         `
@@ -13,7 +14,7 @@ class Company {
         </div>
         `
         this.element.classList.add('Companies', 'container');
-        this.addEventListener();
+        this.addEventListener(info);
         }
 
     companyConstructor(info) {
@@ -44,12 +45,24 @@ class Company {
             return(companyHTML)
         
     }
-    addEventListener(){
+    addEventListener(info){
         let container = document.getElementById('modal');
+        
+
         document.getElementById('add-company').addEventListener('click', async () => {
-            new AddNewCompany(container, 'add-company')
-            console.log('Add Company');
+            new AddNewCompany(container, this.city, null , 'add-company')
         })
+        for (let i = 0; i < info.length; i++) {
+            let Ninfo = info[i]
+            document.getElementById(`edit-region-${Ninfo.id}`).addEventListener('click', async () => {
+                console.log(`Edit - Company ${Ninfo.id}`);
+                new AddNewCompany(container, Ninfo, this.city , 'edit-company')
+            });
+            document.getElementById(`delete-region-${Ninfo.id}`).addEventListener('click', async () => {
+                console.log(`Delete - Company ${Ninfo.id}`);
+
+            })
+        }
     }
 }
 export {Company}

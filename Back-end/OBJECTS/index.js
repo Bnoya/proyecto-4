@@ -31,6 +31,7 @@ db.location = new Location(sequelize);
 const ContactChannel = require('./contactChannel.js');
 db.contactChannel = new ContactChannel(sequelize);
 
-
+const ChannelType = require('./ChannelType.js');
+db.channelType = new ChannelType(sequelize);
 
 module.exports = db;
