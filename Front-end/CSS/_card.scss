@@ -2,7 +2,7 @@
 .contacts-window{
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
-    margin-top: 120px;
+    margin-top: 30px;
     background-color: $grey;
     .fullsize{
         z-index: 1000;
@@ -25,20 +25,10 @@
             align-self: center;
             justify-content: center;
             width: 68%;
-            .cross{
-                display: flex;
-                justify-content: flex-end;
-                align-items: flex-start;
-                margin-right: -10%;
-                z-index: 1005;
-                i{
-                    width: 14px;
-                    height: 14px;
-                    color: $white;
-                }
-            }
+            
             .addContact{
                 background-color: $white;
+                border-radius: 6px;
                 .importantData{
                     display: flex;
                     flex-direction: row;
@@ -47,6 +37,8 @@
                     height: 50px;
                     padding-bottom: 10px;
                     padding-top: 15px;
+                    border-top-left-radius: 6px;
+                    border-top-right-radius: 6px;
                     img{
                         width: 8%;
                         height: 8%;

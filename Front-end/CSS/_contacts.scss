@@ -10,6 +10,7 @@
     .search-bar{
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
         margin-top: 21px;
         justify-content: space-between;
         margin-right: 2%;
@@ -19,20 +20,27 @@
             display: flex;
             flex-direction: row;
             .bar{
-                width: 502px;
+                width: 500px;
                 height: 41px;
                 border: 1px solid #e8e8e8;
                 border-radius: 4px;
-    
+                display: flex;
+                flex-wrap: nowrap;
                 input{
-                    width: 475px;
+                    width: 100%;
                     height: 41px;
                     border: none;
                     font-size: 20px;
+                    //padding-right: 5px;
+                    &:focus{
+                        border-color: transparent;
+                    }
                 }
                 i{
-                    margin-left: 5px;
-                    margin-top: -10px;
+                    display: flex;
+                    align-items: center;
+                    margin-left: -20px;
+                    //margin-top: -10px;
                     padding-top: -5px;
                     color: #e8e8e8;
                 }
@@ -50,6 +58,12 @@
                 i{
                     color: #0683F9;
                     font-size: 17px;
+                }
+                &:hover{
+                    background-color: $secondBlue;
+                    i{
+                        color: $white;
+                    }
                 }
             }
         }
@@ -71,7 +85,12 @@
                     i{
                         color: #0683F9;
                         font-size: 18px;
-
+                    }
+                    &:hover{
+                        background-color: $secondBlue;
+                    i{
+                        color: $white;
+                    }
                     }
                 }
                 .export{
@@ -92,21 +111,37 @@
                         margin-left: 10px;
                         color: #0683F9;
                     }
+                    &:hover{
+                        background-color: $secondBlue;
+                        h3{
+                            color: $white;
+                        }
+                    i{
+                        color: $white;
+                    }
+                    }
                 }
                 .addContact{
                     width: 172px;
                     height: 41px;
-                    border: 1.5px solid #0683F9 ;
+                    border: 1.5px solid $mainBlue ;
                     border-radius: 3px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background-color: #1d72c2;
+                    background-color: $mainBlue;
                     h3{
                         font-family: 'Open Sans', sans-serif;
                         font-weight: normal;
                         font-size: 14px;
                         color: #e8e8e8;
+                    }
+                    &:hover{
+                        background-color: $secondBlue;
+                        border-color: $secondBlue;
+                    h3{
+                        color: $white;
+                    }
                     }
                 }
             }
@@ -128,13 +163,15 @@
         height: 12.8px;
         align-items: flex-end;
         margin-top: 6px;
+        margin-left: -0.3%;
+        margin-right: 0.3%;
     }
     .contact{
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        width: 18.3%;
+        width: 12%;
         h4{
             margin-right: 15px;
             font-family: 'Open Sans', sans-serif;
@@ -211,6 +248,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+        align-items: center;
         width: 6%;
         h4{
             font-family: 'Open Sans', sans-serif;

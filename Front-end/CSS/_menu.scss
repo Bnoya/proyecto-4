@@ -46,6 +46,9 @@
                     font-size: 16px;
                     font-family: 'Open Sans', sans-serif;
                     height: 100%;
+                    &:hover{
+                        cursor: pointer;
+                    }
                 }
                 
                 a{
@@ -56,6 +59,9 @@
                     font-size: 16px;
                     font-family: 'Open Sans', sans-serif;
                     height: 100%;
+                    &:hover{
+                        cursor: pointer;
+                    }
                 }
                 
             }

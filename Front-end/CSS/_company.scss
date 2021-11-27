@@ -36,12 +36,13 @@
             }
             .modal-form{
                 display: flex;
-                flex-flow: row, wrap;
+                flex-direction: column;
+                flex-wrap:wrap;
                 padding-top: 27px;
-                padding-bottom: 27px;
+                //padding-bottom: 15px;
                 font-family: $openSans;
                 .add-new-company{
-                    width: 100%;
+                    //width: 100%;
                     padding-left: 10px;
                     padding-right: 10px;
 
@@ -52,6 +53,7 @@
                         font-size: 16px;
                         input{
                             width: 30%;
+                            align-items: center;
                         }
                     }
                     .phone{
@@ -61,6 +63,7 @@
                         font-size: 16px;
                         input{
                             width: 30%;
+                            align-items: center;
                         }
                     }
                     .location{
@@ -70,6 +73,7 @@
                         font-size: 16px;
                         select{
                             width: 30.8%;
+                            align-items: center;
                         }
                     }
                     .address{
@@ -79,6 +83,101 @@
                         font-size: 16px;
                         input{
                             width: 30%;
+                            align-items: center;
+                        }
+                    }
+                }
+                .all_data{
+                    .oldData{
+                        //width: 100%;
+                        padding-left: 10px;
+                        padding-right: 10px;
+    
+                        .company{
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 5px;
+                            font-size: 16px;
+                            input{
+                                width: 30%;
+                                align-items: center;
+                            }
+                        }
+                        .phone{
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 5px;
+                            font-size: 16px;
+                            input{
+                                width: 30%;
+                                align-items: center;
+                            }
+                        }
+                        .location{
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 5px;
+                            font-size: 16px;
+                            select{
+                                width: 30.8%;
+                                align-items: center;
+                            }
+                        }
+                        .address{
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 5px;
+                            font-size: 16px;
+                            input{
+                                width: 30%;
+                                align-items: center;
+                            }
+                            .edit-new-company{
+                            width: 100%;
+                            padding-left: 10px;
+                            padding-right: 10px;
+        
+                            .company{
+                                display: flex;
+                                justify-content: space-between;
+                                margin-top: 5px;
+                                font-size: 16px;
+                                input{
+                                    width: 30%;
+                                    align-items: center;
+                                }
+                            }
+                            .phone{
+                                display: flex;
+                                justify-content: space-between;
+                                margin-top: 5px;
+                                font-size: 16px;
+                                input{
+                                    width: 30%;
+                                    align-items: center;
+                                }
+                            }
+                            .location{
+                                display: flex;
+                                justify-content: space-between;
+                                margin-top: 5px;
+                                font-size: 16px;
+                                select{
+                                    width: 30.8%;
+                                    align-items: center;
+                                }
+                            }
+                            .address{
+                                display: flex;
+                                justify-content: space-between;
+                                margin-top: 5px;
+                                font-size: 16px;
+                                input{
+                                    width: 30%;
+                                    align-items: center;
+                                }
+                            }
+                        }
                         }
                     }
                 }
@@ -87,7 +186,8 @@
                 display: flex;
                 justify-content: flex-end;
                 margin-bottom: 15px;
-                height: 10%;
+                margin-top: 15px;
+                height: 12%;
                 .btn-primary{
                     font-family: $openSans;
                     background-color: $mainBlue;
@@ -149,7 +249,7 @@
             .Haddress{
                 font-family: $openSans;
                 margin-left: 5%;
-                width: 10%;
+                width: 15%;
             }
             .Hphone{
                 font-family: $openSans;
@@ -191,7 +291,7 @@
                 .address{
                     font-family: $openSans;
                     margin-left: 5%;
-                    width: 10%;
+                    width: 15%;
                 }
                 .phone{
                     font-family: $openSans;

@@ -36,10 +36,18 @@ const authenticateUser = (req, res, next) => {
 }
 
 const isAdmin = (req, res, next) => {
-    if (req.user.userRole != 1) {
-        res.status(404).send({message:'unAuthorized user'});
+    const SecurePaths = ['/create-user'];
+    if (SecurePaths.includes(req.path)){
+        const authHead = req.headers['authorization'];
+        if (authHead) {
+            if (req.user.userRole != 1) {
+                res.status(404).send({message:'unAuthorized user'});
+            } else {
+                next();
+            }
+        }
     } else {
-        next();
+        return next();
     }
 }
 
@@ -233,6 +241,22 @@ app.post('/create-company', async (req, res) => {
         res.status(201).send({message: 'Company Created'})
     }
 });
+app.delete('/delete-company/:id', async (req, res) => {
+    const deleteCompany = await db.company.deleteCompany(req.params.id);
+    if (deleteCompany == false){
+        res.status(500).send({message: 'couldnt delete Company'})
+    } else {
+        res.status(201).send({message: 'Company Deleted'})
+    }
+});
+app.put('/edit-company', async (req, res)=> {
+    const editCompany = await db.company.updateCompany(req.body);
+    if (editCompany == false) {
+        res.status(500).send({message: 'Couldnt update Company'})
+    } else{
+        res.status(201).send({message: 'Company Updated'})
+    }
+})
 
 
 // Contacts routs 
@@ -325,6 +349,13 @@ app.post('/create-contactChannel', async (req, res) => {
 app.get('/Channeltype', async (req, res) => {
     const channelType = await db.channelType.querryAll();
         res.send(channelType);
+});
+
+app.get('/Channeltype/:id', async (req, res) => {
+    console.log('entre a la ruta')
+    console.log(req.params.id);
+    const channelType = await db.channelType.querryById(req.params.id);
+    res.send(channelType);
 });
 
 app.listen(3000, () => {

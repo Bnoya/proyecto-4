@@ -11,11 +11,28 @@ class CreateRows {
         this.element.classList.add( 'container');
         }
 
+        
     companyConstructor(info) {
 
         let companyHTML = ''
         for (let i = 0; i < info.length; i++) {
+            let fillColor;
             let Ninfo = info[i]
+            switch (true) {
+                case (Ninfo.interest < 26):
+                    fillColor = '#1CC1F5';
+                break;
+                case (Ninfo.interest <51) :
+                    fillColor = '#FFC700';
+                break;
+                case (Ninfo.interest <76):
+                    fillColor ='#FF6F00';
+                break;
+                case (Ninfo.interest >= 77):
+                    fillColor = '#DE0028';
+                break;
+
+            }
             companyHTML = companyHTML + `
             <div class="row" id="rowSelector">
                 <div class="checkbox">
@@ -50,8 +67,15 @@ class CreateRows {
                     
                 </div>
                 <div class="interest">
-                    <h4>${Ninfo.interest}</h4>
-                    
+                    <div class='interest-bar'>
+                        <div class='text'>
+                        <span>${Ninfo.interest}%</span>
+                        </div>
+                        <div class='bar'>
+                            <div class='background'></div>
+                            <div class='fill-bar' style= 'width: ${Ninfo.interest}%; background-color: ${fillColor}'></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="actions" id='act-${Ninfo.id}'>
                     <h4><i class="fas fa-ellipsis-h"></i></h4>

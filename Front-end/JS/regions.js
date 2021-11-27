@@ -1,6 +1,10 @@
 
 import {Location} from './locationConst.js';
 
+document.getElementById('contactsBt').addEventListener('click', () =>{
+    window.location.href = '/Front-end/index.html';
+});
+
 function getToken() {
     let token = localStorage.getItem('token')
     if (token == null){

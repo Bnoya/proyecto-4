@@ -1,4 +1,5 @@
-import {AddNewCompany} from './AddNewCompany.js'
+import {AddNewCompany} from './AddNewCompany.js';
+import {getToken} from './getdata.js';
 class Company {
     constructor(element, info, city) {
 
@@ -59,10 +60,32 @@ class Company {
                 new AddNewCompany(container, Ninfo, this.city , 'edit-company')
             });
             document.getElementById(`delete-region-${Ninfo.id}`).addEventListener('click', async () => {
+                let rToken = getToken();
+                let ver = rToken.substring(0, rToken.length - 1);
                 console.log(`Delete - Company ${Ninfo.id}`);
-
+                let delete_company = `http://localhost:3000/delete-company/${Ninfo.id}`;
+                try {
+                    let options_delete = {
+                        headers: {
+                            'Authorization': `Bearer ${ver}`,
+                            'Content-Type': 'application/json'
+                        },
+                        method: 'DELETE'
+                    };
+                    console.log(options_delete);
+                    const response= await fetch(delete_company, options_delete);
+                    const info = await response.json();
+                    console.log(info)
+                    if (info !== null || info !== undefined) {
+                        location.reload();
+                    }
+                } catch (error) {
+                    console.log('Could Not Delete')
+                }
             })
         }
+        
     }
+
 }
 export {Company}

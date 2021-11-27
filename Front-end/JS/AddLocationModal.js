@@ -9,7 +9,7 @@ class AddLocationModal {
         this.element = element;
         this.element.classList.add('modal');
         this.element.innerHTML = this.innerHTML();
-        this.addeventlisteners(this.parentAlternatives.id);
+        this.addeventlisteners();
     }
 
     innerHTML() {
@@ -381,7 +381,7 @@ class AddLocationModal {
                         };
                         const response= await fetch(delete_region, options_delete);
                         const info = await response.json();
-                        if (info !== null || info !== undefined) {
+                        if (info != null || info != undefined) {
                             location.reload();
                         }
                         console.log(info)
@@ -440,5 +440,6 @@ class AddLocationModal {
         })
     }
 }
+
 
 export {AddLocationModal}

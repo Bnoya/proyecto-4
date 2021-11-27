@@ -6,6 +6,12 @@ class ChannelType {
         const ChannelType = await this.sequelize.query('SELECT id, channel FROM contact_channel_type', {type: this.sequelize.QueryTypes.SELECT});
         return ChannelType;
     }
+    async querryById(id) {
+        const ChannelType = await this.sequelize.query('SELECT id, channel FROM contact_channel_type WHERE id = :id', {
+            replacements: {id: id},
+            type: this.sequelize.QueryTypes.SELECT});
+        return ChannelType;
+    }
     async createChannelType(channel) {
         try {
             const querry = await this.sequelize.query('INSERT INTO contact_channel_type (channel) VALUES (:channel)', 

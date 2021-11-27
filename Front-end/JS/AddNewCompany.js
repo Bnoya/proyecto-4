@@ -53,23 +53,23 @@ class AddNewCompany {
                 heading = 'Editar Compañia';
 
                 inputs = `
+                <div class='all_data'>
                 <div class='oldData'>
-                    <div class='company'>
-                    <label for='company-old-name-input'>Nombre actual de la Empresa: </label>
-                    <label for='company-old-name-input'>${this.Alternatives.company_name}</label>
-                    </div>
-                    <div class='phone'>
-                    <label for='company-old-phone-input'>Telefono actual de la Empresa: </label>
-                    <label for='company-old-phone-input'>${this.Alternatives.company_phone}</label>
-                    </div>
-                    <div class='location'>
-                    <label for='company-old-city-input'>Ciudad actual: </label>
-                    <label for='company-old-city-input'>${this.Alternatives.city_id}</label>
-                    </div>
-                    <div class='address'>
-                    <label for='company-old-address-input'>Direccion actual de la Empresa: </label>
-                    <label for='company-old-address-input'>${this.Alternatives.company_address} </label>
-                    </div>
+                <div class='company'>
+                <label for='company-old-name-input'>Nombre actual de la Empresa: </label>
+                <label for='company-old-name-input'>${this.Alternatives.company_name}</label>
+                </div>
+                <div class='phone'>
+                <label for='company-old-phone-input'>Telefono actual de la Empresa: </label>
+                <label for='company-old-phone-input'>${this.Alternatives.phone}</label>
+                </div>
+                <div class='location'>
+                <label for='company-old-city-input'>Ciudad actual: </label>
+                <label for='company-old-city-input'>${this.Alternatives.city_id}</label>
+                </div>
+                <div class='address'>
+                <label for='company-old-address-input'>Direccion actual de la Empresa: </label>
+                <label for='company-old-address-input'>${this.Alternatives.company_address} </label>
                 </div>
                 <div class='edit-new-company'>
                 <div class="company">
@@ -83,6 +83,8 @@ class AddNewCompany {
                 <div class="location"> 
                 <label for='company-city-input'>Ciudad: </label>
                 <Select name="city" id= "city-id">
+                </div>
+                </div>
                 `
                 for (let i = 0; i < this.parent.length; i++) {
                     const city = this.parent[i];
@@ -131,42 +133,82 @@ class AddNewCompany {
             let company_phone = document.getElementById('company-phone-input').value;
             let company_address = document.getElementById('company-address-input').value;
             
-            if (city_id == '' || company_name == '' || company_phone == '' || company_address ) {
-                alert('Todos los campos deben estar completos para cargar una nueva compania.');
-            }else {
-                let create_company = 'http://localhost:3000/create-company';
+            switch (this.locationType) {
+                case 'add-company':
                 let rToken = getToken();
                 let ver = rToken.substring(0, rToken.length - 1);
-                try {
-                    const data = {
-                        "city_id": city_id,
-                        "company_name": company_name,
-                        "company_address": company_address,
-                        "phone": company_phone
-                    }
-                    console.log(data)
-                    let options_create = {
-                        headers: {
-                            'Authorization': `Bearer ${ver}`,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data),
-                        method: 'POST'
-                    };
-                    console.log(options_create);
+                if (city_id == '' || company_name == '' || company_phone == '' || company_address =='' ) {
+                    alert('Todos los campos deben estar completos para cargar una nueva compania.');
+                }else {
+                    let create_company = 'http://localhost:3000/create-company';
+                    try {
+                        const data = {
+                            "city_id": city_id,
+                            "company_name": company_name,
+                            "company_address": company_address,
+                            "phone": company_phone
+                        }
+                        console.log(data)
+                        let options_create = {
+                            headers: {
+                                'Authorization': `Bearer ${ver}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data),
+                            method: 'POST'
+                        };
+                        console.log(options_create);
 
-                    const response= await fetch(create_company, options_create);
-                    console.log(response)
-                    const info = await response.json();
-                    if (info !== null || info !== undefined) {
-                        location.reload();
+                        const response= await fetch(create_company, options_create);
+                        console.log(response)
+                        const info = await response.json();
+                        if (info !== null || info !== undefined) {
+                            location.reload();
+                        }
+                        console.log(info)
+                    } catch (error) {
+                        console.log('could not fetch')
                     }
-                    console.log(info)
-                } catch (error) {
-                    console.log('could not fetch')
                 }
+                break;
+                case 'edit-company' :
+                    let PToken = getToken();
+                    let Per = PToken.substring(0, PToken.length - 1);
+                    if (city_id == '' || company_name == '' || company_phone == '' || company_address =='' ) {
+                        alert('Todos los campos deben estar completos para editar compania.');
+                    }else {
+                        let create_company = 'http://localhost:3000/edit-company';
+                        try {
+                            const data = {
+                                "city_id": city_id,
+                                "company_name": company_name,
+                                "company_address": company_address,
+                                "phone": company_phone,
+                                "id": this.Alternatives.id
+                            }
+                            let options_create = {
+                                headers: {
+                                    'Authorization': `Bearer ${Per}`,
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(data),
+                                method: 'PUT'
+                            };
+                            console.log(options_create);
+    
+                            const response= await fetch(create_company, options_create);
+                            console.log(response)
+                            const info = await response.json();
+                            if (info != null || info != undefined) {
+                                location.reload();
+                            }
+                            console.log(info)
+                        } catch (error) {
+                            console.log('could not fetch')
+                        }
+                    }
+                break;
             }
-            
         })
     }
 }

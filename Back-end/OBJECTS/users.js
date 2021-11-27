@@ -51,7 +51,7 @@ class User {
         // now we set user password to hashed password
         
         const hashedPassword = await bcrypt.hash(userData.pass, salt);
-        const query = ` INSERT INTO users (first_name, last_name, user_role, pass, username) VALUES (:first_name, :last_name, :user_role, :pass, :username);`
+        const query = ` INSERT INTO users (first_name, last_name, user_role, pass, username, Email) VALUES (:first_name, :last_name, :user_role, :pass, :username, :Email);`
         try {            
             const queryed = await this.sequelize.query(
                 query,
@@ -61,7 +61,8 @@ class User {
                         last_name: userData.last_name, 
                         user_role:  0, 
                         pass: hashedPassword, 
-                        username: userData.username },
+                        username: userData.username, 
+                        Email: userData.Email},
                     type: this.sequelize.QueryTypes.INSERT
                 })
             return queryed;

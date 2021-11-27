@@ -4,7 +4,6 @@ class Contact {
         this.element.innerHTML = `
         <div class='fullsize'>
         <div class='newCard'>
-        <div class='cross'><i class="fas fa-times"></i></div>
         <form class='addContact'>
                 <div class="importantData">
                     <img class='imgCont'>
@@ -97,6 +96,11 @@ class Contact {
         `
         this.element.classList.add('contacts-window');
         document.getElementById(`contacts${selectedOption}`).classList.add('selected');
+        this.addEventListeners();
+    }
+
+    addEventListeners(){
+        
     }
 }
 
