@@ -40,9 +40,10 @@
                     border-top-left-radius: 6px;
                     border-top-right-radius: 6px;
                     img{
-                        width: 8%;
-                        height: 8%;
-                        border-radius: 25%;
+                        width: 5%;
+                        
+                        border-radius: 55%;
+                        background-color: $black;
                     }
                     .nameCont{
                         display: flex;

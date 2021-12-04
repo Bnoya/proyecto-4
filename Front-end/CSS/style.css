@@ -133,7 +133,7 @@
 }
 
 .first-area .search-bar .left {
-  width: 600px;
+  width: 48%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -326,6 +326,184 @@
 
 .first-area .search-bar .right .buttons .addContact:hover h3 {
   color: #ffffff;
+}
+
+.first-area .filter {
+  width: 100%;
+  margin-left: 2%;
+  position: relative;
+}
+
+.first-area .filter .filterContainer {
+  position: absolute;
+  display: block;
+  background-color: #ffffff;
+  width: 33.23%;
+  border: solid 1px #e8e8e8;
+  margin-top: 0.3%;
+}
+
+.first-area .filter .filterContainer .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  padding-left: 2%;
+  padding-right: 2%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+
+.first-area .filter .filterContainer .options .contactName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 2%;
+}
+
+.first-area .filter .filterContainer .options .contactName label {
+  width: 42%;
+}
+
+.first-area .filter .filterContainer .options .contactName input {
+  width: 58%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  border: none;
+  border-bottom: solid 1px #e8e8e8;
+  padding-left: 5px;
+  outline: none;
+}
+
+.first-area .filter .filterContainer .options .job {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 4%;
+}
+
+.first-area .filter .filterContainer .options .job label {
+  width: 42%;
+}
+
+.first-area .filter .filterContainer .options .job input {
+  width: 58%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  border: none;
+  border-bottom: solid 1px #e8e8e8;
+  padding-left: 5px;
+  outline: none;
+}
+
+.first-area .filter .filterContainer .options .country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 4%;
+}
+
+.first-area .filter .filterContainer .options .country label {
+  width: 42%;
+}
+
+.first-area .filter .filterContainer .options .country select {
+  width: 40%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.first-area .filter .filterContainer .options .company {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 4%;
+}
+
+.first-area .filter .filterContainer .options .company label {
+  width: 42%;
+}
+
+.first-area .filter .filterContainer .options .company select {
+  width: 40%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.first-area .filter .filterContainer .options .channel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 4%;
+}
+
+.first-area .filter .filterContainer .options .channel label {
+  width: 42%;
+}
+
+.first-area .filter .filterContainer .options .channel select {
+  width: 40%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.first-area .filter .filterContainer .options .interest {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.first-area .filter .filterContainer .options .interest label {
+  width: 42%;
+}
+
+.first-area .filter .filterContainer .options .interest select {
+  width: 40%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .list {
@@ -600,9 +778,9 @@
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData img {
-  width: 8%;
-  height: 8%;
-  border-radius: 25%;
+  width: 5%;
+  border-radius: 55%;
+  background-color: #000000;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .nameCont {
@@ -1099,26 +1277,59 @@
   padding-top: 3%;
 }
 
-.createUser .create {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.createUser .window {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.createUser .create .form {
-  width: 350px;
+.createUser .window .create {
+  position: absolute;
+  background-color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  border-radius: 5px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 35%;
+  height: auto;
+  margin-top: -50px;
+}
+
+.createUser .window .create .form {
+  width: 100%;
   border: solid 2px #1D72C2;
   background-color: #ffffff;
   padding-left: 15px;
   padding-right: 15px;
-  height: 375px;
+  height: 400px;
 }
 
-.createUser .create .form .title {
+.createUser .window .create .form .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1140,7 +1351,7 @@
   margin-right: -16px;
 }
 
-.createUser .create .form .name {
+.createUser .window .create .form .name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1158,12 +1369,12 @@
   color: #000000;
 }
 
-.createUser .create .form .name input {
+.createUser .window .create .form .name input {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
 
-.createUser .create .form .last {
+.createUser .window .create .form .last {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1177,12 +1388,12 @@
   color: #000000;
 }
 
-.createUser .create .form .last input {
+.createUser .window .create .form .last input {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
 
-.createUser .create .form .email {
+.createUser .window .create .form .email {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1196,12 +1407,12 @@
   color: #000000;
 }
 
-.createUser .create .form .email input {
+.createUser .window .create .form .email input {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
 
-.createUser .create .form .user {
+.createUser .window .create .form .user {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1215,12 +1426,12 @@
   color: #000000;
 }
 
-.createUser .create .form .user input {
+.createUser .window .create .form .user input {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
 
-.createUser .create .form .password1 {
+.createUser .window .create .form .password1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1234,12 +1445,12 @@
   color: #000000;
 }
 
-.createUser .create .form .password1 input {
+.createUser .window .create .form .password1 input {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
 
-.createUser .create .form .password2 {
+.createUser .window .create .form .password2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1255,29 +1466,34 @@
   color: #000000;
 }
 
-.createUser .create .form .password2 label {
+.createUser .window .create .form .password2 label {
   width: 75px;
 }
 
-.createUser .create .form .password2 input {
+.createUser .window .create .form .password2 input {
   height: 25px;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
 
-.createUser .create .form .create {
+.createUser .window .create .form .create {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
-.createUser .create .form .create button {
+.createUser .window .create .form .create button {
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   height: 35px;
@@ -1285,11 +1501,192 @@
   background-color: #8ec7fc;
   color: #ffffff;
   border-radius: 10px;
+  margin-right: 15px;
 }
 
-.createUser .create .form .create button:hover {
+.createUser .window .create .form .create button:hover {
   background-color: #1D72C2;
+  color: #ffffff;
+}
+
+.createUser .headCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.createUser .headCont .table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 20px;
+  background-color: #1D72C2;
+  height: 50px;
+  color: #ffffff;
+  font-size: 16px;
+  padding-top: 20px;
+  border-radius: 15px;
+}
+
+.createUser .headCont .table .HUser {
+  font-family: "Open Sans", sans-serif;
+  width: 10%;
+  margin-left: 2%;
+}
+
+.createUser .headCont .table .Hname {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 10%;
+}
+
+.createUser .headCont .table .HlastName {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 10%;
+}
+
+.createUser .headCont .table .Hmail {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 20%;
+}
+
+.createUser .headCont .table .Hbuttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 5%;
+  width: 10%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: "Open Sans", sans-serif;
+}
+
+.createUser .headCont .modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.createUser .headCont .modal .user-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-top: solid 1px #e8e8e8;
+  height: 50px;
   color: #000000;
+  font-size: 16px;
+  padding-top: 20px;
+  border-radius: 15px;
+}
+
+.createUser .headCont .modal .user-row .user {
+  font-family: "Open Sans", sans-serif;
+  width: 10%;
+  margin-left: 2%;
+}
+
+.createUser .headCont .modal .user-row .name {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 10%;
+}
+
+.createUser .headCont .modal .user-row .lastName {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 10%;
+}
+
+.createUser .headCont .modal .user-row .email {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5%;
+  width: 20%;
+}
+
+.createUser .headCont .modal .user-row .edit-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 5%;
+  width: 10%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: "Open Sans", sans-serif;
+}
+
+.createUser .headCont .modal .user-row .edit-button .icon:hover {
+  color: #1D72C2;
+}
+
+.createUser .headCont .add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 2%;
+  margin-bottom: 50px;
+}
+
+.createUser .headCont .add .button {
+  background-color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  width: 150px;
+  border-radius: 10px;
+  color: #0683f9;
+  border-color: #0683f9;
+}
+
+.createUser .headCont .add .button:hover {
+  color: #ffffff;
+  background-color: #0683f9;
+  cursor: pointer;
 }
 
 .selector .location {

@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Front-end/CSS/style.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7b7f344aa2.js" crossorigin="anonymous"></script>
     <title>Datawarehouse</title>
 </head>
 <body>
@@ -23,39 +26,32 @@
         </div>
     </header>
     <main class="createUser">
-        <div class="create">
-            <form class="form">
-                <div class="title">
-                    <h3>Crear Usuario</h3>
+        <div id="modal" class="createUser"></div>
+        <div class="headCont">
+
+            <div class="table">
+                <div class="HUser">
+                    <h2>Usuario</h2>
                 </div>
-                <div class="name">
-                    <label for="name">Nombre: </label>
-                    <input type="text" name="name" id="user_name">
+                <div class="Hname">
+                    <h2>Nombre</h2>
                 </div>
-                <div class="last">
-                    <label for="last">Apellido: </label>
-                    <input type="text" name="last" id="last_name">
+                <div class="HlastName">
+                    <h2>Apellido</h2>
                 </div>
-                <div class="email">
-                    <label for="email">Email: </label>
-                    <input type="text" name="email" id="email">
+                <div class="Hmail">
+                    <h2>Email</h2>
                 </div>
-                <div class="user">
-                    <label for="user">Usuario: </label>
-                    <input type="text" name="user" id="username">
+                <div class="Hbuttons">
+                    <h2>Actions</h2>
                 </div>
-                <div class="password1">
-                    <label for="pass1">Contraseña: </label>
-                    <input type="text" name="pass1" id="password">
-                </div>
-                <div class="password2">
-                    <label for="pass2">Repetir Contraseña: </label>
-                    <input type="text" name="pass2" id="check_password">
-                </div>
-                <div class="create">
-                    <button id="create-user">Crear</button>
-                </div>
-            </form>
+            </div>
+            <div id="users">
+    
+            </div>
+            <div class="add">
+                <button class="button" id="addUser">Agregar</button>
+            </div>
         </div>
     </main>
 

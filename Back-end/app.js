@@ -90,8 +90,28 @@ app.post('/create-user', isAdmin, async (req, res) => {
         res.status(201).send({message: 'User Created'})
     }
 });
+app.get('/user', async (req, res) => {
+    const users = await db.users.querryAll();
+        res.send(users);
+});
 
-
+app.put('/edit-user', async (req, res)=> {
+    console.log(req.body);
+    const editUser = await db.users.updateUser(req.body);
+    if (editUser == false) {
+        res.status(500).send({message: 'Couldnt update User'})
+    } else{
+        res.status(201).send({message: 'User Updated'})
+    }
+})
+app.delete('/delete-user/:id', async (req, res) => {
+    const deleteUsers = await db.users.deleteUser(req.params.id);
+    if (deleteUsers == 'users Not Deleted'){
+        res.status(500).send({message: 'users Not Deleted'})
+    } else {
+        res.status(201).send({message: 'users Deleted'})
+    }
+})
 
 //Location Routs
 

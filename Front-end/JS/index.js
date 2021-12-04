@@ -1,6 +1,7 @@
 import {getToken} from './getdata.js';
 import {Contact} from './contacts.js';
 import {createRows} from './Cards.js';
+import {FilterSearch} from './Filter-Search.js'
 
 let token = getToken();
 
@@ -45,22 +46,21 @@ async function getContacts(){
             
             const response4 = await fetch(contactChannel, options);
             const channel = await response4.json();
-            console.log(contact);
+            
 
             if(channel !== undefined || channel !== null || channel !== ''){
                 let channels = [];
                 for (let i = 0; i < channel.length; i++) {
                     let Nchannel = channel[i];
-                    console.log(Nchannel)
+                    
                     let channelType = `http://localhost:3000/Channeltype/${Nchannel.contact_channel_type_id}`
                     const response5 = await fetch(channelType, options);
                     const channeltypes = await response5.json();
-                    console.log(channeltypes)
                     Nchannel.contact_channel_type_id = channeltypes[0].channel;
                     channels.push(Nchannel);
                 }
                 contact.channel = channels.channel
-                console.log(channels);
+                
             }
             contact.company_id = company[0].company_name;
             contact.region_id = region[0].region_name;
@@ -69,13 +69,39 @@ async function getContacts(){
             if(contact.interest == null){
                 contact.interest = '0';
             }
-            console.log(contact)
+            
             full_Data.push(contact)
         }
         console.log(full_Data)
         createRows(full_Data);
     } catch (error) {
         console.log(error);
+    }
+    let countryUrl=`http://localhost:3000/country`;
+    let companyUrl=`http://localhost:3000/company`;
+    let channelUrl=`http://localhost:3000/Channeltype`;
+    try {
+        let options = {
+            type: 'GET',
+            headers: {
+                'Authorization': `Bearer ${ver}`,
+                'Content-Type': 'application/json'
+            },
+        };
+        const responseCountry= await fetch(countryUrl, options);
+        const country = await responseCountry.json();
+
+        const responseCompany= await fetch(companyUrl, options);
+        const company = await responseCompany.json();
+
+        const responseChannel= await fetch(channelUrl, options);
+        const channel = await responseChannel.json();
+        
+        let Nsearch = document.getElementById('searchBar').addEventListener('click', () => {
+            const filter = new FilterSearch(document.getElementById('filter'), country, company, channel )
+        })
+    }catch{
+        console.log('not working')
     }
 }
 
@@ -89,9 +115,6 @@ let Ncontact = document.getElementById('addBoton').addEventListener('click', () 
     const contacts = new Contact(document.getElementById('contacts-window'), 1);
 })
 
-let Nsearch = document.getElementById('searchBar').addEventListener('click', () => {
-    console.log('activar filtro')
-})
 getContacts();
 
 
