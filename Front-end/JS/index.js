@@ -29,8 +29,10 @@ async function getContacts(){
         
         
         let full_Data = []
+        let channels = [];
+        
         for (let i = 0; i < info.length; i++) {
-            const contact = info[i];
+            let contact = info[i];
             let companyName = `http://localhost:3000/company/${contact.company_id}`;
             let regionName = `http://localhost:3000/regions/${contact.region_id}`;
             let countryName = `http://localhost:3000/country/id/${contact.country_id}`;
@@ -46,10 +48,7 @@ async function getContacts(){
             
             const response4 = await fetch(contactChannel, options);
             const channel = await response4.json();
-            
-
-            if(channel !== undefined || channel !== null || channel !== ''){
-                let channels = [];
+            if(channel != undefined || channel != null || channel != ''){
                 for (let i = 0; i < channel.length; i++) {
                     let Nchannel = channel[i];
                     
@@ -59,21 +58,28 @@ async function getContacts(){
                     Nchannel.contact_channel_type_id = channeltypes[0].channel;
                     channels.push(Nchannel);
                 }
-                contact.channel = channels.channel
+                
                 
             }
             contact.company_id = company[0].company_name;
             contact.region_id = region[0].region_name;
             contact.country_id = getCountry[0].country_name;
-            //contact.
             if(contact.interest == null){
                 contact.interest = '0';
             }
-            
             full_Data.push(contact)
         }
-        console.log(full_Data)
-        createRows(full_Data);
+        var ordChannels = [];
+            for (let i = 0; i < full_Data.length; i++) {
+                let info = full_Data[i].id
+                ordChannels[i] = channels.filter(function (el) 
+                {
+                    return el.contact_id == info;
+                });
+                
+            };
+            //console.log(ordChannels);
+        createRows(full_Data, ordChannels);
     } catch (error) {
         console.log(error);
     }
@@ -97,6 +103,8 @@ async function getContacts(){
         const responseChannel= await fetch(channelUrl, options);
         const channel = await responseChannel.json();
         
+        //console.log(channel);
+
         let Nsearch = document.getElementById('searchBar').addEventListener('click', () => {
             const filter = new FilterSearch(document.getElementById('filter'), country, company, channel )
         })
@@ -105,13 +113,62 @@ async function getContacts(){
     }
 }
 
-let contact = document.getElementById('contactsBt').addEventListener('click', () => {
+let contact = document.getElementById('contactsBt').addEventListener('click', async () => {
     console.log('toque el boton');
-    const contacts = new Contact(document.getElementById('contacts-window'), 1);
+    let url1 = 'http://localhost:3000/regions';
+    let url2 = 'http://localhost:3000/country';
+    let url3 = 'http://localhost:3000/city';
+    let url4 = 'http://localhost:3000/Channeltype';
+    try {
+        let options = {
+            type: 'GET',
+            headers: {
+                "Authorization": `Bearer ${ver}`,
+                'Content-Type': 'application/json'
+            },
+        };
+        const responseReg = await fetch(url1, options);
+        const infoReg = await responseReg.json();
+        
+        const responseCou = await fetch(url2, options);
+        const infoCou = await responseCou.json();
+        
+        const responseCi = await fetch(url3, options);
+        const infoCi = await responseCi.json();
+
+        const responsechan = await fetch(url4, options);
+        const infoChan = await responsechan.json();
+
+
+        var ordCoun = [];
+        for (let i = 0; i < infoReg.length; i++) {
+            let info = infoReg[i].id
+            ordCoun[i] = infoCou.filter(function (el) 
+            {
+                return el.redion_id == info;
+            });
+            
+        };
+        var ordCi = [];
+        for (let i = 0; i < infoCou.length; i++) {
+            let info = infoCou[i].id
+            ordCi[i] = infoCi.filter(function (el) 
+            {
+                return el.country_id == info;
+            });
+            
+        };
+        
+        console.log(infoChan);
+        const contacts = new Contact(document.getElementById('contacts-window'), 1);
+    }catch {
+        console.log('error')
+    }
 });
 
-let Ncontact = document.getElementById('addBoton').addEventListener('click', () => {
+let Ncontact = document.getElementById('addBoton').addEventListener('click', async () => {
     console.log('toque el boton');
+
     const contacts = new Contact(document.getElementById('contacts-window'), 1);
 })
 

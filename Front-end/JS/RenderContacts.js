@@ -1,6 +1,9 @@
+import {EditDeleteContact} from './ContactEditDelete.js'
+
 class CreateRows {
-    constructor(element, info) {
-        this.element = element
+    constructor(element, info, channels) {
+        this.element = element;
+        this.channels = channels;
         this.element.innerHTML = this.companyConstructor(info)
         this.element.innerHTML = this.element.innerHTML +
         `
@@ -9,15 +12,17 @@ class CreateRows {
         </div>
         `
         this.element.classList.add( 'container');
+        this.addEventListener(info);
         }
-
         
     companyConstructor(info) {
 
         let companyHTML = ''
         for (let i = 0; i < info.length; i++) {
             let fillColor;
-            let Ninfo = info[i]
+            let Ninfo = info[i];
+            const channel = this.channels[i];
+
             switch (true) {
                 case (Ninfo.interest < 26):
                     fillColor = '#1CC1F5';
@@ -63,8 +68,18 @@ class CreateRows {
                     
                 </div>
                 <div class="prefCanal">
-                    <h4>Canal Preferido</h4>
+                `
+
+                for (let i = 0; i < channel.length; i++) {
+                    let Nchannel = channel[i];
+                    companyHTML = companyHTML + `
+                    <div class=block id='Nchannel-${Nchannel.id} info-${Ninfo.id}'> ${Nchannel.contact_channel_type_id}</div>
+                    `
+                    }
                     
+                //console.log('termino el for chico')
+                
+                companyHTML = companyHTML +`
                 </div>
                 <div class="interest">
                     <div class='interest-bar'>
@@ -82,9 +97,18 @@ class CreateRows {
                 </div>
             </div>
             `
+            //console.log('cierra el for grande')
         }
         return(companyHTML)
         
+    }
+    addEventListener(info){
+        for (let i = 0; i < info.length; i++) {
+            let Ninfo = info[i];
+            document.getElementById(`act-${Ninfo.id}`).addEventListener('click', () =>{
+                const contacts = new EditDeleteContact(document.getElementById(`act-${Ninfo.id}`), Ninfo);
+            })
+        }
     }
 }
 export {CreateRows}

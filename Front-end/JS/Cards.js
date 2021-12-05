@@ -8,12 +8,9 @@ if (token == null) {
     var ver = token.substring(0, token.length - 1);
 }
 
-async function createRows(contacts) {
-    console.log('entre a funcion')
-    for (let i = 0; i < contacts.length; i++) {
-                const contactsRender = new CreateRows(document.getElementById('list'), contacts );
-            }
-        }
+async function createRows(contacts, channels) {
+    const contactsRender = new CreateRows(document.getElementById('list'), contacts , channels);
+}
 
 //actions logo
 //<i class="fas fa-ellipsis-h"></i>

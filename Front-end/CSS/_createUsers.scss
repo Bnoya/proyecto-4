@@ -59,7 +59,7 @@
                     input{
                         font-family: $openSans;
                         font-size: 16px;
-                        
+                        padding-left: 1%;
                     }
                 }
                 .last{
@@ -73,6 +73,7 @@
                     input{
                         font-family: $openSans;
                         font-size: 16px;
+                        padding-left: 1%;
                     }
                 }
                 .email{
@@ -86,6 +87,7 @@
                     input{
                         font-family: $openSans;
                         font-size: 16px;
+                        padding-left: 1%;
                     }
                 }
                 .user{
@@ -99,6 +101,7 @@
                     input{
                         font-family: $openSans;
                         font-size: 16px;
+                        padding-left: 1%;
                     }
                 }
                 .password1{
@@ -112,6 +115,7 @@
                     input{
                         font-family: $openSans;
                         font-size: 16px;
+                        padding-left: 1%;
                     }
                 }
                 .password2{
@@ -130,7 +134,7 @@
                         height: 25px;
                         font-family: $openSans;
                         font-size: 16px;
-                        
+                        padding-left: 1%;
                     }
                 }
                 .create{
@@ -145,12 +149,158 @@
                         font-size: 20px;
                         height: 35px;
                         width: 25%;
-                        background-color: $thirdBlue;
+                        background-color: $mainBlue;
                         color: $white;
                         border-radius: 10px;
                         margin-right: 15px;
                         &:hover {
-                            background-color: $mainBlue;
+                            background-color: $secondBlue;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+        .edit{
+            position: absolute;
+            background-color: white;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+            border-radius: 5px;
+            align-self: center;
+            justify-content: center;
+            width: 50%;
+            height: auto;
+            margin-top: -50px;
+            .form{
+                width: 100%;
+                border: solid 2px $mainBlue;
+                background-color: $white;
+                padding-left: 15px;
+                padding-right: 15px;
+                height: 400px;
+                .title{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: flex-start;
+                    font-family: $openSans;
+                    font-weight: lighter;
+                    font-size: 30px;
+                    color: $white;
+                    background-color: $mainBlue;
+                    margin-left: -16px;
+                    margin-right: -16px;
+                }
+                .name{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    font-family: $openSans;
+                    font-size: 14px;
+                    height: 25px;
+                    margin-top: 20px;
+                    color: $black;
+                    input{
+                        font-family: $openSans;
+                        font-size: 16px;
+                        padding-left: 1%;
+                    }
+                }
+                .last{
+                    display: flex;
+                    justify-content: space-between;
+                    font-family: $openSans;
+                    font-size: 14px;
+                    height: 25px;
+                    margin-top: 20px;
+                    color: $black;
+                    input{
+                        font-family: $openSans;
+                        font-size: 16px;
+                        padding-left: 1%;
+                    }
+                }
+                .email{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 20px;
+                    font-family: $openSans;
+                    font-size: 14px;
+                    height: 25px;
+                    color: $black;
+                    input{
+                        font-family: $openSans;
+                        font-size: 16px;
+                        padding-left: 1%;
+                    }
+                }
+                .user{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 20px;
+                    font-family: $openSans;
+                    font-size: 14px;
+                    height: 25px;
+                    color: $black;
+                    input{
+                        font-family: $openSans;
+                        font-size: 16px;
+                        padding-left: 1%;
+                    }
+                }
+                .password1{
+                    display: flex;
+                    justify-content: space-between;
+                    font-family: $openSans;
+                    font-size: 14px;
+                    height: 25px;
+                    margin-top: 20px;
+                    color: $black;
+                    input{
+                        font-family: $openSans;
+                        font-size: 16px;
+                        padding-left: 1%;
+                    }
+                }
+                .password2{
+                    display: flex;
+                    justify-content: space-between;
+                    align-self: center;
+                    font-family: $openSans;
+                    font-size: 14px;
+                    height: 25px;
+                    margin-top: 20px;
+                    color: $black;
+                    label{
+                        width: 75px;
+                    }
+                    input{
+                        height: 25px;
+                        font-family: $openSans;
+                        font-size: 16px;
+                        padding-left: 1%;
+                    }
+                }
+                .create{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    align-self: flex-end;
+                    margin-top: 40px;
+                    button{
+                        font-family: $openSans;
+                        font-size: 20px;
+                        height: 35px;
+                        width: 25%;
+                        background-color: $mainBlue;
+                        color: $white;
+                        border-radius: 10px;
+                        margin-right: 15px;
+                        &:hover {
+                            background-color: $thirdBlue;
                             color: $white;
                         }
                     }

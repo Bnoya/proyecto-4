@@ -33,5 +33,5 @@ async function getUsers() {
 getUsers();
 
 document.getElementById('addUser').addEventListener('click', () =>{
-    const newUser = new AddNewUser (document.getElementById('modal'))
+    const newUser = new AddNewUser (document.getElementById('modal'), 'add-user', null)
 })

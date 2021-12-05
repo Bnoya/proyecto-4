@@ -94,6 +94,10 @@ app.get('/user', async (req, res) => {
     const users = await db.users.querryAll();
         res.send(users);
 });
+app.get('/usernames', async (req, res) => {
+    const users = await db.users.querryAllUsernames();
+        res.send(users);
+});
 
 app.put('/edit-user', async (req, res)=> {
     console.log(req.body);

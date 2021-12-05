@@ -6,7 +6,11 @@ class User {
     }
 
     async querryAll() {
-        const users = await this.sequelize.query('SELECT id, first_name, last_name, user_role, email, username FROM users', {type: this.sequelize.QueryTypes.SELECT});
+        const users = await this.sequelize.query('SELECT id, first_name, last_name, email, username FROM users', {type: this.sequelize.QueryTypes.SELECT});
+    return users;
+    }
+    async querryAllUsernames() {
+        const users = await this.sequelize.query('SELECT id, username FROM users', {type: this.sequelize.QueryTypes.SELECT});
     return users;
     }
 

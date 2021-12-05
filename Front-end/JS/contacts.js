@@ -1,7 +1,15 @@
 class Contact {
     constructor(element, selectedOption) {
         this.element = element
-        this.element.innerHTML = `
+
+        this.element.innerHTML = this.innerHTML();
+        
+        this.element.classList.add('contacts-window');
+        document.getElementById(`contacts${selectedOption}`).classList.add('selected');
+        this.addEventListeners();
+    }
+    innerHTML(){
+        let contactHTML = `
         <div class='fullsize'>
         <div class='newCard'>
         <form class='addContact'>
@@ -94,9 +102,7 @@ class Contact {
         </div>
         </div>
         `
-        this.element.classList.add('contacts-window');
-        document.getElementById(`contacts${selectedOption}`).classList.add('selected');
-        this.addEventListeners();
+        return(contactHTML);
     }
 
     addEventListeners(){
