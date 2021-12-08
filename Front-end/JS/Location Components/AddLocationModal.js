@@ -1,4 +1,4 @@
-import {getToken} from './getdata.js';
+import {getToken} from '../General Functions/getdata.js';
 
 class AddLocationModal {
     constructor(element, parentId, parentAlternatives, locationType) {

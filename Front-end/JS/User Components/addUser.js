@@ -1,13 +1,14 @@
 //import { isBuffer } from 'util';
-import {getToken} from './getdata.js';
+import {getToken} from '../General Functions/getdata.js';
 
 class AddNewUser {
     constructor(element, parentId, info) {
         this.element = element;
         this.parentId = parentId;
         this.info = info;
-        console.log(this.info.id);
-        console.log(this.parentId);
+        //console.log(this.info)
+        //console.log(this.info.id);
+        //console.log(this.parentId);
         this.element.classList.add('window');
         this.element.innerHTML = this.innerHTML();
         this.addeventlisteners();

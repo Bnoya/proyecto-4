@@ -1,4 +1,4 @@
-import {getToken} from './getdata.js';
+import {getToken} from '../General Functions/getdata.js';
 import {CreateRows} from './RenderContacts.js';
 
 let token = getToken();

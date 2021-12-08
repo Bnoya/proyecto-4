@@ -11,6 +11,10 @@
         border-top: solid 1px $grey;
         padding-top: 1%;
         padding-bottom: 1%;
+
+        &:hover{
+            background-color: $grey;
+        }
         .checkbox{
             display: flex;
             align-items: center;
@@ -77,24 +81,35 @@
         }
         .prefCanal{
             display: flex;
-            flex-wrap: wrap;
+            
             flex-direction: row;
             align-items: center;
             justify-content: flex-start;
             width: 11.6%;
-            font-family: $openSans;
-            cursor: pointer;
-            .block{
-                background-color: rgba(142, 199, 252, 0.2);
-                margin-left: 1%;
-                margin-top: 1%;
-                padding: 1.5%;
-                color: $forthBlue;
-                border-radius: 4px;
-                width: 64px;
-                font-size: 12px;
+            
+            .channels{
                 display: flex;
-                justify-content: center;
+            
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+                font-family: $openSans;
+            cursor: pointer;
+                .block{
+                    background-color: rgba(142, 199, 252, 0.2);
+                    margin-left: 2%;
+                    margin-top: 1%;
+                    padding: 1.5%;
+                    color: $forthBlue;
+                    border-radius: 4px;
+                    width: 64px;
+                    font-size: 12px;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+            .plus{
+                margin-left: 3%;
             }
         }
         .interest{
@@ -146,28 +161,40 @@
             align-items: center;
             width: 6%;
             font-family: $openSans;
-            h4{
+            position: relative;
+            .cont{
                 font-size: 18px;
                 font-weight: lighter;
                 padding: 3px;
                 &:hover{
-                    background-color: $grey;
-                    border-radius: 20px;
-                }
-                &:active{
-                    background-color: $darkgrey;
-                }
-            }
-            .options{
-                position: relative;
-                .menu-options{
-                    position: absolute;
-                    display: block;
-                    
-                    flex-direction: column;
-                    .row-options{
+                    .options{
+                        display: block;
+                        position: absolute;
                         background-color: $grey;
-                        font-size: 10px;
+                        margin-left: 1%;
+                        padding: 4%;
+                        font-size: 14px;
+                        z-index: 1000;
+                        .menu-optiones{
+                            display: block;
+                            cursor: pointer;
+                            flex-direction: column;
+                            .row-options{
+                                &:hover{
+                                    border-bottom: solid 0.5px $black;
+
+                                }
+                            }
+                        }
+                    }
+                }
+                .options{
+                    display: none;
+                    .menu-options{
+                        font-size: 14px;
+                        .row-options{
+                            font-size: 14px;
+                        }
                     }
                 }
             }

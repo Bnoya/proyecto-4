@@ -1,5 +1,5 @@
 import { AddNewUser } from './addUser.js';
-import {getToken} from './getdata.js';
+import {getToken} from '../General Functions/getdata.js';
 
 class UserList {
     constructor(element, Alternatives, parent ,locationType) {

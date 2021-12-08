@@ -36,7 +36,7 @@ const authenticateUser = (req, res, next) => {
 }
 
 const isAdmin = (req, res, next) => {
-    const SecurePaths = ['/create-user'];
+    const SecurePaths = ['/create-user', '/user', '/delete-user/:id', ];
     if (SecurePaths.includes(req.path)){
         const authHead = req.headers['authorization'];
         if (authHead) {
@@ -68,6 +68,7 @@ app.post('/user/login', async (req, res) => {
         res.send({
             message: 'Login Successfull',
             userId: user.id,
+            userRole: user.user_role,
             token: accessToken
         });
     } else {

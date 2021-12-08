@@ -23,11 +23,13 @@ submit.addEventListener('click', async (e) => {
         let datas = await response.json();
         console.log(datas);
         let check = document.getElementById('rememberMe');
+
         let token = datas.token;
+        let role = datas.userRole;
         if (check== true){
-            setPremToken(token)
+            setPremToken(token, role)
         } else {
-            setToken(token);
+            setToken(token, role);
         }
         console.log(token)
         if (token == null) {
@@ -41,14 +43,19 @@ submit.addEventListener('click', async (e) => {
 
 });
 
-function setToken(token) {
+function setToken(token, role) {
     let access = [];
+    let capable = [];
     access.push(token);
+    capable.push(role);
     sessionStorage.setItem('token', JSON.stringify((access)));
-    console.log('se guardo el token');
+    sessionStorage.setItem('role', JSON.stringify((capable)));
 };
-function setPremToken(token) {
+function setPremToken(token, role) {
     let access = [];
+    let capable = [];
     access.push(token);
+    capable.push(role);
     localStorage.setItem('token', JSON.stringify((access)));
+    localStorage.setItem('role', JSON.stringify((capable)));
 }

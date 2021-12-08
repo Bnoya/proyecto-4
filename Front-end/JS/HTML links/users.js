@@ -1,6 +1,6 @@
-import {getToken} from './getdata.js';
-import { UserList } from './usersList.js';
-import {AddNewUser} from './addUser.js';
+import {getToken} from '../General Functions/getdata.js';
+import { UserList } from '../User Components/usersList.js';
+import {AddNewUser} from '../User Components/addUser.js';
 console.log('estoy en users')
 let token = getToken();
 document.getElementById('contactsBt').addEventListener('click', () =>{

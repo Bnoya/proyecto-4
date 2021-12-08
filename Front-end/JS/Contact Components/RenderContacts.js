@@ -1,4 +1,4 @@
-import {EditDeleteContact} from './ContactEditDelete.js'
+
 
 class CreateRows {
     constructor(element, info, channels) {
@@ -39,9 +39,9 @@ class CreateRows {
 
             }
             companyHTML = companyHTML + `
-            <div class="row" id="rowSelector">
+            <div class="row" id="rowSelector-${Ninfo.id}">
                 <div class="checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" id='allChecked-${Ninfo.id}'>
                 </div>
                 <div class="contact">
                     <div class='img'>
@@ -67,20 +67,40 @@ class CreateRows {
                     <h4>${Ninfo.job_position}</h4>
                     
                 </div>
-                <div class="prefCanal">
+                <div class="prefCanal" id='channels-${Ninfo.id}'>
+                <div class='channels'>
                 `
-
-                for (let i = 0; i < channel.length; i++) {
-                    let Nchannel = channel[i];
-                    companyHTML = companyHTML + `
-                    <div class=block id='Nchannel-${Nchannel.id} info-${Ninfo.id}'> ${Nchannel.contact_channel_type_id}</div>
-                    `
-                    }
+                if (channel.length > 2) {
+                    for (let i = 0; i < 2; i++) {
+                        let Nchannel = channel[i];
+                        companyHTML = companyHTML + `
+                        <div class='block' id='info-${Ninfo.id}'> ${Nchannel.contact_channel_type_id}</div>
+                        `
+                        }
                     
-                //console.log('termino el for chico')
+                } else{
+                    for (let i = 0; i < channel.length; i++) {
+                        let Nchannel = channel[i];
+                        companyHTML = companyHTML + `
+                        <div class='block' id='Nchannel-${Nchannel.id} info-${Ninfo.id}'> ${Nchannel.contact_channel_type_id}</div>
+                        `
+                        }
+                }
+                    
+                
                 
                 companyHTML = companyHTML +`
+                </div>`
+                
+                if (channel.length > 2) {
+                    companyHTML = companyHTML + `
+                    <div class='plus' id='info-${Ninfo.id}'> <i class="fas fa-ellipsis-h"></i> </div>
+                    `
+                }
+                
+                companyHTML = companyHTML + `
                 </div>
+
                 <div class="interest">
                     <div class='interest-bar'>
                         <div class='text'>
@@ -93,7 +113,15 @@ class CreateRows {
                     </div>
                 </div>
                 <div class="actions" id='act-${Ninfo.id}'>
-                    <h4><i class="fas fa-ellipsis-h"></i></h4>
+                    <div class="cont">
+                        <i class="fas fa-ellipsis-h"></i>
+                        <div class='options'>
+                            <div class='menu-optiones'> 
+                                <div class='row-options' id = 'edit-${Ninfo.id}'><p>Editar</p></div>
+                                <div class='row-options' id = 'delete-${Ninfo.id}'><p>Borrar</p></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             `
@@ -105,9 +133,27 @@ class CreateRows {
     addEventListener(info){
         for (let i = 0; i < info.length; i++) {
             let Ninfo = info[i];
-            document.getElementById(`act-${Ninfo.id}`).addEventListener('click', () =>{
-                const contacts = new EditDeleteContact(document.getElementById(`act-${Ninfo.id}`), Ninfo);
+            const channel = this.channels[i];
+            document.getElementById(`edit-${Ninfo.id}`).addEventListener('click', () => {
+                console.log('edit contact');
+            });
+            document.getElementById(`delete-${Ninfo.id}`).addEventListener('click', () => {
+                console.log('delete contact');
+            });
+
+            document.getElementById(`allChecked-${Ninfo.id}`).addEventListener('click', () => {
+                let row = document.getElementById(`rowSelector-${Ninfo.id}`);
+                let check = document.getElementById(`allChecked-${Ninfo.id}`);
+                console.log(check);
+                //row.style.backgroundColor = '#e8e8e8e8';
             })
+
+        //    for (let i = 0; i < channel.length; i++) {
+        //        let Nchannel = channel[i];
+        //        document.getElementById(`Nchannel-${Nchannel.id} info-${Ninfo.id}`).addEventListener('click', async () => {
+        //        console.log(`Show channel, Nchannel-${Nchannel.id} info-${Ninfo.id}`)
+        //    })
+        //    }
         }
     }
 }

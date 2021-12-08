@@ -1,9 +1,10 @@
-
-import {Location} from './locationConst.js';
+import {isAdmin} from '../General Functions/getdata.js';
+import {Location} from '../Location Components/locationConst.js';
 
 document.getElementById('contactsBt').addEventListener('click', () =>{
     window.location.href = '/Front-end/index.html';
 });
+isAdmin();
 
 function getToken() {
     let token = localStorage.getItem('token')

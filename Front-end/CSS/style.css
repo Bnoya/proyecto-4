@@ -166,6 +166,10 @@
   border-color: transparent;
 }
 
+.first-area .search-bar .left .bar input:checked {
+  background-color: #e8e8e8;
+}
+
 .first-area .search-bar .left .bar i {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -925,6 +929,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.contacts-window .fullsize .newCard .addContact .secondaryData .countryCont select .off {
+  display: none;
+}
+
 .contacts-window .fullsize .newCard .addContact .secondaryData .cityCont {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -940,6 +948,15 @@
   height: 80%;
   width: 150px;
   font-family: "Open Sans", sans-serif;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .cityCont select .off-city {
+  display: none;
+}
+
+.contacts-window .fullsize .newCard .addContact .secondaryData .cityCont select option:hover {
+  background-color: #e8e8e8;
+  color: #000000;
 }
 
 .contacts-window .fullsize .newCard .addContact .secondaryData .addressCont {
@@ -981,7 +998,21 @@
   font-family: "Open Sans", sans-serif;
 }
 
-.contacts-window .fullsize .newCard .addContact .thirdData {
+.contacts-window .fullsize .newCard .addContact .channels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.contacts-window .fullsize .newCard .addContact .channels .contact {
+  width: 65%;
+}
+
+.contacts-window .fullsize .newCard .addContact .channels .contact .thirdData {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1000,7 +1031,7 @@
   padding-bottom: 20px;
 }
 
-.contacts-window .fullsize .newCard .addContact .thirdData .contactCont {
+.contacts-window .fullsize .newCard .addContact .channels .contact .thirdData .contactCont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1011,14 +1042,14 @@
   margin-right: 16px;
 }
 
-.contacts-window .fullsize .newCard .addContact .thirdData .contactCont select {
+.contacts-window .fullsize .newCard .addContact .channels .contact .thirdData .contactCont select {
   border-radius: 6px;
   width: 150px;
   height: 80%;
   font-family: "Open Sans", sans-serif;
 }
 
-.contacts-window .fullsize .newCard .addContact .thirdData .userAccount {
+.contacts-window .fullsize .newCard .addContact .channels .contact .thirdData .userAccount {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1029,7 +1060,7 @@
   margin-right: 16px;
 }
 
-.contacts-window .fullsize .newCard .addContact .thirdData .userAccount input {
+.contacts-window .fullsize .newCard .addContact .channels .contact .thirdData .userAccount input {
   border-radius: 6px;
   width: 150px;
   height: 80%;
@@ -1037,7 +1068,7 @@
   font-family: "Open Sans", sans-serif;
 }
 
-.contacts-window .fullsize .newCard .addContact .thirdData .preffCont {
+.contacts-window .fullsize .newCard .addContact .channels .contact .thirdData .preffCont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1048,36 +1079,137 @@
   margin-right: 16px;
 }
 
-.contacts-window .fullsize .newCard .addContact .thirdData .preffCont select {
+.contacts-window .fullsize .newCard .addContact .channels .contact .thirdData .preffCont select {
   border-radius: 6px;
   width: 150px;
   height: 80%;
   font-family: "Open Sans", sans-serif;
 }
 
-.contacts-window .fullsize .newCard .addContact .thirdData .addCont {
+.contacts-window .fullsize .newCard .addContact .channels .contact .extraData {
+  display: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #ffffff;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 32px;
+  padding-right: 20px;
+  height: 50px;
+  margin-top: 5px;
+  padding-bottom: 20px;
+}
+
+.contacts-window .fullsize .newCard .addContact .channels .contact .extraData .contactCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 16px;
+}
+
+.contacts-window .fullsize .newCard .addContact .channels .contact .extraData .contactCont select {
+  border-radius: 6px;
+  width: 150px;
+  height: 80%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts-window .fullsize .newCard .addContact .channels .contact .extraData .userAccount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 16px;
+}
+
+.contacts-window .fullsize .newCard .addContact .channels .contact .extraData .userAccount input {
+  border-radius: 6px;
+  width: 150px;
+  height: 80%;
+  padding-left: 5px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts-window .fullsize .newCard .addContact .channels .contact .extraData .preffCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 16px;
+}
+
+.contacts-window .fullsize .newCard .addContact .channels .contact .extraData .preffCont select {
+  border-radius: 6px;
+  width: 150px;
+  height: 80%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts-window .fullsize .newCard .addContact .addBt {
+  width: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.contacts-window .fullsize .newCard .addContact .addBt .addCont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  margin-top: 4%;
+  margin-right: 3%;
 }
 
-.contacts-window .fullsize .newCard .addContact .thirdData .addCont button {
+.contacts-window .fullsize .newCard .addContact .addBt .addCont .button {
   color: #1D72C2;
-  border-color: #1D72C2;
+  border: solid 1.5px #1D72C2;
   background-color: #ffffff;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
+  padding: 2%;
   border-radius: 6px;
   width: 150px;
-  height: 80%;
+  height: 85%;
+  cursor: pointer;
 }
 
-.contacts-window .fullsize .newCard .addContact .thirdData .addCont button:hover {
+.contacts-window .fullsize .newCard .addContact .addBt .addCont .button:hover {
   background-color: #0683f9;
   color: #ffffff;
+}
+
+.contacts-window .fullsize .newCard .addContact .addBt .addCont .button p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .contacts-window .fullsize .newCard .Send {
@@ -2965,6 +3097,10 @@
   padding-bottom: 1%;
 }
 
+.contacts .row:hover {
+  background-color: #e8e8e8;
+}
+
 .contacts .row .checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3084,8 +3220,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -3097,13 +3231,29 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   width: 11.6%;
+}
+
+.contacts .row .prefCanal .channels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   font-family: "Open Sans", sans-serif;
   cursor: pointer;
 }
 
-.contacts .row .prefCanal .block {
+.contacts .row .prefCanal .channels .block {
   background-color: rgba(142, 199, 252, 0.2);
-  margin-left: 1%;
+  margin-left: 2%;
   margin-top: 1%;
   padding: 1.5%;
   color: #1cc1f5;
@@ -3116,6 +3266,10 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.contacts .row .prefCanal .plus {
+  margin-left: 3%;
 }
 
 .contacts .row .interest {
@@ -3198,39 +3352,48 @@
           align-items: center;
   width: 6%;
   font-family: "Open Sans", sans-serif;
+  position: relative;
 }
 
-.contacts .row .actions h4 {
+.contacts .row .actions .cont {
   font-size: 18px;
   font-weight: lighter;
   padding: 3px;
 }
 
-.contacts .row .actions h4:hover {
-  background-color: #e8e8e8;
-  border-radius: 20px;
-}
-
-.contacts .row .actions h4:active {
-  background-color: #e8e8e886;
-}
-
-.contacts .row .actions .options {
-  position: relative;
-}
-
-.contacts .row .actions .options .menu-options {
-  position: absolute;
+.contacts .row .actions .cont:hover .options {
   display: block;
+  position: absolute;
+  background-color: #e8e8e8;
+  margin-left: 1%;
+  padding: 4%;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+.contacts .row .actions .cont:hover .options .menu-optiones {
+  display: block;
+  cursor: pointer;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.contacts .row .actions .options .menu-options .row-options {
-  background-color: #e8e8e8;
-  font-size: 10px;
+.contacts .row .actions .cont:hover .options .menu-optiones .row-options:hover {
+  border-bottom: solid 0.5px #000000;
+}
+
+.contacts .row .actions .cont .options {
+  display: none;
+}
+
+.contacts .row .actions .cont .options .menu-options {
+  font-size: 14px;
+}
+
+.contacts .row .actions .cont .options .menu-options .row-options {
+  font-size: 14px;
 }
 
 * {

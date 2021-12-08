@@ -1,10 +1,10 @@
-import {getToken} from './getdata.js';
-import {Contact} from './contacts.js';
-import {createRows} from './Cards.js';
-import {FilterSearch} from './Filter-Search.js'
+import {getToken, isAdmin} from '../General Functions/getdata.js';
+import {Contact} from '../Contact Components/contacts.js';
+import {createRows} from '../Contact Components/Cards.js';
+import {FilterSearch} from '../Filter-Search.js'
 
 let token = getToken();
-
+isAdmin();
 if (token == null) {
     window.location.href = '/Front-end/HTML/login.html';
 }else{
@@ -105,9 +105,9 @@ async function getContacts(){
         
         //console.log(channel);
 
-        let Nsearch = document.getElementById('searchBar').addEventListener('click', () => {
-            const filter = new FilterSearch(document.getElementById('filter'), country, company, channel )
-        })
+        //let Nsearch = document.getElementById('searchBar').addEventListener('click', () => {
+        //    const filter = new FilterSearch(document.getElementById('filter'), country, company, channel )
+        //})
     }catch{
         console.log('not working')
     }
@@ -159,16 +159,14 @@ let contact = document.getElementById('contactsBt').addEventListener('click', as
             
         };
         
-        console.log(infoChan);
-        const contacts = new Contact(document.getElementById('contacts-window'), 1);
+        const contacts = new Contact(document.getElementById('contacts-window'), 1, infoReg, ordCoun, ordCi, infoChan);
     }catch {
         console.log('error')
     }
 });
 
 let Ncontact = document.getElementById('addBoton').addEventListener('click', async () => {
-    console.log('toque el boton');
-
+    
     const contacts = new Contact(document.getElementById('contacts-window'), 1);
 })
 

@@ -1,9 +1,10 @@
-import { Company } from "./CompanyClass.js";
+import { Company } from "../Company Components/CompanyClass.js";
+import {isAdmin} from '../General Functions/getdata.js';
 
 document.getElementById('contactsBt').addEventListener('click', () =>{
     window.location.href = '/Front-end/index.html';
 });
-
+isAdmin();
 function getToken() {
     let token = localStorage.getItem('token')
     if (token == null){

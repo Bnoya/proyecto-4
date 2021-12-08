@@ -1,5 +1,5 @@
 import {AddNewCompany} from './AddNewCompany.js';
-import {getToken} from './getdata.js';
+import {getToken} from '../General Functions/getdata.js';
 class Company {
     constructor(element, info, city) {
 
