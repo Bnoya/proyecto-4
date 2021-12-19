@@ -76,9 +76,9 @@ class Company {
                     const response= await fetch(delete_company, options_delete);
                     const info = await response.json();
                     console.log(info)
-                    if (info !== null || info !== undefined) {
-                        location.reload();
-                    }
+                    //if (info !== null || info !== undefined) {
+                    //    location.reload();
+                    //}
                 } catch (error) {
                     console.log('Could Not Delete')
                 }

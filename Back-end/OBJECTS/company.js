@@ -4,7 +4,7 @@ class Company {
     }
 
     async querryAll() {
-        const company = await this.sequelize.query('SELECT id, city_id, company_name, company_address, phone FROM company', {type: this.sequelize.QueryTypes.SELECT});
+        const company = await this.sequelize.query('SELECT id, city_id, company_name, company_address, phone FROM company ORDER BY company_name', {type: this.sequelize.QueryTypes.SELECT});
         return company;
     }
     
@@ -37,8 +37,9 @@ class Company {
                 replacements: {id: id},
                 type: this.sequelize.QueryTypes.DELETE
             })
-        } catch(err) {
             return{message: 'Company Deleted'}
+        } catch(err) {
+            return{message: 'Company Not Deleted Contact Dependent on Company, delete Contact first '}
         }
     }
     

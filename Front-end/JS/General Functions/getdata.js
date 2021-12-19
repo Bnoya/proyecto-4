@@ -30,10 +30,10 @@ function isAdmin () {
         check = Frole;
         
     }
-    console.log(check);
+    //console.log(check);
     if (check == '[0]') {
         let user = document.getElementById('usersBt');
-        console.log(user);
+        //console.log(user);
         user.style.display = 'none';
     }
 }

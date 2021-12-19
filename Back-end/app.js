@@ -234,15 +234,17 @@ app.put('/edit-city', async (req, res)=> {
 })
 
 //Autocomplete Locations 
-app.get('/city/autocomplete', async (req, res) => {
-    const city = await db.location.querryAllCities();
-
-    let matches = city.filter(city => {
-        const regex = new RegExp(`^${req.body.recomendation}`, 'gi');
-        return city.city_name.match(regex)
-    });
-    res.send(matches);
-
+app.get('/city-autocomplete/:contact', async (req, res) => {
+    const city = await db.location.CityAutoComplete(req.params.contact);
+        res.send(city);
+});
+app.get('/country-autocomplete/:contact', async (req, res) => {
+    const country = await db.location.CountryAutoComplete(req.params.contact);
+        res.send(country);
+});
+app.get('/region-autocomplete/:contact', async (req, res) => {
+    const region = await db.location.RegionAutoComplete(req.params.contact);
+        res.send(region);
 });
 
 
@@ -268,6 +270,7 @@ app.post('/create-company', async (req, res) => {
 });
 app.delete('/delete-company/:id', async (req, res) => {
     const deleteCompany = await db.company.deleteCompany(req.params.id);
+    console.log(deleteCompany);
     if (deleteCompany == false){
         res.status(500).send({message: 'couldnt delete Company'})
     } else {
@@ -281,13 +284,13 @@ app.put('/edit-company', async (req, res)=> {
     } else{
         res.status(201).send({message: 'Company Updated'})
     }
-})
+});
 
 
 // Contacts routs 
 
-app.get('/contact', async (req, res) => {
-    const contact = await db.contact.querryAll();
+app.get('/contact/:id&:options', async (req, res) => {
+    const contact = await db.contact.querryAll(req.params.id, req.params.options);
         res.send(contact);
 });
 
@@ -326,23 +329,86 @@ app.get('/contact/intrest/:intrest', async (req, res) => {
     const contact = await db.contact.querryByInterest(req.params.intrest);
         res.send(contact);
 });
+app.get('/contact/intrest/:intrest', async (req, res) => {
+    const contact = await db.contact.querryByInterest(req.params.intrest);
+        res.send(contact);
+});
 
 app.post('/create-contact', async (req, res) => {
-    if (!(req.body.first_name && req.body.last_name && req.body.job_position && req.body.email && req.body.company_id && req.body.region_id && req.body.country_id && req.body.city_id && req.body.contact_address && req.body.intrest)){
+    if (!(req.body.first_name && req.body.last_name && req.body.job_position && req.body.email && req.body.company_id && req.body.region_id && req.body.country_id && req.body.city_id && req.body.contact_address && req.body.interest)){
         console.log('data format if');
         return res.status(400).send({ error: "Data not formatted properly" });
     }
-    console.log(req.body);
-    console.log('previo a new contact');
     const newContact = await db.contact.createContact(req.body);
     if (newContact == false){
-        res.status(500).send({message: 'couldnt create Contact'})
+        res.status(500).send({message: 'couldnt create Contact'});
     } else {
-        res.status(201).send({message: 'Contact Created'})
+        res.status(201).send(newContact);
     }
 });
 
+app.delete('/delete-contact/:id', async (req, res) => {
+    const deleteContact = await db.contact.deleteContact(req.params.id);
+    if (deleteContact == false){
+        res.status(500).send({message: 'couldnt delete Contact'})
+    } else {
+        res.status(201).send({message: 'Contact Deleted'})
+    }
+});
+app.put('/edit-contact', async (req, res)=> {
+    const editContact = await db.contact.updateContact(req.body);
+    if (editContact == false) {
+        res.status(500).send({message: 'Couldnt update Contact'})
+    } else{
+        res.status(201).send({message: 'Contact Updated'})
+    }
+});
 
+app.get('/contact-autocomplete-one/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactAutoCompleteOne(req.params.contacts);
+        res.send(contact);
+});
+app.get('/contact-autocomplete-two/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactAutoCompleteTwo(req.params.contacts);
+        res.send(contact);
+});
+app.get('/contact-autocomplete-three/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactAutoCompleteThree(req.params.contacts);
+        res.send(contact);
+});
+app.get('/contact-autocomplete-four/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactAutoCompleteFour(req.params.contacts);
+        res.send(contact);
+});
+app.get('/contact-autocomplete-five/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactAutoCompleteFive(req.params.contacts);
+        res.send(contact);
+});
+
+app.get('/contact-search-one/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactSearchOne(req.params.contacts);
+        res.send(contact);
+});
+app.get('/contact-search-two/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactSearchTwo(req.params.contacts);
+        res.send(contact);
+});
+app.get('/contact-search-three/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactSearchThree(req.params.contacts);
+        res.send(contact);
+});
+app.get('/contact-search-four/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactSearchFour(req.params.contacts);
+        res.send(contact);
+});
+app.get('/contact-search-five/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactSearchFive(req.params.contacts);
+        res.send(contact);
+});
+app.get('/contact-search-six/:contacts', async (req, res) => {
+    const contact = await db.contact.ContactSearch(req.params.contacts);
+        res.send(contact);
+});
 //Contact Channel
 
 app.get('/contactChannel', async (req, res) => {
@@ -361,11 +427,28 @@ app.post('/create-contactChannel', async (req, res) => {
         return res.status(400).send({ error: "Data not formatted properly" });
     }
     console.log(req.body);
-    const newContactChannel = await db.contactChannel.createContact(req.body);
+    const newContactChannel = await db.contactChannel.createContactChannel(req.body);
     if (newContactChannel == false){
         res.status(500).send({message: 'couldnt create Contact Channel'})
     } else {
         res.status(201).send({message: 'Contact Channel Created'})
+    }
+});
+
+app.delete('/delete-ContactChannel/:id', async (req, res) => {
+    const deleteContactChannel = await db.contactChannel.deleteCompany(req.params.id);
+    if (deleteContactChannel == false){
+        res.status(500).send({message: 'couldnt delete Contact Channel'})
+    } else {
+        res.status(201).send({message: 'Contact Channel Deleted'})
+    }
+});
+app.put('/edit-ContactChannel', async (req, res)=> {
+    const editContactChannel = await db.contactChannel.updateCompany(req.body);
+    if (editContactChannel == false) {
+        res.status(500).send({message: 'Couldnt update Contact Channel'})
+    } else{
+        res.status(201).send({message: 'Contact Channel Updated'})
     }
 });
 

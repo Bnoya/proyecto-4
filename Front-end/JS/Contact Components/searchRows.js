@@ -1,16 +1,11 @@
 import {Contact} from '../Contact Components/contacts.js';
 import {getToken} from '../General Functions/getdata.js';
-class CreateRows {
+class SearchRows {
     constructor(element, info, channels) {
         this.element = element;
         this.channels = channels;
+        console.log(this.channels);
         this.element.innerHTML = this.companyConstructor(info)
-        //this.element.innerHTML = this.element.innerHTML +
-        //`
-        //<div class="contacts container">
-        //    
-        //</div>
-        //`
         this.element.classList.add( 'container');
         this.selectedContacts = [];
         this.addEventListener(info);
@@ -202,4 +197,4 @@ class CreateRows {
     }
     
 }
-export {CreateRows}
+export {SearchRows}

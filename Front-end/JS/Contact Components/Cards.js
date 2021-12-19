@@ -8,8 +8,10 @@ if (token == null) {
     var ver = token.substring(0, token.length - 1);
 }
 
-async function createRows(contacts, channels) {
-    const contactsRender = new CreateRows(document.getElementById('list'), contacts , channels);
+async function createNewRows(contacts, channels) {
+    //console.log(contacts);
+    //console.log(channels);
+    const contactsRender = new CreateRows(document.getElementById('list'), contacts , channels, 'regular');
 }
 
 //actions logo
@@ -17,4 +19,4 @@ async function createRows(contacts, channels) {
 
 
 
-export {createRows}
+export {createNewRows}

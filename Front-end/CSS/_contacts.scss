@@ -31,7 +31,8 @@
                     height: 41px;
                     border: none;
                     font-size: 20px;
-                    //padding-right: 5px;
+                    padding-left: 10px;
+                    padding-right: 10px;
                     &:focus{
                         border-color: transparent;
                     }
@@ -280,7 +281,10 @@
     justify-content: space-around;
     margin-left: 2%;
     margin-right: 2%;
-    margin-bottom: 2%;
+    //margin-bottom: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border: solid 0.5px $grey;
     .table-head{
         display: flex;
         flex-direction: row;
@@ -334,7 +338,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        width: 13.6%;
+        width: 10%;
         justify-content: center;
         h4{
             margin-right: 15px;
@@ -361,7 +365,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        width: 13.6%;
+        width: 13%;
         h4{
             margin-right: 15px;
             font-family: 'Open Sans', sans-serif;
@@ -382,4 +386,36 @@
         }
     }
 
+}
+
+.pages{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 2%;
+    font-family: $openSans;
+    color: $darkergrey;
+    .numberOfContacts{
+        width: 15%;
+        display: flex;
+        select{
+            margin-left: 5%;
+            font-family: $openSans;
+        }
+    }
+    .page{
+        display: flex;
+        flex-direction: row;
+        font-family: $openSans;
+        .prev{
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        .next{
+            cursor: pointer;
+            margin-left: 20px;
+        }
+    }
 }

@@ -4,7 +4,7 @@ class Location {
     }
 
     async querryAllRegions() {
-        const location = await this.sequelize.query('SELECT id, region_name FROM region', {type: this.sequelize.QueryTypes.SELECT});
+        const location = await this.sequelize.query('SELECT id, region_name FROM region ORDER BY region_name', {type: this.sequelize.QueryTypes.SELECT});
         return location;
     }
     async querryRegionsById(id) {
@@ -14,7 +14,7 @@ class Location {
         return location;
     }
     async querryAllCountries() {
-        const location = await this.sequelize.query('SELECT id, redion_id, country_name FROM country', {type: this.sequelize.QueryTypes.SELECT});
+        const location = await this.sequelize.query('SELECT id, redion_id, country_name FROM country ORDER BY country_name', {type: this.sequelize.QueryTypes.SELECT});
         return location;
     }
     async querryCountryById(id) {
@@ -32,7 +32,7 @@ class Location {
     }
 
     async querryAllCities() {
-        const location = await this.sequelize.query('SELECT id, country_id, city_name FROM city', {type: this.sequelize.QueryTypes.SELECT});
+        const location = await this.sequelize.query('SELECT id, country_id, city_name FROM city ORDER BY city_name', {type: this.sequelize.QueryTypes.SELECT});
         return location;
     }
     async querryCityById(id) {
@@ -181,6 +181,37 @@ class Location {
 
 
     //Get AutoComplete
+
+    async CityAutoComplete(city) {
+        city = city+ '%';
+        const query = `SELECT id, country_id, city_name FROM city WHERE city_name LIKE :contact ORDER BY city_name`;
+        const location = await this.sequelize.query(query, {
+            replacements: {
+                contact: city,
+                },
+            type: this.sequelize.QueryTypes.SELECT});
+        return location;
+    }
+    async CountryAutoComplete(country) {
+        country = country+ '%';
+        const query = `SELECT id, redion_id, country_name FROM country WHERE country_name LIKE :contact ORDER BY country_name`;
+        const location = await this.sequelize.query(query, {
+            replacements: {
+                contact: country,
+                },
+            type: this.sequelize.QueryTypes.SELECT});
+        return location;
+    }
+    async RegionAutoComplete(region) {
+        region = region+ '%';
+        const query = `SELECT id, region_name FROM region WHERE region_name LIKE :contact ORDER BY region_name`;
+        const location = await this.sequelize.query(query, {
+            replacements: {
+                contact: region,
+                },
+            type: this.sequelize.QueryTypes.SELECT});
+        return location;
+    }
 }
 
 

@@ -42,10 +42,10 @@
             <div class="search-bar">
                 <div class="left">
                     <div class="bar" id="searchBar"> 
-                        <input type="text">
+                        <input type="text" id="autoComplete" placeholder="Buscar Contacto">
                         <i class="fas fa-sort-down"></i>
                     </div>
-                    <div class="search-button"><i class="fas fa-search"></i></div>
+                    <div class="search-button" id='searchNow'><i class="fas fa-search"></i></div>
                 </div>
                 
                 <div class="right">
@@ -94,14 +94,31 @@
         <div class="contacts" id="list">
 
         </div>
+
+        <div id="pageNum" class="pages">
+            <div class="numberOfContacts">
+                <p>Filas por pagina:</p>
+                <select name="number" id="numberOfContacts">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="30">30</option>
+                </select>
+            </div>
+            <div class="page" id="page">
+                <p></p>
+                <div class="prev" id="prev">
+                    <p> < </p>
+                </div>
+                <div class="next" id="next">
+                    <p> > </p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script type="module" src="./JS/HTML links/index.js"></script>
 </body>
 </html>
-
-
-
 
 
 
