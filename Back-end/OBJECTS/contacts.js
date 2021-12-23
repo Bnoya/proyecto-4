@@ -5,29 +5,25 @@ class Contact {
 
     async querryAll(id, noptions) {
         const contact = await this.sequelize.query('SELECT id, first_name, last_name, job_position, email, company_id, region_id, country_id, city_id, contact_address, interest FROM contact ORDER BY first_name', {type: this.sequelize.QueryTypes.SELECT});
-        let n_options = noptions;
-        let sup_limit = id*n_options;
-        let inf_limit = (id-1)*n_options;
-        console.log(id);
-        console.log(sup_limit);
-        console.log(inf_limit);
-        console.log(n_options);
-        if (contact.length > n_options) {
-            let first_page= [];
-            if (id > 1) {
-                for (let i = inf_limit; i < sup_limit; i++) {
-                    first_page.push(contact[i]);
-                }
-            }else{
-                for (let i = 0; i < n_options; i++) {
-                    first_page.push(contact[i]);
-                }
-                first_page.unshift(contact.length);
-            }
-            return first_page;
-        }else{
+        //let n_options = noptions;
+        //let sup_limit = id*n_options;
+        //let inf_limit = (id-1)*n_options;
+        //if (contact.length > n_options) {
+        //    let first_page= [];
+        //    if (id > 1) {
+        //        for (let i = inf_limit; i < sup_limit; i++) {
+        //            first_page.push(contact[i]);
+        //        }
+        //    }else{
+        //        for (let i = 0; i < n_options; i++) {
+        //            first_page.push(contact[i]);
+        //        }
+        //        first_page.unshift(contact.length);
+        //    }
+        //    return first_page;
+        //}else{
             return contact;
-        }
+        //}
     }
     
     async querryAllByJob() {
@@ -147,7 +143,26 @@ class Contact {
             return {error: true, message: "couldn't delete Contact."}
         }
     }
-    
+    async deleteContacts(contact) {
+        const query = `DELETE FROM contact WHERE id IN (:ids);`
+        try {
+            const queryed = await this.sequelize.query(query, {
+                    replacements: {ids: contact},
+                    type: this.sequelize.QueryTypes.DELETE
+                })
+            
+            if (queryed[0].affectedRows > 0) {
+                return {status: 200, message: "Contacts Deleted", data: {
+                    contact_ids: contact
+                }}
+            } else {
+                return {error: true, message: "couldn't delete."}
+            }
+        } catch (error) {
+            return {error: true, message: "couldn't delete Contacts."}
+        }
+    }
+
     async updateContact(contact){
 
         try {

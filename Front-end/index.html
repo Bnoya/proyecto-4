@@ -14,6 +14,7 @@
     <title>Data Warehouse</title>
 </head>
 <body>
+    <div id="modal-2"></div>
     <header>
         <div class="menu">
             <a href="./index.html" class="logo">LOGO</a>
@@ -56,12 +57,12 @@
                     </div>
                 </div>
             </div>
-            <div class="filter" id="filter"></div>
+            <div class="filter" id="table-actions"></div>
 
         </div>
         <div class="list">
             <div class="table-head">
-                <input type="checkbox">
+                <input type="checkbox" id="select-all">
             </div>
             <div class="contact">
                 <h4>Contacto</h4>
@@ -94,33 +95,30 @@
         <div class="contacts" id="list">
 
         </div>
-
-        <div id="pageNum" class="pages">
-            <div class="numberOfContacts">
-                <p>Filas por pagina:</p>
-                <select name="number" id="numberOfContacts">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="30">30</option>
-                </select>
-            </div>
-            <div class="page" id="page">
-                <p></p>
-                <div class="prev" id="prev">
-                    <p> < </p>
+        <!--- 
+            <div id="pageNum" class="pages">
+                <div class="numberOfContacts">
+                    <p>Filas por pagina:</p>
+                    <select name="number" id="numberOfContacts">
+                        <option value="5">5</option>
+                        <option value="7">7</option>
+                        <option value="10">10</option>
+                    </select>
                 </div>
-                <div class="next" id="next">
-                    <p> > </p>
+                <div class="page" id="page">
+                    <p></p>
+                    <div class="prev" id="prev">
+                        <p> < </p>
+                    </div>
+                    <div class="next" id="next">
+                        <p> > </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        --->
     </main>
 
     <script type="module" src="./JS/HTML links/index.js"></script>
 </body>
 </html>
-
-
-
-
 

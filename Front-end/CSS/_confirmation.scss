@@ -1,0 +1,73 @@
+.modal-confirmation{
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 30px;
+    background-color: $grey;
+    .confirmation{
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0,0,0,0.9);
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .CardClass{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+            border-radius: 5px;
+            align-self: center;
+            justify-content: center;
+            width: 30%;
+            background-color: $white;
+            padding-bottom: 3%;
+            padding-top: 3%;
+            .popup-img{
+                width: 150px;
+                height: 150px;
+                fill: $firstRed;
+                margin-bottom: 1%;
+            }
+            .btn-grp{
+                display: flex;
+                flex-direction: row;
+                width: 60%;
+                justify-content: space-between;
+                margin-top: 2%;
+                .btn-danger{
+                    padding-right: 2%;
+                    padding-left: 2%;
+                    border: 1.5px solid $firstRed ;
+                    border-radius: 3px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: $openSans;
+                    font-size: 20px;
+                    background-color: $firstRed;
+                    color: $white;
+                }
+                .btn-secondary{
+                    padding-right: 2%;
+                    padding-left: 2%;
+                    border: 1.5px solid $secondBlue ;
+                    background-color: $secondBlue;
+                    border-radius: 3px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: $openSans;
+                    font-size: 20px;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

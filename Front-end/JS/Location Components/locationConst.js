@@ -1,4 +1,5 @@
 import {AddLocationModal} from './AddLocationModal.js';
+import {DeleteElements} from '../General Functions/Delete.js';
 
 class Location {
     constructor(element, infoReg, ordCoun, ordCi) {
@@ -124,7 +125,7 @@ class Location {
             });
             // delete region
             document.getElementById(`delete-region-${region.id}`).addEventListener('click', () => {
-                new AddLocationModal(modalDiv, region, countries, 'delete-region')
+                new DeleteElements(modalDiv, region, 'region')
                 console.log('delete region' + region.id)
             })
             // add country to region
@@ -151,8 +152,8 @@ class Location {
                 })
                 // delete country
                 document.getElementById(`delete-country-${Rcount.id}`).addEventListener('click', () => {
-                    new AddLocationModal(modalDiv, Rcount, infoReg, 'delete-country')
-                    console.log('delete country' + Rcount.id)
+                    new DeleteElements(modalDiv, Rcount, 'country')
+                    console.log('delete country' + Rcount.id);
                 })
                 // add city to country
                 document.getElementById(`add-city-to-country-${Rcount.id}`).addEventListener('click', () => {
@@ -169,7 +170,7 @@ class Location {
                     })
                     // delete city
                     document.getElementById(`delete-city-${city.id}`).addEventListener('click', () => {
-                        new AddLocationModal(modalDiv, Rcount, city, 'delete-city')
+                        new DeleteElements(modalDiv, city, 'city')
                         console.log('delete city' + city.id)
                     })
                 }

@@ -335,181 +335,60 @@
 }
 
 .first-area .filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
-  margin-left: 2%;
-  position: relative;
+  height: 50px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.first-area .filter .filterContainer {
-  position: absolute;
-  display: block;
-  background-color: #ffffff;
-  width: 33.23%;
-  border: solid 1px #e8e8e8;
-  margin-top: 0.3%;
-}
-
-.first-area .filter .filterContainer .options {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  padding-left: 2%;
-  padding-right: 2%;
+.first-area .filter .n-selected-tag {
+  background: #8ec7fcd0;
+  color: #0683F9;
+  border-radius: 4px;
+  height: 24px;
+  text-align: center;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-family: "Open Sans", sans-serif;
-  font-size: 14px;
+  cursor: pointer;
 }
 
-.first-area .filter .filterContainer .options .contactName {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin-top: 2%;
-}
-
-.first-area .filter .filterContainer .options .contactName label {
-  width: 42%;
-}
-
-.first-area .filter .filterContainer .options .contactName input {
-  width: 58%;
+.first-area .filter .delete-contacts {
+  margin-bottom: 10px;
+  color: #1D72C2;
+  margin-right: 3%;
+  background: #8ec7fcd0;
+  color: #0683F9;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  border: none;
-  border-bottom: solid 1px #e8e8e8;
-  padding-left: 5px;
-  outline: none;
+  cursor: pointer;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
-.first-area .filter .filterContainer .options .job {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin-top: 4%;
-}
-
-.first-area .filter .filterContainer .options .job label {
-  width: 42%;
-}
-
-.first-area .filter .filterContainer .options .job input {
-  width: 58%;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  border: none;
-  border-bottom: solid 1px #e8e8e8;
-  padding-left: 5px;
-  outline: none;
-}
-
-.first-area .filter .filterContainer .options .country {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin-top: 4%;
-}
-
-.first-area .filter .filterContainer .options .country label {
-  width: 42%;
-}
-
-.first-area .filter .filterContainer .options .country select {
-  width: 40%;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-.first-area .filter .filterContainer .options .company {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin-top: 4%;
-}
-
-.first-area .filter .filterContainer .options .company label {
-  width: 42%;
-}
-
-.first-area .filter .filterContainer .options .company select {
-  width: 40%;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-.first-area .filter .filterContainer .options .channel {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin-top: 4%;
-}
-
-.first-area .filter .filterContainer .options .channel label {
-  width: 42%;
-}
-
-.first-area .filter .filterContainer .options .channel select {
-  width: 40%;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-.first-area .filter .filterContainer .options .interest {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 4%;
-  margin-bottom: 4%;
-}
-
-.first-area .filter .filterContainer .options .interest label {
-  width: 42%;
-}
-
-.first-area .filter .filterContainer .options .interest select {
-  width: 40%;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  padding-top: 1%;
-  padding-bottom: 1%;
+.first-area .filter .delete-contacts img {
+  width: 12px;
+  height: 15px;
+  margin-right: 10px;
+  fill: #1D72C2;
 }
 
 .list {
@@ -3476,6 +3355,120 @@
 
 .contacts .row .actions .cont .options .menu-options .row-options {
   font-size: 14px;
+}
+
+.modal-confirmation {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 30px;
+  background-color: #e8e8e8;
+}
+
+.modal-confirmation .confirmation {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-confirmation .confirmation .CardClass {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  border-radius: 5px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30%;
+  background-color: #ffffff;
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
+
+.modal-confirmation .confirmation .CardClass .popup-img {
+  width: 150px;
+  height: 150px;
+  fill: #bb3e3f;
+  margin-bottom: 1%;
+}
+
+.modal-confirmation .confirmation .CardClass .btn-grp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 60%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2%;
+}
+
+.modal-confirmation .confirmation .CardClass .btn-grp .btn-danger {
+  padding-right: 2%;
+  padding-left: 2%;
+  border: 1.5px solid #bb3e3f;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  background-color: #bb3e3f;
+  color: #ffffff;
+}
+
+.modal-confirmation .confirmation .CardClass .btn-grp .btn-secondary {
+  padding-right: 2%;
+  padding-left: 2%;
+  border: 1.5px solid #0683f9;
+  background-color: #0683f9;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: #ffffff;
 }
 
 * {

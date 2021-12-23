@@ -1,5 +1,7 @@
 import {Contact} from '../Contact Components/contacts.js';
 import {getToken} from '../General Functions/getdata.js';
+import { DeleteElements } from '../General Functions/Delete.js';
+
 class CreateRows {
     constructor(element, info, channels) {
         this.element = element;
@@ -43,7 +45,7 @@ class CreateRows {
             <div id='del'>
                 <div class="row" id="rowSelector-${Ninfo.id}">
                     <div class="checkbox">
-                        <input type="checkbox" id='allChecked-${Ninfo.id}' value='${Ninfo.id}'>
+                        <div class="select-row container"><input type="checkbox" id="selectcontact-${Ninfo.id}"/> </div>
                     </div>
                     <div class="contact">
                         <div class='img'>
@@ -134,6 +136,29 @@ class CreateRows {
         
     }
     addEventListener(info){
+        let selectAllCheckbox = document.getElementById('select-all');
+        selectAllCheckbox.addEventListener('change', (event) => {
+            if(event.target.checked){
+                this.selectAllContacts(true)
+            } else {
+                this.selectAllContacts(false)
+            }
+            this.updateTableActions()
+        });
+        let selectCheckboxs = document.querySelectorAll('*[id^="selectcontact"]')
+        selectCheckboxs.forEach((checkbox) => {
+            checkbox.addEventListener('click', (event) => {
+                if (event.target.checked) {
+                    this.selectedContacts.push(parseInt(checkbox.id.split('-')[1]))
+                } else {
+                    this.selectedContacts = this.selectedContacts.filter( (ele) => { 
+                        return ele != parseInt(checkbox.id.split('-')[1]);
+                    });
+                }
+                selectAllCheckbox.indeterminate = true;
+                this.updateTableActions()
+            })
+        })
         for (let i = 0; i < info.length; i++) {
             let Ninfo = info[i];
             const channel = this.channels[i];
@@ -146,6 +171,7 @@ class CreateRows {
                     let url3 = 'http://localhost:3000/city';
                     let url4 = 'http://localhost:3000/Channeltype';
                     let url5 = 'http://localhost:3000/company'
+                    let channels = `http://localhost:3000/contactChannel/${Ninfo.id}`
                     try {
                         let options = {
                             type: 'GET',
@@ -169,6 +195,9 @@ class CreateRows {
                         const responseComp = await fetch(url5, options);
                         const infoComp = await responseComp.json();
 
+                        const infor = await fetch(channels, options);
+                        const infoChannel = await infor.json();
+                        console.log(infoChannel);
                         var ordCoun = [];
                         for (let i = 0; i < infoReg.length; i++) {
                             let info = infoReg[i].id
@@ -187,8 +216,17 @@ class CreateRows {
                             });
                             
                         };
-                        console.log(infoReg, ordCoun, ordCi, infoChan, infoComp)
-                        const contacts = new Contact(document.getElementById('contacts-window'), 'edit', infoReg, ordCoun, ordCi, infoChan, infoComp, Ninfo);
+                        //let sChannel=[];
+                        //for (let i = 0; i < infoChannel.length; i++) {
+                        //    const chan = infoChannel[i];
+                        //    let channelsType = `http://localhost:3000/Channeltype/${chan.contact_channel_type_id}`
+                        //    const response5 = await fetch(channelsType, options);
+                        //    const channeltypes = await response5.json();
+                        //    chan.contact_channel_type_id = channeltypes[0].channel;
+                        //    sChannel.push(chan);
+                        //    }
+                        //console.log(infoChannel)
+                        const contacts = new Contact(document.getElementById('contacts-window'), 'edit', infoReg, ordCoun, ordCi, infoChan, infoComp, Ninfo, infoChannel);
 
                     }catch {
                         console.log('error')
@@ -196,9 +234,49 @@ class CreateRows {
             });
             document.getElementById(`delete-${Ninfo.id}`).addEventListener('click', () => {
                 console.log(`delete contact-${Ninfo.id}`);
+                new DeleteElements(document.getElementById('modal-2'), Ninfo, 'contact');
                 
             });
         }
+    }
+    selectAllContacts(isChecked) {
+        let selectCheckboxs = document.querySelectorAll('*[id^="selectcontact"]')
+        this.selectedContacts = [];
+        selectCheckboxs.forEach((checkbox) => {
+            checkbox.checked = isChecked;
+            if(isChecked) {
+                this.selectedContacts.push(parseInt(checkbox.id.split('-')[1]))
+            }
+        })
+
+    }
+
+    updateSelectedContacts() {
+        console.log('Contacts selected' + this.selectedContacts.length)
+        console.log('Selected' + this.selectedContacts)
+    }
+
+    updateTableActions() {
+        let tableActionsHTML = '<div></div>';
+        if(this.selectedContacts.length > 0) {
+            tableActionsHTML = `
+                <span id="n-selected-tag" class="n-selected-tag">${this.selectedContacts.length} ${this.selectedContacts.length > 1 ? 'seleccionados': 'seleccionado'}</span>
+            `
+        } 
+        if (this.selectedContacts.length > 0) {
+            tableActionsHTML += `
+                <a id="delete-contacts" class='delete-contacts'><img src="/Front-end/img/delete-solid.svg" />${this.selectedContacts.length == 1 ? 'Eliminar contacto' : 'Eliminar contactos'}</a>
+            `;
+        }
+        document.getElementById('table-actions').innerHTML = tableActionsHTML;
+
+        let deleteContactBtn = document.getElementById('delete-contacts');
+        //if (deleteContactBtn) {
+        //    deleteContactBtn.addEventListener('click', () => {
+        //        console.log(this.selectedContacts)
+        //        new ConfirmationModal(document.getElementById('modal'), {type: 'deleteContacts', contactIds: this.selectedContacts, message: this.selectedContacts.length > 1 ? `¿Estas seguro que deseas eliminar los contactos seleccionados?` : '¿Estas seguro que deseas eliminar el contacto seleccionado?'})
+        //    })
+        //}
     }
     
 }

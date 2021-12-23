@@ -2,7 +2,11 @@ import {AddChannel} from '../Contact Components/addContactChannel.js';
 import {getToken} from '../General Functions/getdata.js';
 
 class Contact {
-    constructor(element, selectedOption, infoReg, ordCoun, ordCi, infoChannel, infoComp, Ninfo) {
+    constructor(element, selectedOption, infoReg, ordCoun, ordCi, infoChannel, infoComp, Ninfo, sChannel) {
+        if (selectedOption == 'edit' ) {
+            this.isEditMode = true;
+            this.contactId = Ninfo.id;
+        }
         this.element = element;
         this.region = infoReg;
         this.country = ordCoun;
@@ -10,6 +14,8 @@ class Contact {
         this.selectedOption = selectedOption;
         this.channel = infoChannel;
         this.company = infoComp;
+        this.sChannel = sChannel;
+        console.log(this.sChannel);
         this.element.innerHTML = this.innerHTML();
         this.element.classList.add('contacts-window');
         this.addEventListeners(Ninfo);
@@ -25,7 +31,8 @@ class Contact {
                     <div class='newCard'>
                     <form class='addContact'>
                             <div class="importantData">
-                                <img class='imgCont'>
+                                <div class="contact-picture container"><img src="/Front-end/img/user-solid.svg" id="avatar-preview"/ ${this.isEditMode ? 'class="loaded"': ""}></div>
+                                <input type="file" id="avatar-upload" class="inputfile" accept=".jpeg"/>
                                 <div class='nameCont'>
                                     <label for= 'name'> Nombre: </Label>
                                     <input type="text" name="name" id='name'>
@@ -198,7 +205,8 @@ class Contact {
                 <div class='newCard'>
                 <form class='addContact'>
                         <div class="importantData">
-                            <img class='imgCont'>
+                            <div class="contact-picture container"><img src="/Front-end/img/user-solid.svg" id="avatar-preview"/ ${this.isEditMode ? 'class="loaded"': ""}></div>
+                            <input type="file" id="avatar-upload" class="inputfile" accept=".jpeg"/>
                             <div class='nameCont'>
                                 <label for= 'name'> Nombre: </Label>
                                 <input type="text" name="name" id='name'>
@@ -372,8 +380,30 @@ class Contact {
 
     addEventListeners(Ninfo){
         let count = 1;
+        let editcount = 1;
         switch (this.selectedOption) {
             case 'edit':
+
+
+                this.inputFileImg.onchange = evt => {
+                    const [file] = this.inputFileImg.files
+                    if (file) {
+                        this.profileImgPreview.src = URL.createObjectURL(file)
+                        this.profileImgPreview.classList.add('loaded')
+                    }
+                }
+
+
+                for (let i = 0; i < (this.sChannel.length - 1); i++) {
+                    
+                    let div = document.getElementById('extraData');
+                    let cont = document.createElement('div');
+                    div.style.display = 'flex';
+                    cont.classList.add('Bigcontainer');
+                    div.appendChild(cont);
+                    const channel = new AddChannel(cont, this.channel, editcount);
+                    editcount = editcount +1;
+                }
 
                 let name = document.getElementById('name');
                 let last = document.getElementById('last');
@@ -385,10 +415,23 @@ class Contact {
                 let city = document.getElementById('citySelector');
                 let address = document.getElementById('address');
                 let interest = document.getElementById('intrest')
-                //let channel = document.getElementById('contChannel');
-                //let account = document.getElementById('account');
-                //let preff = document.getElementById('preff');
-                
+                let channel = [];
+                let account =[]
+                let preff = [];
+                let option = 0;
+                    for (let i = 0; i < this.sChannel.length; i++) {
+                        let channel_h = document.getElementById(`contChannel-${option}`);
+                        let account_h = document.getElementById(`account-${option}`);
+                        let preff_h = document.getElementById(`preff-${option}`);
+                        channel.push(channel_h);
+                        account.push(account_h);
+                        preff.push(preff_h);
+                        option = option+1;
+                    }
+                console.log(channel);
+                console.log(account);
+                console.log(preff);
+
                 name.value = Ninfo.first_name;
                 last.value = Ninfo.last_name;
                 job.value = Ninfo.job_position;
@@ -399,11 +442,18 @@ class Contact {
                 city.value = Ninfo.city_id;
                 address.value = Ninfo.contact_address;
                 interest.value = Ninfo.interest;
+                for (let i = 0; i < this.sChannel.length; i++) {
+                channel[i].value = this.sChannel[i].contact_channel_type_id;
+                account[i].value = this.sChannel[i].socials_username;
+                preff[i].value = this.sChannel[i].preferences;
+            
+            }
+
 
 
 
                 document.getElementById('edit-Contact').addEventListener('click', async () => {
-                    //event.preventDefault();
+                    event.preventDefault();
                     let name = document.getElementById('name').value;
                     let last = document.getElementById('last').value;
                     let job = document.getElementById('job').value;
@@ -414,14 +464,25 @@ class Contact {
                     let city = document.getElementById('citySelector').value;
                     let address = document.getElementById('address').value;
                     let interest = document.getElementById('intrest').value;
-                    let channel = document.getElementById('contChannel').value;
-                    let account = document.getElementById('account').value;
-                    let preff = document.getElementById('preff').value;
-                    let addContact = 'http://localhost:3000/create-contact';
-                    let addChannel = 'http://localhost:3000/create-contactChannel';
+                    let channel = [];
+                    let account =[]
+                    let preff = [];
+                    let option = 0;
+                    for (let i = 0; i < count; i++) {
+                        let channel_h = document.getElementById(`contChannel-${option}`);
+                        let account_h = document.getElementById(`account-${option}`);
+                        let preff_h = document.getElementById(`preff-${option}`);
+                        channel.push(channel_h);
+                        account.push(account_h);
+                        preff.push(preff_h);
+                        option = option+1;
+                    }
+                    let editContact = 'http://localhost:3000/edit-contact';
+                    let editChannel = 'http://localhost:3000/edit-ContactChannel';
                     let rToken = getToken();
                     let ver = rToken.substring(0, rToken.length - 1);
                     const data_contact = {
+                        "id":Ninfo.id,
                         "first_name": name,
                         "last_name": last,
                         "job_position": job,
@@ -442,30 +503,44 @@ class Contact {
                         body: JSON.stringify(data_contact),
                         method: 'PUT'
                     };
+                    console.log(options_create);
                     try{
-                        const response= await fetch(addContact, options_create);
-                        const info = await response.json();
                         
-                        console.log(info.data.id);
-                        const data_channel ={
-                            "contact_id": info.data.id,
-                            "contact_channel_type_id": channel,
-                            "socials_username":account,
-                            "preferences":preff
+                        
+
+
+                        const response= await fetch(editContact, options_create);
+                        const info = await response.json();
+                        console.log(info);
+                        for (let i = 0; i < this.sChannel.length; i++) {
+                            const R_channel = channel[i];
+                            const R_account = account[i];
+                            const R_preff = preff[i];
+                            console.log(channel.length)
+                            const data_channel ={
+                                "id": this.sChannel[i].id,
+                                "contact_id": Ninfo.id,
+                                "contact_channel_type_id": R_channel,
+                                "socials_username":R_account,
+                                "preferences":R_preff
+                            }
+                            let options_create_channel = {
+                                headers: {
+                                    'Authorization': `Bearer ${ver}`,
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(data_channel),
+                                method: 'PUT'
+                            };
+                            console.log(options_create_channel);
+                            console.log(R_channel, R_account, R_preff);
+                            const response_channel= await fetch(editChannel, options_create_channel);
+                            const info_channel = await response_channel.json();
+                            console.log(info_channel);
+                            //document.location.reload()
+                            
                         }
-                        let options_create_channel = {
-                            headers: {
-                                'Authorization': `Bearer ${ver}`,
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(data_channel),
-                            method: 'POST'
-                        };
-                        console.log(data_channel);
-                        console.log(options_create_channel);
-                        const response_channel= await fetch(addChannel, options_create_channel);
-                        const info_channel = await response_channel.json();
-                        console.log(info_channel);
+                        
                     }catch {
                         console.log(error)
                     };
@@ -473,8 +548,18 @@ class Contact {
                 break;
         
             case 'create':
+
+                this.inputFileImg.onchange = evt => {
+                    const [file] = this.inputFileImg.files
+                    if (file) {
+                        this.profileImgPreview.src = URL.createObjectURL(file)
+                        this.profileImgPreview.classList.add('loaded')
+                    }
+                }
+
+
                 document.getElementById('addContact').addEventListener('click', async () => {
-                    //event.preventDefault();
+                    event.preventDefault();
                     //console.log(count)
                     let name = document.getElementById('name').value;
                     let last = document.getElementById('last').value;
@@ -530,6 +615,20 @@ class Contact {
                         const response= await fetch(addContact, options_create);
                         const info = await response.json();
                         
+                        let formData = new FormData();
+                        formData.append('avatar', this.inputFileImg.files[0]);
+                        const contactId = info.data.contact_id;
+                        if (response.status === 200) {
+                            response = await fetch(`http://localhost:3000/upload-avatar/${contactId}`, {
+                                headers: {
+                                    'Authorization': `Bearer ${ver}`
+                                },
+                                body: formData,
+                                method: 'POST'
+                            });
+                            console.log(response);
+                        }
+
                         for (let i = 0; i < channel.length; i++) {
                             const R_channel = channel[i];
                             const R_account = account[i];
@@ -549,11 +648,11 @@ class Contact {
                                 body: JSON.stringify(data_channel),
                                 method: 'POST'
                             };
-                            //console.log(data_channel);
-                            //console.log(options_create_channel);
+                            console.log(R_channel, R_account, R_preff);
                             const response_channel= await fetch(addChannel, options_create_channel);
                             const info_channel = await response_channel.json();
                             //console.log(info_channel);
+                            document.location.reload()
                         }
                     }catch {
                         console.log(error)
@@ -566,9 +665,6 @@ class Contact {
 
 
         document.getElementById('addChannel').addEventListener('click', async () => {
-
-            console.log('add channel');
-            console.log('toque el boton');
             let div = document.getElementById('extraData');
             let cont = document.createElement('div');
             div.style.display = 'flex';
@@ -616,11 +712,21 @@ class Contact {
             }
         })
 
+        this.inputFileImg.onchange = evt => {
+            const [file] = this.inputFileImg.files
+            if (file) {
+                this.profileImgPreview.src = URL.createObjectURL(file)
+                this.profileImgPreview.classList.add('loaded')
+            }
+        }
+
         document.getElementById('cancel').addEventListener('click', () => {
             location.reload();
         })
         
     }
+    
+
 }
 
 

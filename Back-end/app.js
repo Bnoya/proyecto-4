@@ -5,7 +5,7 @@ const { users } = require('./objects/index.js');
 const cors = require('cors');
 const db = require('./objects/index.js');
 const app = express();
-
+const fileUpload = require('express-fileupload');
 
 db.sequelize.sync();
 
@@ -13,6 +13,14 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 const SECRET_KEY = 'lifeisgood';
+
+// enable files upload
+app.use(fileUpload({
+    createParentPath: true
+}));
+app.use('/public',express.static('public'))
+
+
 
 //middelWare:
 
@@ -289,8 +297,10 @@ app.put('/edit-company', async (req, res)=> {
 
 // Contacts routs 
 
-app.get('/contact/:id&:options', async (req, res) => {
-    const contact = await db.contact.querryAll(req.params.id, req.params.options);
+
+
+app.get('/contact', async (req, res) => {
+    const contact = await db.contact.querryAll();
         res.send(contact);
 });
 
@@ -355,6 +365,18 @@ app.delete('/delete-contact/:id', async (req, res) => {
         res.status(201).send({message: 'Contact Deleted'})
     }
 });
+
+app.delete('/delete-contacts', async (req, res) => {
+
+    let contactIds = req.body.contact_ids;
+    const deleteContact = await db.contact.deleteContacts(contactIds);
+    if (deleteContact == false){
+        res.status(500).send({message: 'couldnt delete Contact'})
+    } else {
+        res.status(201).send({message: 'Contact Deleted'})
+    }
+});
+
 app.put('/edit-contact', async (req, res)=> {
     const editContact = await db.contact.updateContact(req.body);
     if (editContact == false) {
@@ -435,22 +457,23 @@ app.post('/create-contactChannel', async (req, res) => {
     }
 });
 
-app.delete('/delete-ContactChannel/:id', async (req, res) => {
-    const deleteContactChannel = await db.contactChannel.deleteCompany(req.params.id);
-    if (deleteContactChannel == false){
-        res.status(500).send({message: 'couldnt delete Contact Channel'})
-    } else {
-        res.status(201).send({message: 'Contact Channel Deleted'})
-    }
-});
+//app.delete('/delete-ContactChannel/:id', async (req, res) => {
+//    const deleteContactChannel = await db.contactChannel.deleteCompany(req.params.id);
+//    if (deleteContactChannel == false){
+//        res.status(500).send({message: 'couldnt delete Contact Channel'})
+//    } else {
+//        res.status(201).send({message: 'Contact Channel Deleted'})
+//    }
+//});
 app.put('/edit-ContactChannel', async (req, res)=> {
-    const editContactChannel = await db.contactChannel.updateCompany(req.body);
+    const editContactChannel = await db.contactChannel.updateContactChannel(req.body);
     if (editContactChannel == false) {
         res.status(500).send({message: 'Couldnt update Contact Channel'})
     } else{
         res.status(201).send({message: 'Contact Channel Updated'})
     }
 });
+
 
 //Channel Type
 
@@ -460,10 +483,44 @@ app.get('/Channeltype', async (req, res) => {
 });
 
 app.get('/Channeltype/:id', async (req, res) => {
-    console.log('entre a la ruta')
-    console.log(req.params.id);
-    const channelType = await db.channelType.querryById(req.params.id);
-    res.send(channelType);
+    const ChannelType = await db.channelType.querryById(req.params.id);
+    res.send(ChannelType);
+});
+
+
+//img Upload
+
+app.post('/upload-avatar/:contactId', async (req, res) => {
+    try {
+        const contactId = req.params.contactId;
+
+        if(!req.files) {
+            res.send({
+                status: false,
+                message: 'No file uploaded'
+            });
+        } else {
+            //Use the name of the input field (i.e. "avatar") to retrieve the uploaded file
+            let avatar = req.files.avatar;
+
+            //Use the mv() method to place the file in upload directory (i.e. "uploads")
+            avatar.mv('./public/avatars/' + `contact-${contactId}.` + avatar.name.split('.')[1]);
+
+            //send response
+            res.send({
+                status: 200,
+                message: 'File is uploaded',
+                data: {
+                    name: avatar.name,
+                    mimetype: avatar.mimetype,
+                    size: avatar.size
+                }
+            });
+        }
+    } catch (err) {
+        console.log(err)
+        res.status(500).send(err);
+    }
 });
 
 app.listen(3000, () => {

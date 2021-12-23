@@ -151,128 +151,173 @@
             }
         }
     }
-
     .filter{
-            width: 100%;
-            margin-left: 2%;
-            position: relative;
-            .filterContainer{
-                position: absolute;
-                display: block;
-                background-color: $white;
-                width: 33.23%;
-                border: solid 1px $grey;
-                margin-top: 0.3%;
-                .options{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: stretch;
-                    padding-left: 2%;
-                    padding-right: 2%;
-                    font-family: $openSans;
-                    font-size: 14px;
-                    .contactName{
-                        display: flex;
-                        flex-direction: row;
-                        margin-top: 2%;
-                        label{
-                            width: 42%;
-                        }
-                        input{
-                            width: 58%;
-                            font-family: $openSans;
-                            font-size: 14px;
-                            border: none;
-                            border-bottom: solid 1px $grey;
-                            padding-left: 5px;
-                            outline: none;
-                        }
-                    }
-                    .job{
-                        display: flex;
-                        flex-direction: row;
-                        
-                        margin-top: 4%;
-                        label{
-                            width: 42%;
-                        }
-                        input{
-                            width: 58%;
-                            font-family: $openSans;
-                            font-size: 14px;
-                            border: none;
-                            border-bottom: solid 1px $grey;
-                            padding-left: 5px;
-                            outline: none;
-                        }
-                    }
-                    .country{
-                        display: flex;
-                        flex-direction: row;
-                        margin-top: 4%;
-                        label{
-                            width: 42%;
-                        }
-                        select{
-                            width: 40%;
-                            font-family: $openSans;
-                            font-size: 14px;
-                            padding-top: 1%;
-                            padding-bottom: 1%;
-                        }
-                    }
-                    .company{
-                        display: flex;
-                        flex-direction: row;
-                        
-                        margin-top: 4%;
-                        label{
-                            width: 42%;
-                        }
-                        select{
-                            width: 40%;
-                            font-family: $openSans;
-                            font-size: 14px;
-                            padding-top: 1%;
-                            padding-bottom: 1%;
-                        }
-                    }
-                    .channel{
-                        display: flex;
-                        flex-direction: row;
-                        
-                        margin-top: 4%;
-                        label{
-                            width: 42%;
-                        }
-                        select{
-                            width: 40%;
-                            font-family: $openSans;
-                            font-size: 14px;
-                            padding-top: 1%;
-                            padding-bottom: 1%;
-                        }
-                    }
-                    .interest{
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        margin-top: 4%;
-                        margin-bottom: 4%;
-                        label{
-                            width: 42%;
-                        }
-                        select{
-                            width: 40%;
-                            font-family: $openSans;
-                            font-size: 14px;
-                            padding-top: 1%;
-                            padding-bottom: 1%;
-                        }
-                    }
-                }
-            }
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 50px;
+        justify-content: space-between;
+        .n-selected-tag {
+            background: #8ec7fcd0;
+            color: #0683F9;
+            border-radius: 4px;
+            height: 24px;
+            text-align: center;
+            align-self: flex-end;
+            margin-bottom: 5px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-family: $openSans;
+            cursor: pointer;
         }
+        .delete-contacts {
+            margin-bottom: 10px;
+            color: $mainBlue;
+            margin-right: 3%;
+            background: #8ec7fcd0;
+            color: #0683F9;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-family: $openSans;
+            cursor: pointer;
+            img {
+                width: 12px;
+                height: 15px;
+                margin-right: 10px;
+                fill: $mainBlue;
+            }
+            align-self: flex-end;
+        }
+    }
+    //#table-actions {
+    //}
+    //.filter{
+    //    width: 100%;
+    //    margin-left: 2%;
+    //    position: relative;
+    //    .filterContainer{
+    //        position: absolute;
+    //        display: block;
+    //        background-color: $white;
+    //        width: 33.23%;
+    //        border: solid 1px $grey;
+    //        margin-top: 0.3%;
+    //        .options{
+    //            display: flex;
+    //            flex-direction: column;
+    //            align-items: stretch;
+    //            padding-left: 2%;
+    //            padding-right: 2%;
+    //            font-family: $openSans;
+    //            font-size: 14px;
+    //            .contactName{
+    //                display: flex;
+    //                flex-direction: row;
+    //                margin-top: 2%;
+    //                label{
+    //                    width: 42%;
+    //                }
+    //                input{
+    //                    width: 58%;
+    //                    font-family: $openSans;
+    //                    font-size: 14px;
+    //                    border: none;
+    //                    border-bottom: solid 1px $grey;
+    //                    padding-left: 5px;
+    //                    outline: none;
+    //                }
+    //            }
+    //            .job{
+    //                display: flex;
+    //                flex-direction: row;
+    //                
+    //                margin-top: 4%;
+    //                label{
+    //                    width: 42%;
+    //                }
+    //                input{
+    //                    width: 58%;
+    //                    font-family: $openSans;
+    //                    font-size: 14px;
+    //                    border: none;
+    //                    border-bottom: solid 1px $grey;
+    //                    padding-left: 5px;
+    //                    outline: none;
+    //                }
+    //            }
+    //            .country{
+    //                display: flex;
+    //                flex-direction: row;
+    //                margin-top: 4%;
+    //                label{
+    //                    width: 42%;
+    //                }
+    //                select{
+    //                    width: 40%;
+    //                    font-family: $openSans;
+    //                    font-size: 14px;
+    //                    padding-top: 1%;
+    //                    padding-bottom: 1%;
+    //                }
+    //            }
+    //            .company{
+    //                display: flex;
+    //                flex-direction: row;
+    //                
+    //                margin-top: 4%;
+    //                label{
+    //                    width: 42%;
+    //                }
+    //                select{
+    //                    width: 40%;
+    //                    font-family: $openSans;
+    //                    font-size: 14px;
+    //                    padding-top: 1%;
+    //                    padding-bottom: 1%;
+    //                }
+    //            }
+    //            .channel{
+    //                display: flex;
+    //                flex-direction: row;
+    //                
+    //                margin-top: 4%;
+    //                label{
+    //                    width: 42%;
+    //                }
+    //                select{
+    //                    width: 40%;
+    //                    font-family: $openSans;
+    //                    font-size: 14px;
+    //                    padding-top: 1%;
+    //                    padding-bottom: 1%;
+    //                }
+    //            }
+    //            .interest{
+    //                display: flex;
+    //                flex-direction: row;
+    //                align-items: center;
+    //                margin-top: 4%;
+    //                margin-bottom: 4%;
+    //                label{
+    //                    width: 42%;
+    //                }
+    //                select{
+    //                    width: 40%;
+    //                    font-family: $openSans;
+    //                    font-size: 14px;
+    //                    padding-top: 1%;
+    //                    padding-bottom: 1%;
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 }
 
 .list{

@@ -3,15 +3,14 @@ class ContactChannel {
         this.sequelize = sequelize;
     }
     async querryAll() {
-        console.log('entre a querry all')
         const contactChannel = await this.sequelize.query('SELECT id, contact_id, contact_channel_type_id, socials_username, preferences FROM contact_channel', {type: this.sequelize.QueryTypes.SELECT});
-        console.log('fui a la tabla')
         return contactChannel;
     }
     
     async querryById(contact_id) {
-            const contactChannel = await this.sequelize.query('SELECT id, contact_id, contact_channel_type_id, socials_username, preferences FROM contact_channel WHERE contact_id = :contact_id', {
-                replacements: {contact_id: contact_id},
+        console.log(contact_id);
+            const contactChannel = await this.sequelize.query('SELECT id, contact_id, contact_channel_type_id, socials_username, preferences FROM contact_channel WHERE contact_id = :id', {
+                replacements: {id: contact_id},
                 type: this.sequelize.QueryTypes.SELECT});
             return contactChannel;
     }
@@ -30,6 +29,23 @@ class ContactChannel {
             return {message: err.errors[0].message}
         }
     }
+    async updateContactChannel(contact){
+        try {
+            const query = await this.sequelize.query("UPDATE contact_channel SET contact_id= :contact_id, contact_channel_type_id= :contact_channel_type_id, socials_username= :socials_username, preferences= :preferences WHERE id = :id", 
+            {
+                replacements: { id: contact.id,
+                    contact_id: contact.contact_id,
+                    contact_channel_type_id: contact.contact_channel_type_id,
+                    socials_username: contact.socials_username,
+                    preferences: contact.preferences,},
+                type: this.sequelize.QueryTypes.UPDATE
+            })
+            return {error: false, message: "Contact Channel updated correctly"}
+        } catch (err) {
+            return {error: true, message: "Couldn't update contact channel"}
+        }
+    }
+    
 }
 
 module.exports = ContactChannel

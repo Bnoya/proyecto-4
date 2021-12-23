@@ -1,6 +1,6 @@
 import { AddNewUser } from './addUser.js';
 import {getToken} from '../General Functions/getdata.js';
-
+import { DeleteElements } from '../General Functions/Delete.js';
 class UserList {
     constructor(element, Alternatives, parent ,locationType) {
         this.element = element;
@@ -42,6 +42,8 @@ class UserList {
         return(userHTML);
     }
     addeventlisteners(){
+        let rToken = getToken();
+        
         for (let i = 0; i < this.Alternatives.length; i++) {
             let user = this.Alternatives[i]
         document.getElementById(`edit-user-${user.id}`).addEventListener('click', () => {
@@ -50,28 +52,7 @@ class UserList {
         });
         document.getElementById(`delete-user-${user.id}`).addEventListener('click', async () => {
             console.log(`delete user ${user.id}`);
-            let rToken = getToken();
-            let ver = rToken.substring(0, rToken.length - 1);
-            try {
-                let options_delete = {
-                    headers: {
-                        'Authorization': `Bearer ${ver}`,
-                        'Content-Type': 'application/json'
-                    },
-                    method: 'DELETE'
-                };
-                console.log('entre al try')
-                let url = `http://localhost:3000/delete-user/${user.id}`;
-                console.log(options_delete)
-                const response= await fetch(url, options_delete);
-                const info = await response.json();
-                console.log(info)
-                if (info !== null || info !== undefined) {
-                    location.reload();
-                }
-            } catch (error) {
-                console.log('Could Not Delete')
-            }
+            const deleteUser = new DeleteElements (document.getElementById('modal-2'), user,'user', )
         })
     }
     };
