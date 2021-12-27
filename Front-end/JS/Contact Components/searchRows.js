@@ -1,5 +1,6 @@
 import {Contact} from '../Contact Components/contacts.js';
-import {getToken} from '../General Functions/getdata.js';
+import {getToken, getContactAvatar} from '../General Functions/getdata.js';
+import { DeleteElements } from '../General Functions/Delete.js';
 class SearchRows {
     constructor(element, info, channels) {
         this.element = element;
@@ -38,11 +39,11 @@ class SearchRows {
             <div id='del'>
                 <div class="row" id="rowSelector-${Ninfo.id}">
                     <div class="checkbox">
-                        <input type="checkbox" id='allChecked-${Ninfo.id}' value='${Ninfo.id}'>
+                        <div class="select-row container"><input type="checkbox" id="selectcontact-${Ninfo.id}"/> </div>
                     </div>
                     <div class="contact">
-                        <div class='img'>
-                        </div>
+                    <div class='img'><img src="#" id='imgCircle-${Ninfo.id}' alt='user imagen'>
+                    </div>
                         <div class= "name">
                         <h4>${Ninfo.first_name}</h4>
                         <h5>${Ninfo.last_name}</h5>
@@ -128,7 +129,7 @@ class SearchRows {
         return(companyHTML)
         
     }
-    addEventListener(info){
+    async addEventListener(info){
         for (let i = 0; i < info.length; i++) {
             let Ninfo = info[i];
             const channel = this.channels[i];
@@ -191,8 +192,79 @@ class SearchRows {
             });
             document.getElementById(`delete-${Ninfo.id}`).addEventListener('click', () => {
                 console.log(`delete contact-${Ninfo.id}`);
-                
+                new DeleteElements(document.getElementById('modal-2'), Ninfo, 'contact', null);
             });
+        }
+        for (let i = 0; i < info.length; i++) {
+            const Ninfo = info[i];
+            let imageObjectURL = await getContactAvatar(Ninfo.id);
+            let img = document.getElementById(`imgCircle-${Ninfo.id}`);
+            img.src = imageObjectURL;
+        }
+
+        let selectAllCheckbox = document.getElementById('select-all');
+        console.log(selectAllCheckbox);
+        selectAllCheckbox.addEventListener('change', (event) => {
+            if(event.target.checked){
+                this.selectAllContacts(true)
+            } else {
+                this.selectAllContacts(false)
+            }
+            this.updateTableActions()
+        });
+        let selectCheckboxs = document.querySelectorAll('*[id^="selectcontact"]')
+            selectCheckboxs.forEach((checkbox) => {
+            checkbox.addEventListener('click', (event) => {
+            if (event.target.checked) {
+                this.selectedContacts.push(parseInt(checkbox.id.split('-')[1]))
+            } else {
+                this.selectedContacts = this.selectedContacts.filter( (ele) => { 
+                return ele != parseInt(checkbox.id.split('-')[1]);
+            });
+        }
+        selectAllCheckbox.indeterminate = true;
+        this.updateTableActions()
+        })
+})
+    }
+
+    selectAllContacts(isChecked) {
+        let selectCheckboxs = document.querySelectorAll('*[id^="selectcontact"]')
+        this.selectedContacts = [];
+        selectCheckboxs.forEach((checkbox) => {
+            checkbox.checked = isChecked;
+            if(isChecked) {
+                this.selectedContacts.push(parseInt(checkbox.id.split('-')[1]))
+            }
+        })
+
+    }
+
+    updateSelectedContacts() {
+        console.log('Contacts selected' + this.selectedContacts.length)
+        console.log('Selected' + this.selectedContacts)
+    }
+
+    updateTableActions() {
+        let tableActionsHTML = '<div></div>';
+        if(this.selectedContacts.length > 0) {
+            tableActionsHTML = `
+                <span id="n-selected-tag" class="n-selected-tag">${this.selectedContacts.length} ${this.selectedContacts.length > 1 ? 'seleccionados': 'seleccionado'}</span>
+            `
+        } 
+        if (this.selectedContacts.length > 0) {
+            tableActionsHTML += `
+                <a id="delete-contacts" class='delete-contacts'><img src="/Front-end/img/delete-solid.svg" />${this.selectedContacts.length == 1 ? 'Eliminar contacto' : 'Eliminar contactos'}</a>
+            `;
+        }
+        document.getElementById('table-actions').innerHTML = tableActionsHTML;
+
+        let deleteContactBtn = document.getElementById('delete-contacts');
+        if (deleteContactBtn) {
+            deleteContactBtn.addEventListener('click', () => {
+                console.log(this.selectedContacts)
+                new DeleteElements(document.getElementById('modal-2'), null , 'contacts', this.selectedContacts)
+            })
         }
     }
     

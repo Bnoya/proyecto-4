@@ -68,9 +68,21 @@ async function getContacts(){
                 
                 
             }
-            contact.company_name = company[0].company_name;
-            contact.region_name = region[0].region_name;
-            contact.country_name = getCountry[0].country_name;
+            if (company[0] == null) {
+                contact.company_name = ''
+            }else{
+                contact.company_name = company[0].company_name;
+            }
+            if(region[0] == null){
+                contact.region_name = ''
+            }else {
+                contact.region_name = region[0].region_name;
+            }
+            if (getCountry[0] == null) {
+                contact.country_name = '';
+            }else {
+                contact.country_name = getCountry[0].country_name;
+            }
             if(contact.interest == null){
                 contact.interest = '0';
             }
