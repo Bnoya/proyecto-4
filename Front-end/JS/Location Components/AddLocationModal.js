@@ -429,7 +429,7 @@ class AddLocationModal {
                         const info = await response.json();
                         console.log(info)
                         if (info !== null || info !== undefined) {
-                            //location.reload();
+                            location.reload();
                         }
                     } catch (error) {
                         console.log('Could Not Delete')
