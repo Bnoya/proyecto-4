@@ -367,16 +367,17 @@ app.delete('/delete-contact/:id', async (req, res) => {
     }
 });
 
-//app.delete('/delete-contacts', async (req, res) => {
-//
-//    let contactIds = req.body.contact_ids;
-//    const deleteContact = await db.contact.deleteContacts(contactIds);
-//    if (deleteContact == false){
-//        res.status(500).send({message: 'couldnt delete Contact'})
-//    } else {
-//        res.status(201).send({message: 'Contact Deleted'})
-//    }
-//});
+app.delete('/delete-contacts', async (req, res) => {
+
+    let contactIds = req.body.contact_ids;
+    console.log(contactIds);
+    const deleteContact = await db.contact.deleteMultipleContacts(contactIds);
+    if (deleteContact == false){
+        res.status(500).send({message: 'couldnt delete Contact'})
+    } else {
+        res.status(201).send({message: 'Contact Deleted'})
+    }
+});
 
 app.put('/edit-contact', async (req, res)=> {
     const editContact = await db.contact.updateContact(req.body);

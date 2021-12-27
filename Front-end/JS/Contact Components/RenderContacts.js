@@ -128,74 +128,74 @@ class CreateRows {
         return (companyHTML);
             }
             async addEventListener(info){
-        for (let i = 0; i < info.length; i++) {
-            let Ninfo = info[i];
-            const channel = this.channels[i];
-            document.getElementById(`edit-${Ninfo.id}`).addEventListener('click', async () => {
-                    let token = getToken();
-                    var ver = token.substring(0, token.length - 1);
-                    
-                    let url1 = 'http://localhost:3000/regions';
-                    let url2 = 'http://localhost:3000/country';
-                    let url3 = 'http://localhost:3000/city';
-                    let url4 = 'http://localhost:3000/Channeltype';
-                    let url5 = 'http://localhost:3000/company'
-                    let channels = `http://localhost:3000/contactChannel/${Ninfo.id}`
-                    try {
-                        let options = {
-                            type: 'GET',
-                            headers: {
-                                "Authorization": `Bearer ${ver}`,
-                                'Content-Type': 'application/json'
-                            },
-                        };
-                        const responseReg = await fetch(url1, options);
-                        const infoReg = await responseReg.json();
-                        
-                        const responseCou = await fetch(url2, options);
-                        const infoCou = await responseCou.json();
-                        
-                        const responseCi = await fetch(url3, options);
-                        const infoCi = await responseCi.json();
-
-                        const responsechan = await fetch(url4, options);
-                        const infoChan = await responsechan.json();
-
-                        const responseComp = await fetch(url5, options);
-                        const infoComp = await responseComp.json();
-
-                        const infor = await fetch(channels, options);
-                        const infoChannel = await infor.json();
-                        console.log(infoChannel);
-                        var ordCoun = [];
-                        for (let i = 0; i < infoReg.length; i++) {
-                            let info = infoReg[i].id
-                            ordCoun[i] = infoCou.filter(function (el) 
-                            {
-                                return el.redion_id == info;
-                            });
+                for (let i = 0; i < info.length; i++) {
+                    let Ninfo = info[i];
+                    const channel = this.channels[i];
+                    document.getElementById(`edit-${Ninfo.id}`).addEventListener('click', async () => {
+                            let token = getToken();
+                            var ver = token.substring(0, token.length - 1);
                             
-                        };
-                        var ordCi = [];
-                        for (let i = 0; i < infoCou.length; i++) {
-                            let info = infoCou[i].id
-                            ordCi[i] = infoCi.filter(function (el) 
-                            {
-                                return el.country_id == info;
-                            });
-                            
-                        };
-                        //let sChannel=[];
-                        //for (let i = 0; i < infoChannel.length; i++) {
-                        //    const chan = infoChannel[i];
-                        //    let channelsType = `http://localhost:3000/Channeltype/${chan.contact_channel_type_id}`
-                        //    const response5 = await fetch(channelsType, options);
-                        //    const channeltypes = await response5.json();
-                        //    chan.contact_channel_type_id = channeltypes[0].channel;
-                        //    sChannel.push(chan);
-                        //    }
-                        //console.log(infoChannel)
-                        const contacts = new Contact(document.getElementById('contacts-window'), 'edit', infoReg, ordCoun, ordCi, infoChan, infoComp, Ninfo, infoChannel);
+                            let url1 = 'http://localhost:3000/regions';
+                            let url2 = 'http://localhost:3000/country';
+                            let url3 = 'http://localhost:3000/city';
+                            let url4 = 'http://localhost:3000/Channeltype';
+                            let url5 = 'http://localhost:3000/company'
+                            let channels = `http://localhost:3000/contactChannel/${Ninfo.id}`
+                            try {
+                                let options = {
+                                    type: 'GET',
+                                    headers: {
+                                        "Authorization": `Bearer ${ver}`,
+                                        'Content-Type': 'application/json'
+                                    },
+                                };
+                                const responseReg = await fetch(url1, options);
+                                const infoReg = await responseReg.json();
+                                
+                                const responseCou = await fetch(url2, options);
+                                const infoCou = await responseCou.json();
+                                
+                                const responseCi = await fetch(url3, options);
+                                const infoCi = await responseCi.json();
+
+                                const responsechan = await fetch(url4, options);
+                                const infoChan = await responsechan.json();
+
+                                const responseComp = await fetch(url5, options);
+                                const infoComp = await responseComp.json();
+
+                                const infor = await fetch(channels, options);
+                                const infoChannel = await infor.json();
+                                console.log(infoChannel);
+                                var ordCoun = [];
+                                for (let i = 0; i < infoReg.length; i++) {
+                                    let info = infoReg[i].id
+                                    ordCoun[i] = infoCou.filter(function (el) 
+                                    {
+                                        return el.redion_id == info;
+                                    });
+                                    
+                                };
+                                var ordCi = [];
+                                for (let i = 0; i < infoCou.length; i++) {
+                                    let info = infoCou[i].id
+                                    ordCi[i] = infoCi.filter(function (el) 
+                                    {
+                                        return el.country_id == info;
+                                    });
+                                    
+                                };
+                                //let sChannel=[];
+                                //for (let i = 0; i < infoChannel.length; i++) {
+                                //    const chan = infoChannel[i];
+                                //    let channelsType = `http://localhost:3000/Channeltype/${chan.contact_channel_type_id}`
+                                //    const response5 = await fetch(channelsType, options);
+                                //    const channeltypes = await response5.json();
+                                //    chan.contact_channel_type_id = channeltypes[0].channel;
+                                //    sChannel.push(chan);
+                                //    }
+                                //console.log(infoChannel)
+                                const contacts = new Contact(document.getElementById('contacts-window'), 'edit', infoReg, ordCoun, ordCi, infoChan, infoComp, Ninfo, infoChannel);
 
                     }catch {
                         console.log('error')
@@ -203,7 +203,7 @@ class CreateRows {
             });
             document.getElementById(`delete-${Ninfo.id}`).addEventListener('click', () => {
                 console.log(`delete contact-${Ninfo.id}`);
-                new DeleteElements(document.getElementById('modal-2'), Ninfo, 'contact');
+                new DeleteElements(document.getElementById('modal-2'), Ninfo, 'contact', null);
             });
         }
         for (let i = 0; i < info.length; i++) {
@@ -236,8 +236,9 @@ class CreateRows {
         this.updateTableActions()
         })
 })
-
+        
     }
+    
     selectAllContacts(isChecked) {
         let selectCheckboxs = document.querySelectorAll('*[id^="selectcontact"]')
         this.selectedContacts = [];
@@ -273,10 +274,9 @@ class CreateRows {
         if (deleteContactBtn) {
             deleteContactBtn.addEventListener('click', () => {
                 console.log(this.selectedContacts)
-                new ConfirmationModal(document.getElementById('modal'), {type: 'deleteContacts', contactIds: this.selectedContacts, message: this.selectedContacts.length > 1 ? `¿Estas seguro que deseas eliminar los contactos seleccionados?` : '¿Estas seguro que deseas eliminar el contacto seleccionado?'})
+                new DeleteElements(document.getElementById('modal-2'), null , 'contacts', this.selectedContacts)
             })
         }
     }
-    
 }
 export {CreateRows}

@@ -1,10 +1,12 @@
 import {getToken} from '../General Functions/getdata.js';
 
 class DeleteElements {
-    constructor(element, info, selector) {
+    constructor(element, info, selector, meta) {
         this.element = element;
         this.selector = selector;
         this.info = info;
+        this.meta = meta;
+        console.log(this.meta);
         console.log(this.info);
         this.element.innerHTML = this.companyConstructor();
         this.element.classList.add( 'modal-confirmation');
@@ -14,7 +16,6 @@ class DeleteElements {
         let imgUrl;
         let message;
 
-        //let companyHTML = ''
         switch (this.selector) {
             case ('city'):
                 imgUrl = "/Front-end/img/map-marked.svg"
@@ -50,7 +51,7 @@ class DeleteElements {
                 message = '¿Estas seguro que deseas eliminar los usuarios seleccionados?' ;
             break;
         }
-        console.log(message);
+
         return(`
         <div class="confirmation">
             <div class='CardClass'>
@@ -77,6 +78,7 @@ class DeleteElements {
         document.getElementById('modal-delete-location-btn').addEventListener('click', async () => {
             event.preventDefault()
             let endpoint;
+            let body;
             switch (this.selector) {
                 case 'region':
                     endpoint = `http://localhost:3000/delete-region/${this.info.id}`;
@@ -92,11 +94,11 @@ class DeleteElements {
                 case 'contact':
                     endpoint = `http://localhost:3000/delete-contact/${this.info.id}`;
                     break;
-                //case 'contacts':
-                    //endpoint = `http://localhost:3000/delete-contact/${this.info.id}`;
-                    //body = this.meta.contactIds;
-                    //body = JSON.stringify({contact_ids: body});
-                    //break;
+                case 'contacts':
+                    endpoint = `http://localhost:3000/delete-contacts`;
+                    body = this.meta;
+                    body = JSON.stringify({contact_ids: body});
+                    break;
                 case 'user':
                     endpoint = `http://localhost:3000/delete-user/${this.info.id}`;
                     break;
@@ -106,11 +108,13 @@ class DeleteElements {
             }
             try {
                 console.log(endpoint);
+                console.log(body);
                 let response = await fetch(endpoint, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${ver}`
                     },
+                    body: body,
                     method: 'DELETE'
                 });
 
@@ -119,7 +123,7 @@ class DeleteElements {
             } catch (error) {
                 console.log(error)
             }
-            //window.location.reload();
+            window.location.reload();
         })
     }
 }
