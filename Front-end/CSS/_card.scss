@@ -39,11 +39,25 @@
                     padding-top: 15px;
                     border-top-left-radius: 6px;
                     border-top-right-radius: 6px;
-                    img{
-                        width: 5%;
-                        
-                        border-radius: 55%;
-                        background-color: $black;
+                    .contact-picture {
+                        overflow: hidden;
+                        align-items: center;
+                        justify-content: center;
+                        width: 50px;
+                        //height: 85px;
+                        background-color: white;
+                        border: 2px solid #0683F9;
+                        border-radius: 100px;
+                        margin-left:  24px;
+                        img {
+                            //height: 50%;
+                            width: auto;
+                            margin: 0;
+                        }
+                        .loaded {
+                            height: 110%;
+                            width: auto;
+                        }
                     }
                     .nameCont{
                         display: flex;
@@ -193,6 +207,7 @@
                             height: 50px;
                             margin-top: 25px;
                             padding-bottom: 20px;
+                            width: 83%;
                             .contactCont{
                                 display: flex;
                                 flex-direction: column;
@@ -279,6 +294,27 @@
                                             font-family: $openSans;
                                         }
                                     }
+                                    .delete{
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        margin-top: 10px;
+                                        margin-left: 10px;
+                                        .delete-channel{
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            height: 15px;
+                                            width: 15px;
+                                            background-color: none;
+                                            border: solid 1.5px $secondRed;
+                                            padding: 5px;
+                                            cursor: pointer;
+                                            &:hover{
+                                                background-color: $grey;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -354,4 +390,36 @@
             }
         }
     }
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+
+    z-index: 2;
+}
+.inputfile + label {
+    position: relative;
+    display: flex;
+    background-color: #0683F9;
+    border-radius: 100px;
+
+    img {
+        width: 15px;
+        height: 15px;
+    }
+    left: -19px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    cursor: pointer;
 }

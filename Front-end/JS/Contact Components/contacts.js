@@ -13,6 +13,7 @@ class Contact {
         this.city = ordCi;
         this.selectedOption = selectedOption;
         this.channel = infoChannel;
+        console.log(this.channel)
         this.company = infoComp;
         this.sChannel = sChannel;
         console.log(this.sChannel);
@@ -31,14 +32,15 @@ class Contact {
                     <div class='newCard'>
                     <form class='addContact'>
                             <div class="importantData">
-                                <div class="contact-picture container"><img src="/Front-end/img/user-solid.svg" id="avatar-preview"/ ${this.isEditMode ? 'class="loaded"': ""}></div>
+                                <div class="contact-picture"><img src="/Front-end/img/user-solid.svg" id="avatar-preview"/ ${this.isEditMode ? 'class="loaded"': ""}></div>
                                 <input type="file" id="avatar-upload" class="inputfile" accept=".jpeg"/>
+                                <label for="avatar-upload" class=""><img src="/Front-end/img/camara-solid.svg" /img></label>
                                 <div class='nameCont'>
-                                    <label for= 'name'> Nombre: </Label>
+                                    <label for= 'name'> Nombre<span style = "color: red;">*</span>: </Label>
                                     <input type="text" name="name" id='name'>
                                 </div>
                                 <div class="lastCont">
-                                    <label for="last">Apellido: </label>
+                                    <label for="last">Apellido<span style = "color: red;">*</span>: </label>
                                     <input type="text" name="last" id='last'>
                                 </div>
                                 <div class="jobCont">
@@ -50,7 +52,7 @@ class Contact {
                                     <input type="text" name="email" id='email'>
                                 </div>
                                 <div class="companyCont">
-                                    <label for="company">Compania: </label>
+                                    <label for="company">Compania<span style = "color: red;">*</span>: </label>
                                     <select name="company" id="companySelect">
                                         <option value="0"> Selecciona una...</option>
                                         `
@@ -70,7 +72,7 @@ class Contact {
                             </div>
                             <div class="secondaryData">
                                 <div class="regionCont">
-                                    <label for="region">Region: </label>
+                                    <label for="region">Region<span style = "color: red;">*</span>: </label>
                                     <select name="region" id="regionSelect">
                                     <option value="0"> Selecciona una...</option>
                                     `
@@ -88,7 +90,7 @@ class Contact {
                                     </select>
                                 </div>
                                 <div class="countryCont">
-                                    <label for="country">Pais: </label>
+                                    <label for="country">Pais<span style = "color: red;">*</span>: </label>
                                     <select name="country" id="countrySelect">
                                     <option value="0"> Selecciona una...</option>
                                     `
@@ -109,7 +111,7 @@ class Contact {
                                     </select>
                                 </div>
                                 <div class="cityCont">
-                                    <label for="city">Ciudad: </label>
+                                    <label for="city">Ciudad<span style = "color: red;">*</span>: </label>
                                     <select name="city" id="citySelector">
                                     <option value="0"> Selecciona una...</option>
                                     `
@@ -152,7 +154,7 @@ class Contact {
                             <div class='contact'>
                                         <div class='thirdData'>
                                             <div class="contactCont"> 
-                                                <label for="contact">Canal de Contacto: </label>
+                                                <label for="contact">Canal de Contacto<span style = "color: red;">*</span>: </label>
                                                 <select name="contact" id="contChannel-0">
                                                 <option value="0"> Selecciona una...</option>
                                             `
@@ -167,11 +169,11 @@ class Contact {
                                                 </select>
                                             </div>
                                             <div class="userAccount">
-                                                <label for="account">Cuenta del Usuario: </label>
+                                                <label for="account">Cuenta del Usuario<span style = "color: red;">*</span>: </label>
                                                 <input type="text" name="account" id="account-0" placeholder="@ejemplo">
                                             </div>
                                             <div class="preffCont">
-                                                <label for="preff">Preferencias: </label>
+                                                <label for="preff">Preferencias<span style = "color: red;">*</span>: </label>
                                                 <select name="preff" id="preff-0">
                                                     <option value="0"> Selecciona una...</option>
                                                     <option value ='1'>Canal Favorito  </option>
@@ -205,14 +207,15 @@ class Contact {
                 <div class='newCard'>
                 <form class='addContact'>
                         <div class="importantData">
-                            <div class="contact-picture container"><img src="/Front-end/img/user-solid.svg" id="avatar-preview"/ ${this.isEditMode ? 'class="loaded"': ""}></div>
+                            <div class="contact-picture"><img src="/Front-end/img/user-solid.svg" id="avatar-preview"/ ${this.isEditMode ? 'class="loaded"': ""}></div>
                             <input type="file" id="avatar-upload" class="inputfile" accept=".jpeg"/>
+                            <label for="avatar-upload" class=""><img src="/Front-end/img/camara-solid.svg" /img></label>
                             <div class='nameCont'>
-                                <label for= 'name'> Nombre: </Label>
+                                <label for= 'name'> Nombre<span style = "color: red;">*</span>: </Label>
                                 <input type="text" name="name" id='name'>
                             </div>
                             <div class="lastCont">
-                                <label for="last">Apellido: </label>
+                                <label for="last">Apellido<span style = "color: red;">*</span>: </label>
                                 <input type="text" name="last" id='last'>
                             </div>
                             <div class="jobCont">
@@ -224,7 +227,7 @@ class Contact {
                                 <input type="text" name="email" id='email'>
                             </div>
                             <div class="companyCont">
-                                <label for="company">Compania: </label>
+                                <label for="company">Compania<span style = "color: red;">*</span>: </label>
                                 <select name="company" id="companySelect">
                                     <option value="0"> Selecciona una...</option>
                                     `
@@ -244,7 +247,7 @@ class Contact {
                         </div>
                         <div class="secondaryData">
                             <div class="regionCont">
-                                <label for="region">Region: </label>
+                                <label for="region">Region<span style = "color: red;">*</span>: </label>
                                 <select name="region" id="regionSelect">
                                 <option value="0"> Selecciona una...</option>
                                 `
@@ -262,7 +265,7 @@ class Contact {
                                 </select>
                             </div>
                             <div class="countryCont">
-                                <label for="country">Pais: </label>
+                                <label for="country">Pais<span style = "color: red;">*</span>: </label>
                                 <select name="country" id="countrySelect">
                                 <option value="0"> Selecciona una...</option>
                                 `
@@ -283,7 +286,7 @@ class Contact {
                                 </select>
                             </div>
                             <div class="cityCont">
-                                <label for="city">Ciudad: </label>
+                                <label for="city">Ciudad<span style = "color: red;">*</span>: </label>
                                 <select name="city" id="citySelector">
                                 <option value="0"> Selecciona una...</option>
                                 `
@@ -327,7 +330,7 @@ class Contact {
                                     <div class='thirdData'>
                                         <div class="contactCont"> 
                                             <label for="contact">Canal de Contacto: </label>
-                                            <select name="contact" id="contChannel-0">
+                                            <select name="contact" id="contChannel-edit-0">
                                             <option value="0"> Selecciona una...</option>
                                         `
                                         for (let i = 0; i < this.channel.length; i++) {
@@ -342,11 +345,11 @@ class Contact {
                                         </div>
                                         <div class="userAccount">
                                             <label for="account">Cuenta del Usuario: </label>
-                                            <input type="text" name="account" id="account-0" placeholder="@ejemplo">
+                                            <input type="text" name="account" id="account-edit-0" placeholder="@ejemplo">
                                         </div>
                                         <div class="preffCont">
                                             <label for="preff">Preferencias: </label>
-                                            <select name="preff" id="preff-0">
+                                            <select name="preff" id="preff-edit-0">
                                                 <option value="0"> Selecciona una...</option>
                                                 <option value ='1'>Canal Favorito  </option>
                                                 <option value='2'>No Molestar </option>
@@ -380,29 +383,22 @@ class Contact {
 
     addEventListeners(Ninfo){
         let count = 1;
-        let editcount = 1;
+        //let editcount = 1;
+        
         switch (this.selectedOption) {
             case 'edit':
-
-
-                this.inputFileImg.onchange = evt => {
-                    const [file] = this.inputFileImg.files
-                    if (file) {
-                        this.profileImgPreview.src = URL.createObjectURL(file)
-                        this.profileImgPreview.classList.add('loaded')
-                    }
-                }
-
-
+                let Ncount = 1; 
                 for (let i = 0; i < (this.sChannel.length - 1); i++) {
-                    
+                    let channel_info = this.sChannel[i]
                     let div = document.getElementById('extraData');
                     let cont = document.createElement('div');
                     div.style.display = 'flex';
                     cont.classList.add('Bigcontainer');
+                    cont.id = `delete-row-${count}`;
                     div.appendChild(cont);
-                    const channel = new AddChannel(cont, this.channel, editcount);
-                    editcount = editcount +1;
+                    const channel = new AddChannel(cont, this.channel, count, 'edit', channel_info.id);
+                    let detele_channel = document.getElementById(`delete-row-${count}`);
+                    count = count +1;
                 }
 
                 let name = document.getElementById('name');
@@ -414,15 +410,15 @@ class Contact {
                 let country = document.getElementById('countrySelect');
                 let city = document.getElementById('citySelector');
                 let address = document.getElementById('address');
-                let interest = document.getElementById('intrest')
+                let interest = document.getElementById('intrest');
                 let channel = [];
                 let account =[]
                 let preff = [];
                 let option = 0;
                     for (let i = 0; i < this.sChannel.length; i++) {
-                        let channel_h = document.getElementById(`contChannel-${option}`);
-                        let account_h = document.getElementById(`account-${option}`);
-                        let preff_h = document.getElementById(`preff-${option}`);
+                        let channel_h = document.getElementById(`contChannel-edit-${option}`);
+                        let account_h = document.getElementById(`account-edit-${option}`);
+                        let preff_h = document.getElementById(`preff-edit-${option}`);
                         channel.push(channel_h);
                         account.push(account_h);
                         preff.push(preff_h);
@@ -453,7 +449,7 @@ class Contact {
 
 
                 document.getElementById('edit-Contact').addEventListener('click', async () => {
-                    event.preventDefault();
+                    //event.preventDefault();
                     let name = document.getElementById('name').value;
                     let last = document.getElementById('last').value;
                     let job = document.getElementById('job').value;
@@ -469,16 +465,21 @@ class Contact {
                     let preff = [];
                     let option = 0;
                     for (let i = 0; i < count; i++) {
-                        let channel_h = document.getElementById(`contChannel-${option}`);
-                        let account_h = document.getElementById(`account-${option}`);
-                        let preff_h = document.getElementById(`preff-${option}`);
+                        let channel_h = document.getElementById(`contChannel-edit-${option}`);
+                        let account_h = document.getElementById(`account-edit-${option}`);
+                        let preff_h = document.getElementById(`preff-edit-${option}`);
                         channel.push(channel_h);
                         account.push(account_h);
                         preff.push(preff_h);
                         option = option+1;
                     }
+                    if (name == null || last == null || company == 0 || region == 0 || country == 0 || city == 0 ) {
+                        alert('Complete todos los campos con *');
+                        return
+                    }
                     let editContact = 'http://localhost:3000/edit-contact';
                     let editChannel = 'http://localhost:3000/edit-ContactChannel';
+                    let addChannel = 'http://localhost:3000/create-contactChannel';
                     let rToken = getToken();
                     let ver = rToken.substring(0, rToken.length - 1);
                     const data_contact = {
@@ -511,12 +512,15 @@ class Contact {
 
                         const response= await fetch(editContact, options_create);
                         const info = await response.json();
-                        console.log(info);
+                        console.log(response);
+
+                        
+                        
                         for (let i = 0; i < this.sChannel.length; i++) {
-                            const R_channel = channel[i];
-                            const R_account = account[i];
-                            const R_preff = preff[i];
-                            console.log(channel.length)
+                            const R_channel = channel[i].value;
+                            const R_account = account[i].value;
+                            const R_preff = preff[i].value;
+                            console.log(R_channel, R_preff, R_account);
                             const data_channel ={
                                 "id": this.sChannel[i].id,
                                 "contact_id": Ninfo.id,
@@ -537,29 +541,79 @@ class Contact {
                             const response_channel= await fetch(editChannel, options_create_channel);
                             const info_channel = await response_channel.json();
                             console.log(info_channel);
-                            //document.location.reload()
                             
                         }
+                        if (document.querySelector("[id='create']")!= null || document.querySelector("[id^='create']")!= undefined ) {
+                            //let N-channels = 
+                            console.log('entre a create');
+                            console.log(document.querySelectorAll("[id='create']").length); 
+                            let N_channel = document.querySelectorAll("[id^='contChannel-create-']");
+                            let N_account = document.querySelectorAll("[id^='account-create-']");
+                            let N_preff = document.querySelectorAll("[id^='preff-create-']");
+                            console.log(N_channel);
+                            for (let i = 0; i < document.querySelectorAll("[id='create']").length; i++) {
+                                const New_channel = N_channel[i].value;
+                                const New_account = N_account[i].value;
+                                const New_preff = N_preff[i].value;
+
+                                const data_channel ={
+                                    "contact_id": Ninfo.id,
+                                    "contact_channel_type_id": New_channel,
+                                    "socials_username":New_account,
+                                    "preferences":New_preff
+                                }
+                                let options_create_channel = {
+                                    headers: {
+                                        'Authorization': `Bearer ${ver}`,
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(data_channel),
+                                    method: 'POST'
+                                };
+                                const response_channel= await fetch(addChannel, options_create_channel);
+                                const info_channel = await response_channel.json();
+                            }
+
+                            let formData = new FormData();
+                        formData.append('avatar', this.inputFileImg.files[0]);
+
+                        const contactId = Ninfo.id;
+
+                        let updateUrl = `http://localhost:3000/upload-avatar/${contactId}`;
+                        console.log(response.status)
+                        if (response.status === 201) {
+                            const response = await fetch( updateUrl, {
+                                headers: {
+                                    'Authorization': `Bearer ${ver}`,
+                                },
+                                body: formData,
+                                method: 'POST'
+                            });
+                        }
+                        }
                         
-                    }catch {
+                        document.location.reload()
+                    }catch (error) {
                         console.log(error)
                     };
+                });
+                document.getElementById('addChannel').addEventListener('click', async () => {
+                    let div = document.getElementById('extraData');
+                    let cont = document.createElement('div');
+                    div.style.display = 'flex';
+                    cont.classList.add('Bigcontainer');
+                    cont.id = `delete-row-${count}`;
+                    div.appendChild(cont);
+                    const channel = new AddChannel(cont, this.channel, Ncount, 'create', 0);
+                    Ncount = Ncount +1;
+                    count = count + 1;
                 });
                 break;
         
             case 'create':
 
-                this.inputFileImg.onchange = evt => {
-                    const [file] = this.inputFileImg.files
-                    if (file) {
-                        this.profileImgPreview.src = URL.createObjectURL(file)
-                        this.profileImgPreview.classList.add('loaded')
-                    }
-                }
-
-
-                document.getElementById('addContact').addEventListener('click', async () => {
-                    event.preventDefault();
+                document.getElementById('addContact').addEventListener('click', async (event) => {
+                    //event.preventDefault();
                     //console.log(count)
                     let name = document.getElementById('name').value;
                     let last = document.getElementById('last').value;
@@ -571,6 +625,7 @@ class Contact {
                     let city = document.getElementById('citySelector').value;
                     let address = document.getElementById('address').value;
                     let interest = document.getElementById('intrest').value;
+
                     let channel = [];
                     let account =[]
                     let preff = [];
@@ -587,6 +642,11 @@ class Contact {
                         account.push(account_h);
                         preff.push(preff_h);
                         option = option+1;
+                    }
+                    if (name == null || last == null || company == 0 || region == 0 || country == 0 || city == 0 || channel[0]==null || account[0] == null || preff[0] == 0 ) {
+                        alert(`Complete todos los campos con *:
+                                ${name}, ${last}, ${company}, ${region}, ${country}, ${city}, ${channel}, ${account}, ${preff}`);
+                        return false
                     }
                     //console.log(channel, account, preff);
                     const data_contact = {
@@ -614,20 +674,9 @@ class Contact {
 
                         const response= await fetch(addContact, options_create);
                         const info = await response.json();
+                        console.log(info);
+
                         
-                        let formData = new FormData();
-                        formData.append('avatar', this.inputFileImg.files[0]);
-                        const contactId = info.data.contact_id;
-                        if (response.status === 200) {
-                            response = await fetch(`http://localhost:3000/upload-avatar/${contactId}`, {
-                                headers: {
-                                    'Authorization': `Bearer ${ver}`
-                                },
-                                body: formData,
-                                method: 'POST'
-                            });
-                            console.log(response);
-                        }
 
                         for (let i = 0; i < channel.length; i++) {
                             const R_channel = channel[i];
@@ -652,27 +701,53 @@ class Contact {
                             const response_channel= await fetch(addChannel, options_create_channel);
                             const info_channel = await response_channel.json();
                             //console.log(info_channel);
-                            document.location.reload()
                         }
-                    }catch {
+
+                        let formData = new FormData();
+                        formData.append('avatar', this.inputFileImg.files[0]);
+
+                        const contactId = info.data.id;
+                        
+                        let updateUrl = `http://localhost:3000/upload-avatar/${contactId}`;
+                        
+                        if (response.status === 201) {
+                            response = await fetch( updateUrl, {
+                                headers: {
+                                    'Authorization': `Bearer ${ver}`
+                                },
+                                body: formData,
+                                method: 'POST'
+                            });
+                        }
+
+                        document.location.reload()
+                    }catch (error){
                         console.log(error)
                     };
+                });
+                document.getElementById('addChannel').addEventListener('click', async () => {
+                    let div = document.getElementById('extraData');
+                    let cont = document.createElement('div');
+                    div.style.display = 'flex';
+                    cont.classList.add('Bigcontainer');
+                    cont.id = `delete-row-${count}`;
+                    div.appendChild(cont);
+                    const channel = new AddChannel(cont, this.channel, count, 'create', 0);
+                    count = count +1;
                 });
                 break;
         }
 
-
-
-
-        document.getElementById('addChannel').addEventListener('click', async () => {
-            let div = document.getElementById('extraData');
-            let cont = document.createElement('div');
-            div.style.display = 'flex';
-            cont.classList.add('Bigcontainer');
-            div.appendChild(cont);
-            const channel = new AddChannel(cont, this.channel, count)
-            count = count +1;
-        });
+        //document.getElementById('addChannel').addEventListener('click', async () => {
+        //    let div = document.getElementById('extraData');
+        //    let cont = document.createElement('div');
+        //    div.style.display = 'flex';
+        //    cont.classList.add('Bigcontainer');
+        //    cont.id = `delete-row-${count}`;
+        //    div.appendChild(cont);
+        //    const channel = new AddChannel(cont, this.channel, count, 'create', 0);
+        //    count = count +1;
+        //});
         
         
         
@@ -711,19 +786,18 @@ class Contact {
                 }
             }
         })
-
-        this.inputFileImg.onchange = evt => {
+        this.inputFileImg = document.getElementById('avatar-upload');
+        this.profileImgPreview = document.getElementById('avatar-preview')
+        this.inputFileImg.addEventListener('change', evt => {
             const [file] = this.inputFileImg.files
             if (file) {
                 this.profileImgPreview.src = URL.createObjectURL(file)
                 this.profileImgPreview.classList.add('loaded')
             }
-        }
-
+        });
         document.getElementById('cancel').addEventListener('click', () => {
             location.reload();
         })
-        
     }
     
 

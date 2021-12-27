@@ -45,6 +45,25 @@ class ContactChannel {
             return {error: true, message: "Couldn't update contact channel"}
         }
     }
+    async deleteContactChannel(Id) {
+        const query = `DELETE FROM contact_channel WHERE id = :id;`
+        try {
+            const queryed = await this.sequelize.query(query, {
+                    replacements: {id: Id},
+                    type: this.sequelize.QueryTypes.DELETE
+                })
+            
+            if (queryed[0].affectedRows > 0) {
+                return {status: 200, message: "Contact channel Deleted", data: {
+                    contact_id: Id
+                }}
+            } else {
+                return {error: true, message: "couldn't delete channel."}
+            }
+        } catch (error) {
+            return {error: true, message: "couldn't delete Contact channel."}
+        }
+    }
     
 }
 

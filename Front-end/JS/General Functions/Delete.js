@@ -5,6 +5,7 @@ class DeleteElements {
         this.element = element;
         this.selector = selector;
         this.info = info;
+        console.log(this.info);
         this.element.innerHTML = this.companyConstructor();
         this.element.classList.add( 'modal-confirmation');
         this.addeventlisteners();
@@ -74,6 +75,7 @@ class DeleteElements {
         })
         console.log(document.getElementById('modal-delete-location-btn'));
         document.getElementById('modal-delete-location-btn').addEventListener('click', async () => {
+            event.preventDefault()
             let endpoint;
             switch (this.selector) {
                 case 'region':
@@ -117,7 +119,7 @@ class DeleteElements {
             } catch (error) {
                 console.log(error)
             }
-            window.location.reload();
+            //window.location.reload();
         })
     }
 }

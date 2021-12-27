@@ -302,118 +302,118 @@ document.getElementById('searchNow').addEventListener('click', async () => {
 
 getContacts();
 
-document.getElementById('numberOfContacts').addEventListener('change', async () => {
-    let select = document.getElementById('numberOfContacts').value;
-    let del = document.querySelectorAll('[id=del]');
-    for (let i = 0; i <del.length; i++) {
-        const delone = del[i];
-        delone.parentElement.removeChild(delone);
-    }
-    let url=`http://localhost:3000/contact/1&${select}`;
-
-    
-    try {
-        let options = {
-            type: 'GET',
-            headers: {
-                'Authorization': `Bearer ${ver}`,
-                'Content-Type': 'application/json'
-            },
-        };
-        const response= await fetch(url, options);
-        const info = await response.json();
-
-        let number = info[0];
-
-        info.shift();
-        //console.log(number/5);
-        let full_Data = []
-        let channels = [];
-        
-        for (let i = 0; i < info.length; i++) {
-
-            let contact = info[i];
-            let companyName = `http://localhost:3000/company/${contact.company_id}`;
-            let regionName = `http://localhost:3000/regions/${contact.region_id}`;
-            let countryName = `http://localhost:3000/country/id/${contact.country_id}`;
-            
-            let contactChannel = `http://localhost:3000/contactChannel/${contact.id}`;
-            
-            const response1= await fetch(companyName, options);
-            const company = await response1.json();
-            const response2= await fetch(regionName, options);
-            const region = await response2.json();
-            const response3= await fetch(countryName, options);
-            const getCountry = await response3.json();
-            
-            const response4 = await fetch(contactChannel, options);
-            const channel = await response4.json();
-            if(channel != undefined || channel != null || channel != ''){
-                for (let i = 0; i < channel.length; i++) {
-                    let Nchannel = channel[i];
-                    
-                    let channelType = `http://localhost:3000/Channeltype/${Nchannel.contact_channel_type_id}`
-                    const response5 = await fetch(channelType, options);
-                    const channeltypes = await response5.json();
-                    Nchannel.contact_channel_type_id = channeltypes[0].channel;
-                    channels.push(Nchannel);
-                }
-                
-                
-            }
-            contact.company_name = company[0].company_name;
-            contact.region_name = region[0].region_name;
-            contact.country_name = getCountry[0].country_name;
-            if(contact.interest == null){
-                contact.interest = '0';
-            }
-            full_Data.push(contact)
-        }
-        var ordChannels = [];
-            for (let i = 0; i < full_Data.length; i++) {
-                let info = full_Data[i].id
-                ordChannels[i] = channels.filter(function (el) 
-                {
-                    return el.contact_id == info;
-                });
-                
-            };
-            //console.log(ordChannels);
-            console.log(url)
-            console.log(full_Data);
-        createNewRows(full_Data, ordChannels);
-    } catch (error) {
-        console.log(error);
-    }
-    let countryUrl=`http://localhost:3000/country`;
-    let companyUrl=`http://localhost:3000/company`;
-    let channelUrl=`http://localhost:3000/Channeltype`;
-    try {
-        let options = {
-            type: 'GET',
-            headers: {
-                'Authorization': `Bearer ${ver}`,
-                'Content-Type': 'application/json'
-            },
-        };
-        const responseCountry= await fetch(countryUrl, options);
-        const country = await responseCountry.json();
-
-        const responseCompany= await fetch(companyUrl, options);
-        const company = await responseCompany.json();
-
-        const responseChannel= await fetch(channelUrl, options);
-        const channel = await responseChannel.json();
-        
-        //console.log(channel);
-
-        //let Nsearch = document.getElementById('searchBar').addEventListener('click', () => {
-        //    const filter = new FilterSearch(document.getElementById('filter'), country, company, channel )
-        //})
-    }catch{
-        console.log('not working')
-    }
-})
+//document.getElementById('numberOfContacts').addEventListener('change', async () => {
+//    let select = document.getElementById('numberOfContacts').value;
+//    let del = document.querySelectorAll('[id=del]');
+//    for (let i = 0; i <del.length; i++) {
+//        const delone = del[i];
+//        delone.parentElement.removeChild(delone);
+//    }
+//    let url=`http://localhost:3000/contact/1&${select}`;
+//
+//    
+//    try {
+//        let options = {
+//            type: 'GET',
+//            headers: {
+//                'Authorization': `Bearer ${ver}`,
+//                'Content-Type': 'application/json'
+//            },
+//        };
+//        const response= await fetch(url, options);
+//        const info = await response.json();
+//
+//        let number = info[0];
+//
+//        info.shift();
+//        //console.log(number/5);
+//        let full_Data = []
+//        let channels = [];
+//        
+//        for (let i = 0; i < info.length; i++) {
+//
+//            let contact = info[i];
+//            let companyName = `http://localhost:3000/company/${contact.company_id}`;
+//            let regionName = `http://localhost:3000/regions/${contact.region_id}`;
+//            let countryName = `http://localhost:3000/country/id/${contact.country_id}`;
+//            
+//            let contactChannel = `http://localhost:3000/contactChannel/${contact.id}`;
+//            
+//            const response1= await fetch(companyName, options);
+//            const company = await response1.json();
+//            const response2= await fetch(regionName, options);
+//            const region = await response2.json();
+//            const response3= await fetch(countryName, options);
+//            const getCountry = await response3.json();
+//            
+//            const response4 = await fetch(contactChannel, options);
+//            const channel = await response4.json();
+//            if(channel != undefined || channel != null || channel != ''){
+//                for (let i = 0; i < channel.length; i++) {
+//                    let Nchannel = channel[i];
+//                    
+//                    let channelType = `http://localhost:3000/Channeltype/${Nchannel.contact_channel_type_id}`
+//                    const response5 = await fetch(channelType, options);
+//                    const channeltypes = await response5.json();
+//                    Nchannel.contact_channel_type_id = channeltypes[0].channel;
+//                    channels.push(Nchannel);
+//                }
+//                
+//                
+//            }
+//            contact.company_name = company[0].company_name;
+//            contact.region_name = region[0].region_name;
+//            contact.country_name = getCountry[0].country_name;
+//            if(contact.interest == null){
+//                contact.interest = '0';
+//            }
+//            full_Data.push(contact)
+//        }
+//        var ordChannels = [];
+//            for (let i = 0; i < full_Data.length; i++) {
+//                let info = full_Data[i].id
+//                ordChannels[i] = channels.filter(function (el) 
+//                {
+//                    return el.contact_id == info;
+//                });
+//                
+//            };
+//            //console.log(ordChannels);
+//            console.log(url)
+//            console.log(full_Data);
+//        createNewRows(full_Data, ordChannels);
+//    } catch (error) {
+//        console.log(error);
+//    }
+//    let countryUrl=`http://localhost:3000/country`;
+//    let companyUrl=`http://localhost:3000/company`;
+//    let channelUrl=`http://localhost:3000/Channeltype`;
+//    try {
+//        let options = {
+//            type: 'GET',
+//            headers: {
+//                'Authorization': `Bearer ${ver}`,
+//                'Content-Type': 'application/json'
+//            },
+//        };
+//        const responseCountry= await fetch(countryUrl, options);
+//        const country = await responseCountry.json();
+//
+//        const responseCompany= await fetch(companyUrl, options);
+//        const company = await responseCompany.json();
+//
+//        const responseChannel= await fetch(channelUrl, options);
+//        const channel = await responseChannel.json();
+//        
+//        //console.log(channel);
+//
+//        //let Nsearch = document.getElementById('searchBar').addEventListener('click', () => {
+//        //    const filter = new FilterSearch(document.getElementById('filter'), country, company, channel )
+//        //})
+//    }catch{
+//        console.log('not working')
+//    }
+//})
 
 
 

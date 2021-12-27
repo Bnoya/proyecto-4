@@ -345,7 +345,7 @@ app.get('/contact/intrest/:intrest', async (req, res) => {
 });
 
 app.post('/create-contact', async (req, res) => {
-    if (!(req.body.first_name && req.body.last_name && req.body.job_position && req.body.email && req.body.company_id && req.body.region_id && req.body.country_id && req.body.city_id && req.body.contact_address && req.body.interest)){
+    if (!(req.body.first_name && req.body.last_name && req.body.company_id && req.body.region_id && req.body.country_id && req.body.city_id && req.body.interest)){
         console.log('data format if');
         return res.status(400).send({ error: "Data not formatted properly" });
     }
@@ -358,6 +358,7 @@ app.post('/create-contact', async (req, res) => {
 });
 
 app.delete('/delete-contact/:id', async (req, res) => {
+    console.log(req.params.id);
     const deleteContact = await db.contact.deleteContact(req.params.id);
     if (deleteContact == false){
         res.status(500).send({message: 'couldnt delete Contact'})
@@ -366,16 +367,16 @@ app.delete('/delete-contact/:id', async (req, res) => {
     }
 });
 
-app.delete('/delete-contacts', async (req, res) => {
-
-    let contactIds = req.body.contact_ids;
-    const deleteContact = await db.contact.deleteContacts(contactIds);
-    if (deleteContact == false){
-        res.status(500).send({message: 'couldnt delete Contact'})
-    } else {
-        res.status(201).send({message: 'Contact Deleted'})
-    }
-});
+//app.delete('/delete-contacts', async (req, res) => {
+//
+//    let contactIds = req.body.contact_ids;
+//    const deleteContact = await db.contact.deleteContacts(contactIds);
+//    if (deleteContact == false){
+//        res.status(500).send({message: 'couldnt delete Contact'})
+//    } else {
+//        res.status(201).send({message: 'Contact Deleted'})
+//    }
+//});
 
 app.put('/edit-contact', async (req, res)=> {
     const editContact = await db.contact.updateContact(req.body);
@@ -474,6 +475,14 @@ app.put('/edit-ContactChannel', async (req, res)=> {
     }
 });
 
+app.delete('/delete-channel/:id', async (req, res) => {
+    const deleteChannel = await db.contactChannel.deleteContactChannel(req.params.id);
+    if (deleteChannel == false){
+        res.status(500).send({message: 'couldnt delete Contact channel'})
+    } else {
+        res.status(201).send({message: 'Contact channel Deleted'})
+    }
+});
 
 //Channel Type
 
@@ -491,6 +500,7 @@ app.get('/Channeltype/:id', async (req, res) => {
 //img Upload
 
 app.post('/upload-avatar/:contactId', async (req, res) => {
+    console.log(req.files);
     try {
         const contactId = req.params.contactId;
 

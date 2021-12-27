@@ -124,26 +124,32 @@ class Contact {
         }
     }
 
-    async deleteContact(contact) {
-        const query = `DELETE FROM contact WHERE id = :id;`
+    async deleteContact(contactId) {
+        const query = `
+        DELETE FROM contact WHERE id = :id
+        `;
         try {
-            const queryed = await this.sequelize.query(query, {
-                    replacements: {id: contact.id},
-                    type: this.sequelize.QueryTypes.DELETE
+            const queryed = await this.sequelize.query(
+                query,
+                {
+                    replacements: { 
+                        id: contactId
+                    }
                 })
             
             if (queryed[0].affectedRows > 0) {
                 return {status: 200, message: "Contact Deleted", data: {
                     contact_id: contactId
                 }}
+
             } else {
-                return {error: true, message: "couldn't delete."}
+                return {status:304, message: 'Contact not Deleted'}
             }
         } catch (error) {
-            return {error: true, message: "couldn't delete Contact."}
+            return {status:305, message:"Contact Deletion Failed"}
         }
     }
-    async deleteContacts(contact) {
+    async deleteMultipleContacts(contact) {
         const query = `DELETE FROM contact WHERE id IN (:ids);`
         try {
             const queryed = await this.sequelize.query(query, {

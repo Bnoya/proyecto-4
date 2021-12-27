@@ -1,5 +1,5 @@
 import {Contact} from '../Contact Components/contacts.js';
-import {getToken} from '../General Functions/getdata.js';
+import {getToken, getContactAvatar} from '../General Functions/getdata.js';
 import { DeleteElements } from '../General Functions/Delete.js';
 
 class CreateRows {
@@ -7,48 +7,42 @@ class CreateRows {
         this.element = element;
         this.channels = channels;
         this.element.innerHTML = this.companyConstructor(info)
-        //this.element.innerHTML = this.element.innerHTML +
-        //`
-        //<div class="contacts container">
-        //    
-        //</div>
-        //`
         this.element.classList.add( 'container');
         this.selectedContacts = [];
         this.addEventListener(info);
-        }
-        
+    }
+    
     companyConstructor(info) {
-
+        
         let companyHTML = ''
         for (let i = 0; i < info.length; i++) {
-            let fillColor;
             let Ninfo = info[i];
+            let fillColor;
             const channel = this.channels[i];
-
+            
             switch (true) {
                 case (Ninfo.interest < 26):
                     fillColor = '#1CC1F5';
-                break;
-                case (Ninfo.interest <51) :
-                    fillColor = '#FFC700';
-                break;
-                case (Ninfo.interest <76):
-                    fillColor ='#FF6F00';
-                break;
-                case (Ninfo.interest >= 77):
-                    fillColor = '#DE0028';
-                break;
-
-            }
-            companyHTML = companyHTML + `
+                    break;
+                    case (Ninfo.interest <51) :
+                        fillColor = '#FFC700';
+                        break;
+                        case (Ninfo.interest <76):
+                            fillColor ='#FF6F00';
+                            break;
+                            case (Ninfo.interest >= 77):
+                                fillColor = '#DE0028';
+                                break;
+                                
+                            }
+                            companyHTML = companyHTML + `
             <div id='del'>
                 <div class="row" id="rowSelector-${Ninfo.id}">
                     <div class="checkbox">
                         <div class="select-row container"><input type="checkbox" id="selectcontact-${Ninfo.id}"/> </div>
                     </div>
                     <div class="contact">
-                        <div class='img'>
+                        <div class='img'><img src="#" id='imgCircle-${Ninfo.id}' alt='user imagen'>
                         </div>
                         <div class= "name">
                         <h4>${Ninfo.first_name}</h4>
@@ -104,7 +98,6 @@ class CreateRows {
                     
                     companyHTML = companyHTML + `
                     </div>
-
                     <div class="interest">
                         <div class='interest-bar'>
                             <div class='text'>
@@ -132,33 +125,9 @@ class CreateRows {
             `
             //console.log('cierra el for grande')
         }
-        return(companyHTML)
-        
-    }
-    addEventListener(info){
-        let selectAllCheckbox = document.getElementById('select-all');
-        selectAllCheckbox.addEventListener('change', (event) => {
-            if(event.target.checked){
-                this.selectAllContacts(true)
-            } else {
-                this.selectAllContacts(false)
+        return (companyHTML);
             }
-            this.updateTableActions()
-        });
-        let selectCheckboxs = document.querySelectorAll('*[id^="selectcontact"]')
-        selectCheckboxs.forEach((checkbox) => {
-            checkbox.addEventListener('click', (event) => {
-                if (event.target.checked) {
-                    this.selectedContacts.push(parseInt(checkbox.id.split('-')[1]))
-                } else {
-                    this.selectedContacts = this.selectedContacts.filter( (ele) => { 
-                        return ele != parseInt(checkbox.id.split('-')[1]);
-                    });
-                }
-                selectAllCheckbox.indeterminate = true;
-                this.updateTableActions()
-            })
-        })
+            async addEventListener(info){
         for (let i = 0; i < info.length; i++) {
             let Ninfo = info[i];
             const channel = this.channels[i];
@@ -235,9 +204,39 @@ class CreateRows {
             document.getElementById(`delete-${Ninfo.id}`).addEventListener('click', () => {
                 console.log(`delete contact-${Ninfo.id}`);
                 new DeleteElements(document.getElementById('modal-2'), Ninfo, 'contact');
-                
             });
         }
+        for (let i = 0; i < info.length; i++) {
+            const Ninfo = info[i];
+            let imageObjectURL = await getContactAvatar(Ninfo.id);
+            let img = document.getElementById(`imgCircle-${Ninfo.id}`);
+            img.src = imageObjectURL;
+        }
+
+        let selectAllCheckbox = document.getElementById('select-all');
+        selectAllCheckbox.addEventListener('change', (event) => {
+            if(event.target.checked){
+                this.selectAllContacts(true)
+            } else {
+                this.selectAllContacts(false)
+            }
+            this.updateTableActions()
+        });
+        let selectCheckboxs = document.querySelectorAll('*[id^="selectcontact"]')
+            selectCheckboxs.forEach((checkbox) => {
+            checkbox.addEventListener('click', (event) => {
+            if (event.target.checked) {
+                this.selectedContacts.push(parseInt(checkbox.id.split('-')[1]))
+            } else {
+                this.selectedContacts = this.selectedContacts.filter( (ele) => { 
+                return ele != parseInt(checkbox.id.split('-')[1]);
+            });
+        }
+        selectAllCheckbox.indeterminate = true;
+        this.updateTableActions()
+        })
+})
+
     }
     selectAllContacts(isChecked) {
         let selectCheckboxs = document.querySelectorAll('*[id^="selectcontact"]')
@@ -271,12 +270,12 @@ class CreateRows {
         document.getElementById('table-actions').innerHTML = tableActionsHTML;
 
         let deleteContactBtn = document.getElementById('delete-contacts');
-        //if (deleteContactBtn) {
-        //    deleteContactBtn.addEventListener('click', () => {
-        //        console.log(this.selectedContacts)
-        //        new ConfirmationModal(document.getElementById('modal'), {type: 'deleteContacts', contactIds: this.selectedContacts, message: this.selectedContacts.length > 1 ? `¿Estas seguro que deseas eliminar los contactos seleccionados?` : '¿Estas seguro que deseas eliminar el contacto seleccionado?'})
-        //    })
-        //}
+        if (deleteContactBtn) {
+            deleteContactBtn.addEventListener('click', () => {
+                console.log(this.selectedContacts)
+                new ConfirmationModal(document.getElementById('modal'), {type: 'deleteContacts', contactIds: this.selectedContacts, message: this.selectedContacts.length > 1 ? `¿Estas seguro que deseas eliminar los contactos seleccionados?` : '¿Estas seguro que deseas eliminar el contacto seleccionado?'})
+            })
+        }
     }
     
 }

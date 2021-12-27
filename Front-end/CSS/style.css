@@ -715,10 +715,29 @@
   border-top-right-radius: 6px;
 }
 
-.contacts-window .fullsize .newCard .addContact .importantData img {
-  width: 5%;
-  border-radius: 55%;
-  background-color: #000000;
+.contacts-window .fullsize .newCard .addContact .importantData .contact-picture {
+  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50px;
+  background-color: white;
+  border: 2px solid #0683F9;
+  border-radius: 100px;
+  margin-left: 24px;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .contact-picture img {
+  width: auto;
+  margin: 0;
+}
+
+.contacts-window .fullsize .newCard .addContact .importantData .contact-picture .loaded {
+  height: 110%;
+  width: auto;
 }
 
 .contacts-window .fullsize .newCard .addContact .importantData .nameCont {
@@ -963,6 +982,7 @@
   height: 50px;
   margin-top: 25px;
   padding-bottom: 20px;
+  width: 83%;
 }
 
 .contacts-window .fullsize .newCard .addContact .channels .contact .thirdData .contactCont {
@@ -1115,6 +1135,43 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.contacts-window .fullsize .newCard .addContact .channels .contact .extraData .Bigcontainer .container .delete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.contacts-window .fullsize .newCard .addContact .channels .contact .extraData .Bigcontainer .container .delete .delete-channel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 15px;
+  width: 15px;
+  background-color: none;
+  border: solid 1.5px #de0028;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.contacts-window .fullsize .newCard .addContact .channels .contact .extraData .Bigcontainer .container .delete .delete-channel:hover {
+  background-color: #e8e8e8;
+}
+
 .contacts-window .fullsize .newCard .addContact .addBt {
   width: 35%;
   display: -webkit-box;
@@ -1212,6 +1269,44 @@
 .contacts-window .fullsize .newCard .Send .secondary_btn:hover {
   background-color: #0683f9;
   color: #ffffff;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+}
+
+.inputfile + label {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #0683F9;
+  border-radius: 100px;
+  left: -19px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.inputfile + label img {
+  width: 15px;
+  height: 15px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  cursor: pointer;
 }
 
 .login {
@@ -3069,9 +3164,42 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-right: 4.5%;
 }
 
 .contacts .row .contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 120px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contacts .row .contact .img {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  border: solid 1px #e8e8e8;
+  border-radius: 40px;
+}
+
+.contacts .row .contact .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+}
+
+.contacts .row .contact .name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3079,23 +3207,15 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-left: 4%;
-  width: 12%;
-  font-family: "Open Sans", sans-serif;
+  width: 70px;
 }
 
-.contacts .row .contact h4 {
+.contacts .row .contact .name h4 {
   font-weight: lighter;
   font-size: 16px;
 }
 
-.contacts .row .contact h5 {
+.contacts .row .contact .name h5 {
   font-size: 12px;
   font-weight: lighter;
 }
@@ -3114,7 +3234,7 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin-left: 3%;
+  margin-left: 6.5%;
   width: 13%;
   font-family: "Open Sans", sans-serif;
 }
@@ -3143,7 +3263,7 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-left: 2.5%;
+  margin-left: 4%;
   width: 13.6%;
   font-family: "Open Sans", sans-serif;
 }
@@ -3167,7 +3287,7 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-left: 4%;
+  margin-left: 2%;
   width: 11%;
   font-family: "Open Sans", sans-serif;
 }
@@ -3305,9 +3425,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

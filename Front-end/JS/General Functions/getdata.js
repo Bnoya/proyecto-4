@@ -13,6 +13,7 @@ function getToken() {
     let rToken = fToken[2];
     return rToken
 }
+
 function isAdmin () {
     let role = localStorage.getItem('role');
     let check ;
@@ -37,4 +38,24 @@ function isAdmin () {
         user.style.display = 'none';
     }
 }
-export{getToken, isAdmin};
+
+const getContactAvatar = async (contactId) =>  {
+    let url = `http://localhost:3000/public/avatars/contact-${contactId}.jpeg`;
+    let rToken = getToken();
+    let ver = rToken.substring(0, rToken.length - 1);
+    try {
+        const response = await fetch(url , {
+            headers: { 'Authorization': `Bearer ${ver}`, },
+        });
+        if (response.status === 200) {
+            const imageBlob = await response.blob();
+            return URL.createObjectURL(imageBlob);
+        } else {
+            return '/Front-end/img/user-solid.svg';
+        }
+    } catch (e) {
+        console.log(e)
+        return '/Front-end/img/user-solid.svg';
+    }
+}
+export{getToken, isAdmin, getContactAvatar};
